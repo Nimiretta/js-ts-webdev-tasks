@@ -2,4 +2,80 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+
+section {
+    padding-top: 100px;
+    padding-bottom: 96px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1170px;
+}
+
+.header {
+    display: flex;
+    margin-bottom: 42px;
+    justify-content: space-between;
+}
+
+.header h1 {
+    color: #1E0E62;
+    font-size: 42px;
+    line-height: 52px;
+    letter-spacing: -0.4px;
+}
+
+.button {
+    border-radius: 100px;
+}
+
+.btn--header {
+    width: 214px;
+    height: 50px;
+    border: 2px solid #EBEAED;
+    background:none;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    color: #1E0E62;
+    font-weight: 600;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card {
+    width: 570px;
+    height: 340px;
+    padding-top: 55px;
+    padding-left: 71px;
+    padding-right: 25px;
+    border-radius: 10px;
+    
+}
+
+.card h5 {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 16px;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 26px;
+    text-align: left;
+    margin-bottom: 69px;
+}
+
+.btn--card {
+    width: 105px;
+    height: 40px;
+    border: none;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
 }

@@ -14,8 +14,10 @@ class Heading {
 class Button {
     #node;
 
-    constructor(content) {
+    constructor(content, className) {
         this.#node = document.createElement('button');
+        this.#node.setAttribute('class', 'button');
+        this.#node.classList.add(className);
         this.#node.textContent = content;
     }
 
@@ -42,6 +44,7 @@ class Card {
 
     constructor(props) {
         this.#node = document.createElement('div');
+
         this.#renderContent(props);
     }
 
@@ -64,7 +67,7 @@ class Card {
     }
 
     #renderBtn() {
-        const btn = new Button('Explore');
+        const btn = new Button('Explore', 'btn--card');
         this.#node.append(btn.node);
     }
 
@@ -76,8 +79,9 @@ class Card {
 function Page(props) {
     const section = document.createElement('section');
     const header = document.createElement('div');
+    header.setAttribute('class', 'header');
     const h1 = new Heading('h1', 'Last works');
-    const button = new Button('Explore Showcase');
+    const button = new Button('Explore Showcase', 'btn--header');
     const grid = new Grid();
     const cards = props.map((item) => new Card(item));
     cards.forEach((card) => grid.node.append(card.node));
