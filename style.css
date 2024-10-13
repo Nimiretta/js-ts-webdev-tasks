@@ -79,3 +79,8 @@ section {
     line-height: 22px;
     text-align: center;
 }
+
+.btn-default--card {
+    background-color: #FFFFFF;
+    color: #1E0E62;
+}
