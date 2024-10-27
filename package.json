@@ -1,0 +1,26 @@
+{
+  "name": "js-ts-webdev-tasks",
+  "version": "1.0.0",
+  "description": "Your task is to develop a webpage according to the provided Figma design. In Figma navigate to `Pages -> Showcase -> showcase_9`.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nimiretta/js-ts-webdev-tasks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nimiretta/js-ts-webdev-tasks/issues"
+  },
+  "homepage": "https://github.com/Nimiretta/js-ts-webdev-tasks#readme",
+  "dependencies": {
+    "tsc": "^2.0.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}
