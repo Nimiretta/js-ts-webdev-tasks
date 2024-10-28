@@ -2,10 +2,10 @@
   "name": "js-ts-webdev-tasks",
   "version": "1.0.0",
   "description": "Your task is to develop a webpage according to the provided Figma design. In Figma navigate to `Pages -> Showcase -> showcase_9`.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "repository": {

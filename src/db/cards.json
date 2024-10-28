@@ -27,5 +27,96 @@
         "title": "Generator"
       }
     ]
+  },
+  {
+    "heading": "Slides",
+    "description": "We have created a new product that will help designers create websites for their startups.",
+    "image": {
+      "name": "card-02.jpg",
+      "alt": "An image of keyboard and lemonade"
+    },
+    "tags": [
+      {
+        "slug": "ui-kit",
+        "title": "UI KIT"
+      },
+
+      {
+        "slug": "colorful",
+        "title": "Colorful"
+      },
+
+      {
+        "slug": "landing-page",
+        "title": "Landing Page"
+      },
+
+      {
+        "slug": "slide",
+        "title": "Slide"
+      }
+    ]
+  },
+  {
+    "heading": "Flat UI Pro",
+    "description": "Components and blocks are fixed to the common and popular 12 Grid system.",
+    "image": {
+      "name": "card-03.jpg",
+      "alt": "An image of sky and buildings"
+    },
+    "tags": [
+      {
+        "slug": "ui-kit",
+        "title": "UI KIT"
+      },
+
+      {
+        "slug": "ux-kit",
+        "title": "UX KIT"
+      },
+
+      {
+        "slug": "design",
+        "title": "Design"
+      },
+
+      {
+        "slug": "flat",
+        "title": "Flat"
+      },
+      {
+        "slug": "web",
+        "title": "Web"
+      }
+    ]
+  },
+  {
+    "heading": "Slides",
+    "description": "We have created a new product that will help designers create websites for their startups.",
+    "image": {
+      "name": "card-04.jpg",
+      "alt": "An image of keyboard and table"
+    },
+    "tags": [
+      {
+        "slug": "ui-kit",
+        "title": "UI KIT"
+      },
+
+      {
+        "slug": "colorful",
+        "title": "Colorful"
+      },
+
+      {
+        "slug": "landing-page",
+        "title": "Landing Page"
+      },
+
+      {
+        "slug": "slide",
+        "title": "Slide"
+      }
+    ]
   }
 ]
