@@ -1,0 +1,28 @@
+{
+    "en": {
+        "header-logo": "Party Time!",
+        "menu-home": "Home",
+        "menu-gallery": "Gallery",
+        "menu-about": "About Party",
+        "menu-reserve": "Reservation",
+        "menu-contacts": "Contacts",
+        "btn-reserve": "Reservation",
+        "hero-date": "31 October 2023",
+        "hero-title": "It's Halloween Party O'Clock!",
+        "gallery-title": "Halloween Memories",
+        "footer-contact": "phone reservation? (+1) 987 46 52"
+    },
+    "ar": {
+        "header-logo": "پارتی تایم",
+        "menu-home": "خانه",
+        "menu-gallery": "گالری",
+        "menu-about": "درباره پارتی",
+        "menu-reserve": "رزرو میز",
+        "menu-contacts": "تماس با ما",
+        "btn-reserve": "رزرو میز",
+        "hero-date": "31   اکتبر 2013",
+        "hero-title": "!اینجا هالوین پارتی به راهه",
+        "gallery-title": "هالوین پارتی های قبلیمون",
+        "footer-contact": "رزرو تلفنی؟  987 46 52  (+1)  "
+    }
+}

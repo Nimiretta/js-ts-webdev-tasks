@@ -1,0 +1,147 @@
+@font-face {
+    font-family: "DigiNozhaRegular";
+    src: url(./assets/fonts/DigiNozhaRegular.ttf);
+    font-style: normal; 
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "DigiNozha2Bold";
+    src: url(./assets/fonts/DigiNozha2Bold.ttf);
+    font-style: normal; 
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000015;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    width: 1122px;
+    height: 58px;
+    margin-top: 48px;
+    margin-bottom: 54px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header > p {
+    font-family: 'Jolly Lodger', serif;
+    color: #F5F5F5;
+    font-size: 48px;
+    line-height: 58.36px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    color: #F5F5F5;
+
+}
+
+.locales-btn {
+    background: none;
+    border: none;
+    color: #F5F5F5;
+}
+
+header > button {
+    border-radius: 16px;
+    padding: 16px 24px;
+    background-color: #FE772D;
+    font-weight: 600;
+    color: #292D32;
+    border: none;
+}
+
+#hero {
+    width: 1440px;
+    height: 793px;
+    padding-top: 54px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(./assets/img/backgrounds/hero-bg.png);
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+#date {
+    font-family: 'Rubik', sans-serif;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: normal;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-transform: uppercase;
+    color: #FE772D;
+    height: 81px;
+    text-align: center;
+    font-family: 'Jolly Lodger', serif;
+    font-size: 58px;
+    font-weight: normal;
+    line-height: 81.2px;
+}
+
+#arrow-down {
+    margin-top: 520px;
+}
+
+#gallery {
+    margin-top: 100px;
+    width: 1440px;
+    height: 663px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-gallery {
+    margin-top: 48px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.img-gallery > img {
+    height: 244px;
+    width: 244px;
+}
+
+#footer {
+    width: 1440px;
+    height: 788px;
+    padding-top: 497px;
+    background-image: url(./assets/img/backgrounds/footer-bg.png);
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 17px;
+}

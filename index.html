@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jolly Lodger" rel="stylesheet">
+    <title>Halloween</title>
+</head>
+<body>
+    <header class="change-direction">
+        <p data-l10n="header-logo" class="ar-font-bold">Party Time!</p>
+        <ul class="menu change-direction ar-font-regular">
+            <li data-l10n="menu-home">Home</li>
+            <li data-l10n="menu-gallery">Gallery</li>
+            <li data-l10n="menu-about">About Party</li>
+            <li data-l10n="menu-reserve">Reservation</li>
+            <li data-l10n="menu-contacts">Contacts</li>
+        </ul>
+        <div>
+            <button type="button" class="locales-btn" id="en">EN</button>
+            <button type="button" class="locales-btn" id="ar">عرب</button>
+        </div>
+        <button type="button" data-l10n="btn-reserve" class="ar-font-bold" id="reserveBtn">Reservation</button>
+    </header>
+    <section id="hero">
+        <div id="date" class="change-direction ar-font-regular">
+            <img src="./src/assets/img/pictogramms/calendar.svg" alt="Calendar image">
+            <h4 data-l10n="hero-date">31 October 2023</h4>
+        </div>
+        <h2 data-l10n="hero-title" class="ar-font-bold">It's Halloween Party O'Clock!</h2>
+        <img id="arrow-down" src="./src/assets/img/pictogramms/arrow-down.svg" alt="Arrow down">
+    </section>
+    <section id="gallery">
+        <h2 data-l10n="gallery-title" class="ar-font-bold">Halloween Memories</h2>
+        <div class="img-gallery">
+            <img src="./src/assets/img/gallery/image01.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image02.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image03.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image04.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image05.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image06.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image07.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image08.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image09.png" alt="Halloween pic">
+            <img src="./src/assets/img/gallery/image10.png" alt="Halloween pic">
+        </div>
+    </section>
+    <section id="footer">
+        <h2 data-l10n="footer-contact" class="ar-font-bold">phone reservation? (+1) 987 46 52</h2>
+        <div class="social">
+            <img src="./src/assets/img/pictogramms/behance.svg" alt="behance logo">
+            <img src="./src/assets/img/pictogramms/Figma.svg" alt="Figma logo">
+            <img src="./src/assets/img/pictogramms/LinkedIn.svg" alt="LinkedIn logo">
+            <img src="./src/assets/img/pictogramms/instagram.svg" alt="Instagram logo">
+            <img src="./src/assets/img/pictogramms/youtube.svg" alt="YouTube logo">
+        </div>
+    </section>
+    <script type="module" src="./src/main.ts"></script>
+</body>
+</html>
