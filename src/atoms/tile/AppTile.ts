@@ -1,33 +1,29 @@
 import { TTile } from '../../types';
 
 export function AppTile({
-    width,
     height,
-    content,
+    width = 'w-full',
+    textContent,
     textSize,
+    imgUrl,
     imgOptions,
     onClick,
 }: TTile): HTMLElement {
     const tile = document.createElement('div');
-    tile.className = `rounded-lg bg-tile-bg-gray flex`;
+    tile.className = `rounded-lg bg-tile-bg-gray flex items-center`;
     tile.classList.add(width, height);
 
-    if (content.startsWith('http')) {
+    if (imgUrl) {
         const img = document.createElement('img');
         if (imgOptions) {
             img.classList.add(...imgOptions);
         }
-        img.src = content;
-        tile.classList.add('justify-center', 'items-center');
+        img.src = imgUrl;
+        tile.classList.add('justify-center');
         tile.append(img);
-    } else {
-        tile.textContent = content;
-        tile.classList.add(
-            'font-rubik',
-            'text-black',
-            'font-bold',
-            'items-center'
-        );
+    } else if (textContent) {
+        tile.textContent = textContent;
+        tile.classList.add('font-rubik', 'text-black', 'font-bold');
         if (textSize) {
             tile.classList.add(textSize);
         }
@@ -35,6 +31,7 @@ export function AppTile({
 
     if (onClick) {
         tile.addEventListener('click', onClick);
+        tile.classList.add('cursor-pointer');
     }
 
     return tile;

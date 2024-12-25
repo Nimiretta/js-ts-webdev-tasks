@@ -1,8 +1,9 @@
 export type TTile = {
-    width: string;
     height: string;
-    content: string;
+    width?: string;
+    textContent?: string;
     textSize?: string;
+    imgUrl?: string;
     imgOptions?: string[];
     onClick?: () => void;
 };
