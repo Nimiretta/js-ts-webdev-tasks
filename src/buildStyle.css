@@ -603,6 +603,14 @@ video {
     padding: 2rem;
 }
 
+.bg-left-3 {
+    background-position: left 0.75em center;
+}
+
+.bg-no-repeat {
+    background-repeat: no-repeat;
+}
+
 .bg-transparent {
     background-color: transparent;
 }
