@@ -558,3 +558,21 @@ video {
 [hidden]:where(:not([hidden='until-found'])) {
     display: none;
 }
+
+.font-rubik {
+    font-family: Rubik, sans-serif;
+}
+
+.text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.text-black {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
+.text-text-primary {
+    color: #00000099;
+}
