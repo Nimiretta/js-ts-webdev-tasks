@@ -6,12 +6,19 @@ export function AppTile({
     textContent,
     textSize,
     imgUrl,
+    imgAlt = 'product image',
     imgOptions,
     onClick,
 }: TTile): HTMLElement {
     const tile = document.createElement('div');
-    tile.className = `rounded-lg bg-tile-bg-gray flex items-center`;
-    tile.classList.add(width, height);
+    tile.classList.add(
+        'rounded-lg',
+        'bg-tile-bg-gray',
+        'flex',
+        'items-center',
+        width,
+        height
+    );
 
     if (imgUrl) {
         const img = document.createElement('img');
@@ -19,6 +26,7 @@ export function AppTile({
             img.classList.add(...imgOptions);
         }
         img.src = imgUrl;
+        img.alt = imgAlt;
         tile.classList.add('justify-center');
         tile.append(img);
     } else if (textContent) {

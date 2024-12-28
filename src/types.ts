@@ -4,6 +4,7 @@ export type TTile = {
     textContent?: string;
     textSize?: string;
     imgUrl?: string;
+    imgAlt?: string;
     imgOptions?: string[];
     onClick?: () => void;
 };
