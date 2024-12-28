@@ -4,9 +4,8 @@ export function AppPrice({
     fullPrice,
     discountRate,
     showDiscountedPrice = true,
-    isBigText = false,
+    isBigText = false, // true for product detail page
 }: TPrice): HTMLElement {
-    // isBigText = true is needed for product detail page
     const mainTextSize = isBigText ? 'text-3xl' : 'text-2xl';
 
     const price = document.createElement('div');
