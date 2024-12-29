@@ -558,3 +558,26 @@ video {
 [hidden]:where(:not([hidden='until-found'])) {
     display: none;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-text-primary {
+    color: #00000099;
+}
+
+.filter {
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+        var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert)
+        var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
