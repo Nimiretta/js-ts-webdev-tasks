@@ -647,3 +647,20 @@ video {
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
+
+.font-medium {
+    font-weight: 500;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.border-red-500 {
+    border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
+}
+
+.text-red-500 {
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity));
+}

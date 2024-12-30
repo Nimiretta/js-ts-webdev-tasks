@@ -1,12 +1,18 @@
 import { TInput } from '../../types';
 
-export function AppInput({
+export function AppInputAtom({
     type = 'text',
-    placeholder = 'Enter your email address...',
+    placeholder = '',
     wrapperClasses = [],
     inputClasses = [],
     icon,
-}: TInput): HTMLDivElement {
+    label,
+    error = false,
+}: TInput): {
+    wrapper: HTMLDivElement;
+    setError: (hasError: boolean, message?: string) => void;
+    getValue: () => string;
+} {
     const wrapper = document.createElement('div');
     wrapper.classList.add(
         'flex',
@@ -16,6 +22,13 @@ export function AppInput({
         'bg-white',
         ...wrapperClasses
     );
+
+    if (label) {
+        const labelEl = document.createElement('label');
+        labelEl.textContent = label;
+        labelEl.classList.add('text-sm', 'font-medium', 'mb-1');
+        wrapper.appendChild(labelEl);
+    }
 
     const input = document.createElement('input');
     input.type = type;
@@ -37,7 +50,28 @@ export function AppInput({
         input.style.backgroundImage = `url('${icon}')`;
     }
 
-    wrapper.appendChild(input);
+    const errorContainer = document.createElement('div');
+    errorContainer.classList.add('text-red-500', 'text-sm', 'mt-1');
+    errorContainer.style.display = error ? 'block' : 'none';
 
-    return wrapper;
+    wrapper.appendChild(input);
+    wrapper.appendChild(errorContainer);
+
+    const setError = (hasError: boolean, message: string = '') => {
+        errorContainer.style.display = hasError ? 'block' : 'none';
+        errorContainer.textContent = hasError ? message : '';
+        input.classList.toggle('border-red-500', hasError);
+
+        if (hasError) {
+            input.addEventListener('input', clearErrorOnInput, { once: true });
+        }
+    };
+
+    const clearErrorOnInput = () => {
+        setError(false);
+    };
+
+    const getValue = () => input.value;
+
+    return { wrapper, setError, getValue };
 }

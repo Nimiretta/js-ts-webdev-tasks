@@ -4,4 +4,6 @@ export type TInput = {
     wrapperClasses?: string[];
     inputClasses?: string[];
     icon?: string;
+    label?: string;
+    error?: boolean;
 };
