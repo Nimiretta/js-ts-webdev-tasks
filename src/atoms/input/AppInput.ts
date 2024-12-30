@@ -1,6 +1,6 @@
 import { TInput } from '../../types';
 
-export function AppInputAtom({
+export function AppInput({
     type = 'text',
     placeholder = '',
     wrapperClasses = [],
