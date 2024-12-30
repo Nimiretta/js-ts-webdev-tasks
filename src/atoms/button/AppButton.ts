@@ -1,3 +1,5 @@
+import { TButton } from './types';
+
 export function AppButton({
     label,
     backgroundColor = 'rgba(0, 0, 0, 1)',
@@ -8,17 +10,7 @@ export function AppButton({
     fontWeight,
     fontFamily = 'Rubik',
     onClick,
-}: {
-    label: string;
-    backgroundColor?: string;
-    textColor?: string;
-    borderRadius?: string;
-    padding: string;
-    fontSize: string;
-    fontWeight: string;
-    fontFamily?: string;
-    onClick: () => void;
-}): HTMLButtonElement {
+}: TButton): HTMLButtonElement {
     const button = document.createElement('button');
     button.type = 'button';
     button.textContent = label;
