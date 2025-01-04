@@ -571,6 +571,10 @@ video {
     width: 100%;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .items-center {
     align-items: center;
 }
@@ -579,8 +583,16 @@ video {
     justify-content: space-between;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
 .rounded-full {
     border-radius: 9999px;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
 }
 
 .bg-bg-gray {
@@ -593,8 +605,9 @@ video {
     padding-right: 1.25rem;
 }
 
-.font-rubik {
-    font-family: Rubik, sans-serif;
+.bg-tile-bg-gray {
+    --tw-bg-opacity: 1;
+    background-color: rgb(240 238 237 / var(--tw-bg-opacity, 1));
 }
 
 .text-2xl {
@@ -602,9 +615,17 @@ video {
     line-height: 2rem;
 }
 
+.font-rubik {
+    font-family: Rubik, sans-serif;
+}
+
 .text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+}
+
+.font-bold {
+    font-weight: 700;
 }
 
 .font-semibold {
