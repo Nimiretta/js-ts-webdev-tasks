@@ -1,9 +1,12 @@
 export function AppCounter(
     width: string = 'w-full',
     height: string = 'h-12'
-): HTMLDivElement {
-    const counter = document.createElement('div');
-    counter.classList.add(
+): {
+    counterNode: HTMLDivElement;
+    getValue: () => number;
+} {
+    const counterNode = document.createElement('div');
+    counterNode.classList.add(
         'bg-bg-gray',
         'rounded-full',
         width,
@@ -40,6 +43,9 @@ export function AppCounter(
         }
     });
 
-    counter.append(decrementBtn, counterDisplay, incrementBtn);
-    return counter;
+    const getValue = () => counterValue;
+
+    counterNode.append(decrementBtn, counterDisplay, incrementBtn);
+
+    return { counterNode, getValue };
 }
