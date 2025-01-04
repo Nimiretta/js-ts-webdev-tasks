@@ -1,5 +1,5 @@
 /**
- * class filter-selected shows whether the filter is selected or not for further use
+ * attribute's data-filter-selected presence shows whether the filter is selected or not for further use
  */
 export function AppFilterOption(text: string): HTMLDivElement {
     const filterOption = document.createElement('div');
@@ -12,7 +12,7 @@ export function AppFilterOption(text: string): HTMLDivElement {
 
     filterOption.addEventListener('click', () => {
         filterOption.classList.toggle('font-bold');
-        filterOption.classList.toggle('filter-selected');
+        filterOption.toggleAttribute('data-filter-selected');
     });
 
     return filterOption;
