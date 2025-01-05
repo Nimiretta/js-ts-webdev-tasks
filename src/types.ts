@@ -8,3 +8,10 @@ export type TTile = {
     imgOptions?: string[];
     onClick?: () => void;
 };
+
+export type TPrice = {
+    fullPrice: number;
+    discountRate: number;
+    showDiscountedPrice?: boolean;
+    isBigText?: boolean;
+};
