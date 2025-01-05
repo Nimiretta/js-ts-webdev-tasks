@@ -11,7 +11,7 @@ module.exports = {
       'bg-gray': '#F0F0F0',
       'btn-bg-gray': '#F2F0F1',
       'border-gray': '#0000001A',
-      'discount-gray': '#00000066',
+      'discount-gray': '#999999',
       'discount-text-red': '#FF3333',
       'discount-bg-red': '#FF33331A',
       'rating-star': '#FFC633',
