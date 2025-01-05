@@ -1,26 +1,31 @@
-import { TButton } from './types';
+import { TButton } from '../../types';
 
 export function AppButton({
-    label,
-    backgroundColor = 'rgba(0, 0, 0, 1)',
-    textColor = 'rgba(255, 255, 255, 1)',
-    borderRadius = '62px',
-    padding,
-    fontSize,
-    fontWeight,
-    fontFamily = 'Rubik',
+    label = '',
+    innerHTML,
+    textColor = 'text-white',
+    backgroundColor = 'bg-black',
+    //padding,
     onClick,
 }: TButton): HTMLButtonElement {
     const button = document.createElement('button');
     button.type = 'button';
-    button.textContent = label;
-    button.style.backgroundColor = backgroundColor;
-    button.style.color = textColor;
-    button.style.borderRadius = borderRadius;
-    button.style.padding = padding;
-    button.style.fontSize = fontSize;
-    button.style.fontWeight = fontWeight;
-    button.style.fontFamily = fontFamily;
+    if (innerHTML) {
+        button.innerHTML = innerHTML;
+    } else {
+        button.textContent = label;
+    }
+    button.classList.add(
+        backgroundColor,
+        textColor,
+        'rounded-full',
+        'text-base',
+        'font-medium',
+        'font-rubik',
+        'w-full',
+        'cursor-pointer'
+    );
+    //button.style.padding = padding;
 
     button.addEventListener('click', onClick);
 
