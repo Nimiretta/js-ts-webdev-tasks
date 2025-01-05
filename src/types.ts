@@ -16,4 +16,5 @@ export type TInput = {
     icon?: string;
     label?: string;
     error?: boolean;
+    bgColor?: string;
 };

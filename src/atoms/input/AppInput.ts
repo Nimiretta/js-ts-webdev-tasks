@@ -8,6 +8,7 @@ export function AppInput({
     icon,
     label,
     error = false,
+    bgColor = 'bg-bg-gray',
 }: TInput): {
     wrapper: HTMLDivElement;
     setError: (hasError: boolean, message?: string) => void;
@@ -16,10 +17,11 @@ export function AppInput({
     const wrapper = document.createElement('div');
     wrapper.classList.add(
         'flex',
-        'items-center',
+        'flex-col',
         'rounded-5xl',
         'p-3',
-        'bg-white',
+        'border',
+        bgColor,
         ...wrapperClasses
     );
 
@@ -37,10 +39,10 @@ export function AppInput({
         'w-full',
         'border-none',
         'outline-none',
-        'text-gray-500',
+        'text-black',
         'text-sm',
         'bg-transparent',
-        'placeholder-gray-400',
+        'placeholder-discount-gray',
         'focus:outline-none',
         ...inputClasses
     );
@@ -51,7 +53,7 @@ export function AppInput({
     }
 
     const errorContainer = document.createElement('div');
-    errorContainer.classList.add('text-red-500', 'text-sm', 'mt-1');
+    errorContainer.classList.add('text-discount-text-red', 'text-sm', 'mt-1');
     errorContainer.style.display = error ? 'block' : 'none';
 
     wrapper.appendChild(input);
@@ -60,7 +62,7 @@ export function AppInput({
     const setError = (hasError: boolean, message: string = '') => {
         errorContainer.style.display = hasError ? 'block' : 'none';
         errorContainer.textContent = hasError ? message : '';
-        input.classList.toggle('border-red-500', hasError);
+        wrapper.classList.toggle('border-discount-text-red', hasError);
 
         if (hasError) {
             input.addEventListener('input', clearErrorOnInput, { once: true });

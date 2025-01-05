@@ -694,3 +694,19 @@ video {
     --tw-text-opacity: 1;
     color: rgb(239 68 68 / var(--tw-text-opacity));
 }
+
+.bg-bg-gray {
+    background-color: rgb(240, 240, 240);
+}
+
+.placeholder-discount-gray::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.text-discount-text-red {
+    color: rgba(255, 51, 51, 1);
+}
+
+.border-discount-text-red {
+    border-color: rgba(255, 51, 51, 1);
+}
