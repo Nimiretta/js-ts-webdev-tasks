@@ -5,6 +5,7 @@ export function AppButton({
     innerHTML,
     textColor = 'text-white',
     backgroundColor = 'bg-black',
+    //padding,
     onClick,
 }: TButton): HTMLButtonElement {
     const button = document.createElement('button');
@@ -21,11 +22,10 @@ export function AppButton({
         'text-base',
         'font-medium',
         'font-rubik',
-        'py-4',
         'w-full',
-        'text-center',
         'cursor-pointer'
     );
+    //button.style.padding = padding;
 
     button.addEventListener('click', onClick);
 
