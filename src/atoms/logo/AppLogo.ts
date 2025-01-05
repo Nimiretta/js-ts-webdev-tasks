@@ -1,19 +1,15 @@
-import { TLogo } from './types';
+//import { TLogo } from '../../types';
 
-export function AppLogo({
-    label = 'shop.co',
-    fontSize = '32px',
-    color = 'rgba(0, 0, 0, 1)',
-    fontWeight = '700',
-    fontFamily = 'Poppins',
-}: TLogo): HTMLElement {
+export function AppLogo(/*{}: TLogo*/): HTMLElement {
     const logoText = document.createElement('p');
+    const label = 'shop.co';
     logoText.textContent = `${label}`;
-    logoText.style.fontSize = fontSize;
-    logoText.style.fontWeight = fontWeight;
-    logoText.style.fontFamily = fontFamily;
-    logoText.style.color = color;
     logoText.style.textTransform = 'uppercase';
-    logoText.style.textTransform = 'uppercase';
+    logoText.classList.add(
+        'text-5xl',
+        'text-black',
+        'font-poppins',
+        'font-bold'
+    );
     return logoText;
 }
