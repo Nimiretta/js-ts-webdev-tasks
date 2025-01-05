@@ -605,20 +605,8 @@ video {
     display: block;
 }
 
-.flex {
-    display: flex;
-}
-
 .grid {
     display: grid;
-}
-
-.w-full {
-    width: 100%;
-}
-
-.items-center {
-    align-items: center;
 }
 
 .rounded-5xl {
