@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,ts}"],
+  content: ["./index.html","./src/**/*.{html,js,ts}"],
   theme: {
     colors: {
       transparent: 'transparent',
@@ -20,18 +20,7 @@ module.exports = {
       poppins: ['Poppins', 'sans-serif'],
       rubik: ['Rubik', 'sans-serif'],
     },
-    extend: {
-      fontSize: {
-        '3.5xl': '32px', // Добавляем новый пользовательский размер
-      },
-    },
+    extend: {},
   },
-  safelist: [
-    'text-5xl', 
-    'text-black', 
-    'font-poppins', 
-    'font-bold', 
-    'uppercase',
-  ],
   plugins: [],
 };
