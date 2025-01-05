@@ -559,6 +559,39 @@ video {
     display: none;
 }
 
+.flex {
+    display: flex;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.bg-tile-bg-gray {
+    --tw-bg-opacity: 1;
+    background-color: rgb(240 238 237 / var(--tw-bg-opacity, 1));
+}
+
+.font-rubik {
+    font-family: Rubik, sans-serif;
+}
+
 .font-bold {
     font-weight: 700;
 }

@@ -30,8 +30,6 @@ Your team task is to implement Frontend and Backend for E-Commerce Website
   - https://www.npmjs.com/package/navigo
   - https://npmjs.com/package/yourrouter
   - custom implementation
-- Redux store if it's needed to share data between pages or different components (NOT REACT!!!) for example `userId`, `cartId`
-- localStorage/sessionStorage to save data to prevent it lost after page refresh https://learn.javascript.ru/localstorage
 - Fetch API https://learn.javascript.ru/fetch-api or Axios https://axios-http.com/ for communication with Backend
 
 ### Design
@@ -88,15 +86,11 @@ Alternativly all screens could be found in `frontend/design` folder
 ### Cart Page
 
 - URL: `/cart/:cartId` where `cartId` is the dynamic id of the cart i.e. `cart/5`, `cart/1`
-- If a user delete some item in the cart
-  - if it is the last item in the cart, then cart should be deleted and user should be redirected to the Homepage `/`
-  - if there are still some items in the cart, then cart should updated and all elements on the UI should be updated to contain relevant items in the cart and order summary (subtotal, discount, total)
 - `Go to checkout` button opens a new page `Checkout`
 
 ### Checkout Page
 
 - URL: `/checkout/:cartId` where `cartId` is the dynamic id of the cart i.e. `cart/5`, `cart/1`
-- If user is logged in, then his data should be populated from his user account (Backend call https://dummyjson.com/docs/users)
 - Form should contain validation with the following rules:
   - `firstName` - type string, min length 3, max length 32
   - `lastName` - type string, min length 3, max length 32
@@ -112,7 +106,6 @@ Alternativly all screens could be found in `frontend/design` folder
 ### Payment Page
 
 - URL: `/payment/:cartId` where `cartId` is the dynamic id of the cart i.e. `cart/5`, `cart/1`
-- If user is logged in, then his data should be populated from his user account (Backend call https://dummyjson.com/docs/users) from an object `bank`
 - Form should contain validation with the following rules:
   - `cardNumber` - type string, min length 3, max length 32. Inside an input (on UI) should be displayed with a space symbol after each group of 4 digits and the last group consists of 5 digits or 4 digits (it depens on the cart provided) (examples: `5038 0955 2042 20685` (maestro) or `3586 0829 8252 6703` (jsb)). Inside the model (Backend, any inner objects) should be stored without any spaces (examples: `50380955204220685` or `3586082982526703`).
   - `cardExpire` - type string, first two numbers (with leading zeros for month less than 10), then a symbol `/`, then two numbers of year. Examples: `02/23`, `10/23`
