@@ -31,6 +31,7 @@ export enum TitleTag {
     H5 = 'h5',
     H6 = 'h6',
 }
+
 export type TInput = {
     type?: string;
     placeholder?: string;
