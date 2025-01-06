@@ -8,6 +8,29 @@ export type TTile = {
     imgOptions?: string[];
     onClick?: () => void;
 };
+
+export type TPrice = {
+    fullPrice: number;
+    discountRate: number;
+    showDiscountedPrice?: boolean;
+    isBigText?: boolean;
+};
+
+export type TTitle = {
+    tag?: TitleTag;
+    textContent?: string;
+    innerHTML?: string;
+    classes?: string[];
+};
+
+export enum TitleTag {
+    H1 = 'h1',
+    H2 = 'h2',
+    H3 = 'h3',
+    H4 = 'h4',
+    H5 = 'h5',
+    H6 = 'h6',
+}
 export type TInput = {
     type?: string;
     placeholder?: string;
