@@ -14,7 +14,7 @@ export function AppCard({
     const card = document.createElement('div');
     card.classList.add(
         'w-72',
-        'h-102',
+        'h-[25.375rem]',
         'cursor-pointer',
         'flex',
         'flex-col',
@@ -22,7 +22,7 @@ export function AppCard({
     );
 
     const imgTile = AppTile({
-        height: 'h-74',
+        height: 'h-[18.625rem]',
         imgUrl,
         imgAlt,
     });
