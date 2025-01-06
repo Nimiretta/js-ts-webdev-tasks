@@ -10,15 +10,18 @@ export function AppInput({
     error = false,
     bgColor = 'bg-bg-gray',
 }: TInput): {
-    wrapper: HTMLDivElement;
+    container: HTMLDivElement;
     setError: (hasError: boolean, message?: string) => void;
     getValue: () => string;
 } {
+    const container = document.createElement('div');
+    container.classList.add('flex', 'flex-col');
+
     const wrapper = document.createElement('div');
     wrapper.classList.add(
         'flex',
         'flex-col',
-        'rounded-5xl',
+        'rounded-full',
         'p-3',
         'border',
         bgColor,
@@ -52,12 +55,14 @@ export function AppInput({
         input.style.backgroundImage = `url('${icon}')`;
     }
 
+    wrapper.appendChild(input);
+
     const errorContainer = document.createElement('div');
     errorContainer.classList.add('text-discount-text-red', 'text-sm', 'mt-1');
     errorContainer.style.display = error ? 'block' : 'none';
 
-    wrapper.appendChild(input);
-    wrapper.appendChild(errorContainer);
+    container.appendChild(wrapper);
+    container.appendChild(errorContainer);
 
     const setError = (hasError: boolean, message: string = '') => {
         errorContainer.style.display = hasError ? 'block' : 'none';
@@ -75,5 +80,5 @@ export function AppInput({
 
     const getValue = () => input.value;
 
-    return { wrapper, setError, getValue };
+    return { container, setError, getValue };
 }

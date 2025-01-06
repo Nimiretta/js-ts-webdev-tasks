@@ -567,6 +567,10 @@ video {
     display: flex;
 }
 
+.flex-col {
+    flex-direction: column;
+}
+
 .h-12 {
     height: 3rem;
 }
@@ -786,6 +790,10 @@ video {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.border {
+    border-width: 1px;
+}
+
 .border-none {
     border-style: none;
 }
@@ -841,4 +849,8 @@ video {
 
 .border-discount-text-red {
     border-color: rgba(255, 51, 51, 1);
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
 }
