@@ -31,3 +31,26 @@ export enum TitleTag {
     H5 = 'h5',
     H6 = 'h6',
 }
+
+export type TText = {
+    tag?: TextTag;
+    textContent?: string;
+    innerHTML?: string;
+    classes?: string[];
+    textColor?: string;
+};
+
+export enum TextTag {
+    SPAN = 'span',
+    P = 'p',
+    DIV = 'div',
+    STRONG = 'strong',
+    EM = 'em',
+    LABEL = 'label',
+    SMALL = 'small',
+    MARK = 'mark',
+    DEL = 'del',
+    INS = 'ins',
+    B = 'b',
+    I = 'i',
+}
