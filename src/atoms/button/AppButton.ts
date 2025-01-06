@@ -1,6 +1,7 @@
 import { TButton } from '../../types';
 
 export function AppButton({
+    type = 'button',
     label = '',
     innerHTML,
     textColor = 'text-white',
@@ -8,7 +9,7 @@ export function AppButton({
     onClick,
 }: TButton): HTMLButtonElement {
     const button = document.createElement('button');
-    button.type = 'button';
+    button.type = type;
     if (innerHTML) {
         button.innerHTML = innerHTML;
     } else {
