@@ -31,3 +31,13 @@ export enum TitleTag {
     H5 = 'h5',
     H6 = 'h6',
 }
+
+export type TCard = {
+    productId: number | string;
+    productTitle: string;
+    fullPrice: number;
+    discountRate: number;
+    ratingValue: number;
+    imgUrl: string;
+    imgAlt?: string;
+};
