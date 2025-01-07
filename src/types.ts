@@ -31,3 +31,9 @@ export enum TitleTag {
     H5 = 'h5',
     H6 = 'h6',
 }
+
+export type TBreadcrumbs = {
+    category?: string;
+    product?: string;
+    page?: 'cart' | 'checkout' | 'payment' | 'confirmation';
+};

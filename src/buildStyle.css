@@ -616,6 +616,10 @@ video {
     gap: 0.625rem;
 }
 
+.gap-4 {
+    gap: 1rem;
+}
+
 .rounded-full {
     border-radius: 9999px;
 }
@@ -678,10 +682,6 @@ video {
 .text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
-}
-
-.text-3\.5xl {
-    font-size: 32px;
 }
 
 .text-3xl {
