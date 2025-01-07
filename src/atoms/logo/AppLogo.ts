@@ -1,7 +1,6 @@
 export function AppLogo(): HTMLElement {
     const logoText = document.createElement('p');
-    const label = 'shop.co';
-    logoText.textContent = `${label}`;
+    logoText.textContent = 'shop.co';
     logoText.classList.add(
         'text-xl',
         'text-black',

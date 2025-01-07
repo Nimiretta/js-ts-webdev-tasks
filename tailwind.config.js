@@ -20,11 +20,7 @@ module.exports = {
       poppins: ['Poppins', 'sans-serif'],
       rubik: ['Rubik', 'sans-serif'],
     },
-    extend: {
-      fontSize: {
-        '3.5xl': '32px',
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
