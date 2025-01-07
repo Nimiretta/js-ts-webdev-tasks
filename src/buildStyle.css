@@ -681,6 +681,10 @@ video {
     vertical-align: middle;
 }
 
+.font-poppins {
+    font-family: Poppins, sans-serif;
+}
+
 .font-rubik {
     font-family: Rubik, sans-serif;
 }
@@ -688,6 +692,10 @@ video {
 .text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+}
+
+.text-3\.5xl {
+    font-size: 32px;
 }
 
 .text-3xl {
@@ -705,9 +713,18 @@ video {
     line-height: 1.25rem;
 }
 
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
 .text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+}
+
+.font-black {
+    font-weight: 900;
 }
 
 .font-bold {
@@ -720,6 +737,10 @@ video {
 
 .font-semibold {
     font-weight: 600;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 .text-black {
