@@ -4,7 +4,7 @@ export type TButton = {
     innerHTML?: string;
     textColor?: string;
     backgroundColor?: string;
-    onClick: () => void;
+    onClick?: () => void;
 };
 
 export type TTile = {

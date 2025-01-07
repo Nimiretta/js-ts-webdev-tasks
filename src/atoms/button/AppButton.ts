@@ -28,7 +28,9 @@ export function AppButton({
         'cursor-pointer'
     );
 
-    button.addEventListener('click', onClick);
+    if (onClick) {
+        button.addEventListener('click', onClick);
+    }
 
     return button;
 }
