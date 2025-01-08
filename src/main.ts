@@ -1,5 +1,5 @@
-import router from './router'
+import router from './router';
 
 document.addEventListener('DOMContentLoaded', () => {
-    router.resolve()
-})
+    router.resolve();
+});
