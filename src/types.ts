@@ -40,3 +40,14 @@ export enum TitleTag {
     H5 = 'h5',
     H6 = 'h6',
 }
+
+export type TInput = {
+    type?: string;
+    placeholder?: string;
+    wrapperClasses?: string[];
+    inputClasses?: string[];
+    icon?: string;
+    label?: string;
+    error?: boolean;
+    bgColor?: string;
+};
