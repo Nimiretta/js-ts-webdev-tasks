@@ -58,8 +58,4 @@ export enum TextTag {
     LABEL = 'label',
     SMALL = 'small',
     MARK = 'mark',
-    DEL = 'del',
-    INS = 'ins',
-    B = 'b',
-    I = 'i',
 }

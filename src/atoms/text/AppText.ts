@@ -7,7 +7,7 @@ export function AppText({
     classes = [],
     textColor = 'text-discount-gray',
 }: TText): HTMLElement {
-    const textElement = document.createElement(tag);
+    const textElement = document.createElement(innerHTML ? TextTag.DIV : tag);
 
     if (innerHTML) {
         textElement.innerHTML = innerHTML;
