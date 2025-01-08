@@ -5,7 +5,7 @@ export function AppInput({
     placeholder = '',
     wrapperClasses = [],
     inputClasses = [],
-    icon,
+    icon = '',
     label,
     error = false,
     bgColor = 'bg-bg-gray',
@@ -20,10 +20,12 @@ export function AppInput({
     const wrapper = document.createElement('div');
     wrapper.classList.add(
         'flex',
-        'flex-col',
+        'items-center',
+        'gap-2',
+        'border',
+        'border-transparent',
         'rounded-full',
         'p-3',
-        'border',
         bgColor,
         ...wrapperClasses
     );
@@ -51,8 +53,11 @@ export function AppInput({
     );
 
     if (icon) {
-        input.classList.add('bg-left-3', 'bg-no-repeat', 'pl-10');
-        input.style.backgroundImage = `url('${icon}')`;
+        const iconElement = document.createElement('img');
+        iconElement.src = icon;
+        iconElement.alt = 'input icon';
+        iconElement.classList.add('w-6', 'h-6');
+        wrapper.appendChild(iconElement);
     }
 
     wrapper.appendChild(input);
@@ -67,6 +72,7 @@ export function AppInput({
     const setError = (hasError: boolean, message: string = '') => {
         errorContainer.style.display = hasError ? 'block' : 'none';
         errorContainer.textContent = hasError ? message : '';
+        wrapper.classList.toggle('border-transparent', !hasError);
         wrapper.classList.toggle('border-discount-text-red', hasError);
 
         if (hasError) {

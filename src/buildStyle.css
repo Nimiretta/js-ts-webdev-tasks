@@ -579,12 +579,20 @@ video {
     height: 1.25rem;
 }
 
+.h-6 {
+    height: 1.5rem;
+}
+
 .h-7 {
     height: 1.75rem;
 }
 
 .h-full {
     height: 100%;
+}
+
+.w-6 {
+    width: 1.5rem;
 }
 
 .w-fit {
@@ -849,6 +857,10 @@ video {
 
 .border-discount-text-red {
     border-color: rgba(255, 51, 51, 1);
+}
+
+.border-transparent {
+    border-color: transparent;
 }
 
 .mt-1 {
