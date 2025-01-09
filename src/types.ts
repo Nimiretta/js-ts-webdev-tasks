@@ -63,7 +63,6 @@ export type TText = {
 export enum TextTag {
     SPAN = 'span',
     P = 'p',
-    DIV = 'div',
     STRONG = 'strong',
     EM = 'em',
     LABEL = 'label',
