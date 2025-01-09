@@ -7,3 +7,4 @@ export * from './labelLink/AppLabelLink';
 export * from './title/AppTitle';
 export * from './button/AppButton';
 export * from './logo/AppLogo';
+export * from './input/AppInput';

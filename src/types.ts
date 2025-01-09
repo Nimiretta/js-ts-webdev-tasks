@@ -41,6 +41,17 @@ export enum TitleTag {
     H6 = 'h6',
 }
 
+export type TInput = {
+    type?: string;
+    placeholder?: string;
+    wrapperClasses?: string[];
+    inputClasses?: string[];
+    icon?: string;
+    label?: string;
+    error?: boolean;
+    bgColor?: string;
+};
+
 export type TText = {
     tag?: TextTag;
     textContent?: string;
