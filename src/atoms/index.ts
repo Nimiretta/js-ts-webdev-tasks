@@ -8,3 +8,4 @@ export * from './title/AppTitle';
 export * from './button/AppButton';
 export * from './logo/AppLogo';
 export * from './input/AppInput';
+export * from './iconLink/AppIconLink';
