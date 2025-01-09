@@ -51,3 +51,7 @@ export type TInput = {
     error?: boolean;
     bgColor?: string;
 };
+
+export type TInputSection = {
+    inputs: TInput[];
+};

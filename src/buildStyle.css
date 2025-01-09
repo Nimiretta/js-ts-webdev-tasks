@@ -906,3 +906,38 @@ video {
 .mt-1 {
     margin-top: 0.25rem;
 }
+
+.w-\[44\.6875rem\] {
+    width: 44.6875rem;
+}
+.w-\[41\.6875rem\] {
+    width: 41.6875rem;
+}
+
+.p-\[1\.25rem\] {
+    padding: 1.25rem;
+}
+.p-\[1\.5rem\] {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.gap-\[1\.5rem\] {
+    gap: 1.5rem;
+}
+
+.rounded-\[1\.25rem\] {
+    border-radius: 1.25rem;
+}
+
+.border-\[rgba\(0\,0\,0\,0\.10\)\] {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.h-\[0\.0625rem\] {
+    height: 0.0625rem;
+}
+
+.bg-\[rgba\(0\,0\,0\,0\.10\)\] {
+    background-color: rgba(0, 0, 0, 0.1);
+}
