@@ -15,6 +15,7 @@ export function AppButton({
     } else {
         button.textContent = label;
     }
+
     button.classList.add(
         backgroundColor,
         textColor,
