@@ -1,3 +1,12 @@
+export type TButton = {
+    type?: 'button' | 'submit' | 'reset';
+    label?: string;
+    innerHTML?: string;
+    textColor?: string;
+    backgroundColor?: string;
+    onClick?: () => void;
+};
+
 export type TTile = {
     height: string;
     width?: string;
@@ -31,3 +40,14 @@ export enum TitleTag {
     H5 = 'h5',
     H6 = 'h6',
 }
+
+export type TInput = {
+    type?: string;
+    placeholder?: string;
+    wrapperClasses?: string[];
+    inputClasses?: string[];
+    icon?: string;
+    label?: string;
+    error?: boolean;
+    bgColor?: string;
+};
