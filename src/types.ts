@@ -51,3 +51,21 @@ export type TInput = {
     error?: boolean;
     bgColor?: string;
 };
+
+export type TText = {
+    tag?: TextTag;
+    textContent?: string;
+    innerHTML?: string;
+    classes?: string[];
+    textColor?: string;
+};
+
+export enum TextTag {
+    SPAN = 'span',
+    P = 'p',
+    STRONG = 'strong',
+    EM = 'em',
+    LABEL = 'label',
+    SMALL = 'small',
+    MARK = 'mark',
+}
