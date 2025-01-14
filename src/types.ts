@@ -69,3 +69,12 @@ export enum TextTag {
     SMALL = 'small',
     MARK = 'mark',
 }
+
+export type TGrid = {
+    width: string;
+    height: string;
+    rows?: number;
+    columns: number;
+    tiles: HTMLElement[];
+    gap?: string;
+};
