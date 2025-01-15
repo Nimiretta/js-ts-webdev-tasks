@@ -906,3 +906,29 @@ video {
 .mt-1 {
     margin-top: 0.25rem;
 }
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.alternative-image {
+    width: 152px;
+    height: 167px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-color: lightgray;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.main-image {
+    width: 444px;
+    height: 530px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background-position: -12.816px -91.715px;
+    background-size: 107.109% 134.609%;
+    background-repeat: no-repeat;
+}
