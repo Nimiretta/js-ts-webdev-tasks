@@ -1,12 +1,9 @@
-import { AppLabelLink } from '../../atoms';
-import { AppText } from '../../atoms/text/AppText';
+import { AppButton, AppLabelLink, AppText } from '../../atoms';
 import { TextTag } from '../../types';
 
 export function AppSignupBanner({
-    onClose,
     onSignUp,
 }: {
-    onClose: () => void;
     onSignUp: () => void;
 }): HTMLDivElement {
     const banner = document.createElement('div');
@@ -38,20 +35,18 @@ export function AppSignupBanner({
         'text-white',
         'text-sm'
     );
-    signupLink.addEventListener('click', onSignUp);
 
-    bannerText.appendChild(signupLink);
+    if (onSignUp) {
+        signupLink.addEventListener('click', onSignUp);
+    }
 
-    const closeButton = document.createElement('button');
-    closeButton.classList.add('cursor-pointer', 'bg-transparent');
-
-    const closeIcon = document.createElement('img');
-    closeIcon.src = new URL('./Frame.svg', import.meta.url).href;
-    closeIcon.alt = 'Close';
-
-    closeButton.appendChild(closeIcon);
-
-    closeButton.addEventListener('click', onClose);
+    const closeButton = AppButton({
+        minimal: true,
+        innerHTML: `<img src="${new URL('./Frame.svg', import.meta.url).href}" alt="Close">`,
+        onClick: () => {
+            banner.style.display = 'none';
+        },
+    });
 
     const textContainer = document.createElement('div');
     textContainer.classList.add(
@@ -61,7 +56,6 @@ export function AppSignupBanner({
         'w-full',
         'justify-center'
     );
-    textContainer.append(bannerText, signupLink);
     textContainer.append(bannerText, signupLink);
 
     banner.append(textContainer, closeButton);
