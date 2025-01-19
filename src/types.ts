@@ -70,6 +70,13 @@ export enum TextTag {
     MARK = 'mark',
 }
 
+export type TLinkSection = {
+    heading: string;
+    links: string[];
+    width?: string;
+    classes?: string[];
+};
+
 export type TProductCategory = {
     slug: string;
     name: string;
