@@ -69,3 +69,9 @@ export enum TextTag {
     SMALL = 'small',
     MARK = 'mark',
 }
+
+export type TProductCategory = {
+    slug: string;
+    name: string;
+    url: string;
+};
