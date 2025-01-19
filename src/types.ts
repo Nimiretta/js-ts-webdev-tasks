@@ -82,3 +82,9 @@ export type TProductCategory = {
     name: string;
     url: string;
 };
+
+export type TBreadcrumbs = {
+    category?: string;
+    product?: string;
+    page?: 'cart' | 'checkout' | 'payment' | 'confirmation';
+};
