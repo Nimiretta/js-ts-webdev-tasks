@@ -88,3 +88,13 @@ export type TBreadcrumbs = {
     product?: string;
     page?: 'cart' | 'checkout' | 'payment' | 'confirmation';
 };
+
+export type TCard = {
+    productId: number | string;
+    productTitle: string;
+    fullPrice: number;
+    discountRate: number;
+    ratingValue: number;
+    imgUrl: string;
+    imgAlt?: string;
+};

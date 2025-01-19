@@ -12,7 +12,7 @@ export function AppTile({
 }: TTile): HTMLElement {
     const tile = document.createElement('div');
     tile.classList.add(
-        'rounded-lg',
+        'rounded-3xl',
         'bg-tile-bg-gray',
         'flex',
         'items-center',
