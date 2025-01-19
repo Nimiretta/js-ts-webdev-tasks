@@ -69,3 +69,10 @@ export enum TextTag {
     SMALL = 'small',
     MARK = 'mark',
 }
+
+export type TLinkSection = {
+    heading: string;
+    links: string[];
+    width?: string;
+    classes?: string[];
+};
