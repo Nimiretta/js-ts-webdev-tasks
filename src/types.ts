@@ -76,3 +76,9 @@ export type TLinkSection = {
     width?: string;
     classes?: string[];
 };
+
+export type TProductCategory = {
+    slug: string;
+    name: string;
+    url: string;
+};
