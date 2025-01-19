@@ -1,8 +1,6 @@
 import { TProductCategory } from '../types';
 
-export async function getProductsCategories(): Promise<
-    TProductCategory[] | void
-> {
+export async function getProductsCategories(): Promise<TProductCategory[]> {
     try {
         const response = await fetch(
             'https://dummyjson.com/products/categories'
@@ -13,5 +11,6 @@ export async function getProductsCategories(): Promise<
         return await response.json();
     } catch (error) {
         console.error('getProductsCategories', error);
+        return [];
     }
 }
