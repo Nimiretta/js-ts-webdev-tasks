@@ -4,7 +4,7 @@ import { TextTag } from '../../types';
 export function AppSignupBanner({
     onSignUp,
 }: {
-    onSignUp: () => void;
+    onSignUp?: () => void;
 }): HTMLDivElement {
     const banner = document.createElement('div');
     banner.classList.add(
