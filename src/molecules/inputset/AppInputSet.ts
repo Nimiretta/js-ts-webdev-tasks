@@ -7,8 +7,8 @@ export function AppInputSet({
 }: {
     inputs?: TInput[];
     sections?: TInputSection[];
-}): HTMLDivElement {
-    const container = document.createElement('div');
+}): HTMLFormElement {
+    const container = document.createElement('form');
     container.classList.add(
         'flex',
         'flex-col',
@@ -17,7 +17,7 @@ export function AppInputSet({
         'gap-[1.5rem]',
         'rounded-[1.25rem]',
         'border',
-        'border-[rgba(0,0,0,0.10)]'
+        'border-border-gray'
     );
 
     if (inputs) {
@@ -44,7 +44,7 @@ export function AppInputSet({
                 divider.classList.add(
                     'w-[41.6875rem]',
                     'h-[0.0625rem]',
-                    'bg-[rgba(0,0,0,0.10)]'
+                    'border-border-gray'
                 );
                 container.appendChild(divider);
             }

@@ -882,6 +882,10 @@ video {
     border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
 }
 
+.border-border-gray {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
 .text-red-500 {
     --tw-text-opacity: 1;
     color: rgb(239 68 68 / var(--tw-text-opacity));
@@ -930,14 +934,6 @@ video {
     border-radius: 1.25rem;
 }
 
-.border-\[rgba\(0\,0\,0\,0\.10\)\] {
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
 .h-\[0\.0625rem\] {
     height: 0.0625rem;
-}
-
-.bg-\[rgba\(0\,0\,0\,0\.10\)\] {
-    background-color: rgba(0, 0, 0, 0.1);
 }
