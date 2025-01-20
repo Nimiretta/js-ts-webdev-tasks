@@ -1,9 +1,5 @@
 import { TProduct } from '../types';
 
-/**
- * Fetches a product by its ID
- * @param {string | number} productId - The ID of the product to fetch.
- */
 export async function getProductById(
     productId: string | number
 ): Promise<TProduct | null> {
@@ -20,6 +16,9 @@ export async function getProductById(
         'thumbnail',
     ];
     try {
+        if (!productId) {
+            throw new Error('Incorrect or empty ID');
+        }
         const response = await fetch(
             `https://dummyjson.com/products/${productId}?select=${selectParams.join(',')}`
         );
@@ -28,7 +27,10 @@ export async function getProductById(
         }
         return await response.json();
     } catch (error) {
-        console.error('getProductById', error);
+        console.error(
+            `getProductById with productId = ${productId} fails: `,
+            error
+        );
         return null;
     }
 }
