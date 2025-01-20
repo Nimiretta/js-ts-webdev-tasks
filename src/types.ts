@@ -70,6 +70,49 @@ export enum TextTag {
     MARK = 'mark',
 }
 
+export type TLinkSection = {
+    heading: string;
+    links: string[];
+    width?: string;
+    classes?: string[];
+};
+
+export type TProductCategory = {
+    slug: string;
+    name: string;
+    url: string;
+};
+
+export type TBreadcrumbs = {
+    category?: string;
+    product?: string;
+    page?: 'cart' | 'checkout' | 'payment' | 'confirmation';
+};
+
+export type TCard = {
+    productId: number | string;
+    productTitle: string;
+    fullPrice: number;
+    discountRate: number;
+    ratingValue: number;
+    imgUrl: string;
+    imgAlt?: string;
+};
+
+export type TProduct = {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    stock: number;
+    brand: string;
+    images: string[];
+    thumbnail: string;
+};
+
 export type TGrid = {
     width: string;
     height: string;
