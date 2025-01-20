@@ -1,11 +1,12 @@
-import Navigo from 'navigo'
+import Navigo from 'navigo';
 
-const router = new Navigo('/')
+const router = new Navigo('/');
 
 router
     .on({
         '/': () => {},
+        '/product/:productId': () => {},
     })
-    .resolve()
+    .resolve();
 
-export default router
+export default router;
