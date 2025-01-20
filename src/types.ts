@@ -98,3 +98,17 @@ export type TCard = {
     imgUrl: string;
     imgAlt?: string;
 };
+
+export type TProduct = {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    stock: number;
+    brand: string;
+    images: string[];
+    thumbnail: string;
+};
