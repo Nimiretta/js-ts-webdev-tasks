@@ -113,10 +113,9 @@ export type TProduct = {
     thumbnail: string;
 };
 
-export type TButtonLink = {
+export type TIconLink = {
     icon: string;
     linkValue: string;
-    target: '_blank' | '_self';
-    width: string;
+    width?: string;
     height?: string;
 };

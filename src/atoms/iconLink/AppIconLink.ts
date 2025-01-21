@@ -1,16 +1,14 @@
-import { TButtonLink } from '../../types';
+import { TIconLink } from '../../types';
 
-export function AppButtonLink({
+export function AppIconLink({
     icon,
     linkValue,
-    target = '_blank',
     width = 'w-6',
     height = 'auto',
-}: TButtonLink): HTMLDivElement {
+}: TIconLink): HTMLDivElement {
     const block = document.createElement('div');
     const link = document.createElement('a');
     link.href = linkValue;
-    link.target = target;
     const iconLink = document.createElement('img');
     iconLink.src = icon;
     block.append(link);
@@ -19,8 +17,6 @@ export function AppButtonLink({
     block.classList.add(width, height);
 
     iconLink.classList.add('w-full');
-
-    console.log(block.className);
 
     return block;
 }
