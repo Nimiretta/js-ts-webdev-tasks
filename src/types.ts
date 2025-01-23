@@ -112,3 +112,30 @@ export type TProduct = {
     images: string[];
     thumbnail: string;
 };
+
+type TCartProductBase = {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    discountPercentage: number;
+    thumbnail: string;
+};
+
+type TCartProductDiscTotal = TCartProductBase & {
+    discountedTotal: number;
+};
+
+type TCartBase = {
+    id: number;
+    total: number;
+    discountedTotal: number;
+    userId: number;
+    totalProducts: number;
+    totalQuantity: number;
+};
+
+export type TCartDiscTotal = TCartBase & {
+    products: TCartProductDiscTotal[];
+};
