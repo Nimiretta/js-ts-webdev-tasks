@@ -1,4 +1,6 @@
+import { AppTile } from '../../atoms';
 import { TGrid } from '../../types';
+import { AppCard } from '../card/AppCard';
 
 export function AppGrid({
     width,
@@ -6,10 +8,10 @@ export function AppGrid({
     rows,
     columns,
     tiles,
+    cards,
     gap = 'gap-4',
 }: TGrid): HTMLElement {
-    const tileCount = tiles.length;
-
+    const tileCount = tiles ? tiles.length : cards ? cards.length : 0;
     const calculatedRows = rows || Math.ceil(tileCount / columns);
 
     const grid = document.createElement('div');
@@ -22,9 +24,17 @@ export function AppGrid({
         gap
     );
 
-    tiles.forEach((tile) => {
-        grid.appendChild(tile);
-    });
+    if (tiles) {
+        tiles.forEach((tile) => {
+            grid.appendChild(AppTile(tile));
+        });
+    }
+
+    if (cards) {
+        cards.forEach((card) => {
+            grid.appendChild(AppCard(card));
+        });
+    }
 
     return grid;
 }

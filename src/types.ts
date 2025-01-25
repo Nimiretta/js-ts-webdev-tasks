@@ -118,6 +118,7 @@ export type TGrid = {
     height: string;
     rows?: number;
     columns: number;
-    tiles: HTMLElement[];
+    tiles?: TTile[];
+    cards?: TCard[];
     gap?: string;
 };
