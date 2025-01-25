@@ -1,6 +1,18 @@
-export function AppSlider(): HTMLElement {
+import './AppSlider.css';
+
+export function AppSlider(): {
+    sliderNode: HTMLElement;
+    getLowValue: () => number;
+    getHighValue: () => number;
+} {
     const sliderContainer = document.createElement('div');
     sliderContainer.classList.add('range-slider');
+
+    // Dynamically inject the CSS file
+    const cssLink = document.createElement('link');
+    cssLink.rel = 'stylesheet';
+    cssLink.href = 'AppSlider.css'; // Path to your CSS file
+    document.head.appendChild(cssLink);
 
     const input1 = document.createElement('input');
     input1.type = 'range';
@@ -23,17 +35,23 @@ export function AppSlider(): HTMLElement {
 
     sliderContainer.append(input1, input2, display);
 
-    const onInput = (parent: HTMLElement, e: Event): void => {
+    const onInput = (parent: HTMLElement): void => {
         const slides: NodeListOf<HTMLInputElement> =
             parent.querySelectorAll('input');
         const min: number = parseFloat(slides[0].min);
         const max: number = parseFloat(slides[0].max);
 
         let slide1: number = parseFloat(slides[0].value);
-        let slide2: number = parseFloat(slides[1].value);
+        const slide2: number = parseFloat(slides[1].value);
 
-        const percentageMin: number = (slide1 / (max - min)) * 100;
-        const percentageMax: number = (slide2 / (max - min)) * 100;
+        // Ensure slide1 is always less than or equal to slide2
+        if (slide1 > slide2) {
+            slides[0].value = slide2.toString(); // Reset slide1 to slide2
+            slide1 = slide2;
+        }
+
+        const percentageMin: number = ((slide1 - min) / (max - min)) * 100;
+        const percentageMax: number = ((slide2 - min) / (max - min)) * 100;
 
         parent.style.setProperty(
             '--range-slider-value-low',
@@ -44,28 +62,36 @@ export function AppSlider(): HTMLElement {
             percentageMax.toString()
         );
 
-        if (slide1 > slide2) {
-            const tmp: number = slide2;
-            slide2 = slide1;
-            slide1 = tmp;
-
-            if (e?.currentTarget === slides[0]) {
-                slides[0].insertAdjacentElement('beforebegin', slides[1]);
-            } else {
-                slides[1].insertAdjacentElement('afterend', slides[0]);
-            }
-        }
-
         if (display) {
-            display.setAttribute('data-low', '$' + slide1.toString());
-            display.setAttribute('data-high', '$' + slide2.toString());
+            display.setAttribute('data-low', `$${slide1.toString()}`);
+            display.setAttribute('data-high', `$${slide2.toString()}`);
         }
     };
 
-    input1.oninput = (e: Event) => onInput(sliderContainer, e);
-    input2.oninput = (e: Event) => onInput(sliderContainer, e);
+    input1.oninput = () => onInput(sliderContainer);
+    input2.oninput = () => onInput(sliderContainer);
 
-    onInput(sliderContainer, new Event(''));
+    onInput(sliderContainer);
 
-    return sliderContainer;
+    const getLowValue = () => parseFloat(input1.value);
+    const getHighValue = () => parseFloat(input2.value);
+
+    return {
+        sliderNode: sliderContainer,
+        getLowValue,
+        getHighValue,
+    };
 }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const slider = AppSlider();
+//     document.body.appendChild(slider.sliderNode);
+
+//     window.slider = slider;
+
+//     setInterval(() => {
+//         console.log('Loweset Value:', slider.getLowValue(), 'Highest Value:', slider.getHighValue());
+//     }, 1000); // Logs the values every 500ms
+// });
+
+// Part for the check in console
