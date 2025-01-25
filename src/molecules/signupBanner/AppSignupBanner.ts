@@ -1,11 +1,7 @@
 import { AppButton, AppLabelLink, AppText } from '../../atoms';
 import { TextTag } from '../../types';
 
-export function AppSignupBanner({
-    onSignUp,
-}: {
-    onSignUp?: () => void;
-}): HTMLDivElement {
+export function AppSignupBanner(): HTMLDivElement {
     const banner = document.createElement('div');
     banner.classList.add(
         'w-full',
@@ -35,13 +31,10 @@ export function AppSignupBanner({
         'text-white',
         'text-sm'
     );
-
-    if (onSignUp) {
-        signupLink.addEventListener('click', onSignUp);
-    }
+    signupLink.setAttribute('href', '/');
 
     const closeButton = AppButton({
-        minimal: true,
+        isDefaultStyle: true,
         innerHTML: `<img src="${new URL('./Frame.svg', import.meta.url).href}" alt="Close">`,
         onClick: () => {
             banner.style.display = 'none';
