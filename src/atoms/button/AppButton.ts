@@ -8,12 +8,12 @@ export function AppButton({
     backgroundColor = 'bg-black',
     onClick,
     classes = [],
-    minimal = false,
+    isDefaultStyle = false,
 }: TButton): HTMLButtonElement {
     const button = document.createElement('button');
     button.type = type;
 
-    if (minimal) {
+    if (isDefaultStyle) {
         button.classList.add('p-0', 'w-auto', 'h-auto', 'bg-transparent');
     } else {
         button.classList.add(
