@@ -1,3 +1,12 @@
+export type TButton = {
+    type?: 'button' | 'submit' | 'reset';
+    label?: string;
+    innerHTML?: string;
+    textColor?: string;
+    backgroundColor?: string;
+    onClick?: () => void;
+};
+
 export type TTile = {
     height: string;
     width?: string;
