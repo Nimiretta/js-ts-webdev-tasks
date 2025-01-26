@@ -112,3 +112,22 @@ export type TProduct = {
     images: string[];
     thumbnail: string;
 };
+
+export type TTitleText = {
+    titleText: string;
+    spanText?: string;
+    spanTextDecoration?: string;
+    paragraph: string;
+    fontSizeParagraph: string;
+    fontFamParagraph: string;
+    fontWeightParagraph: string;
+    lineHeightParagraph: string;
+    fontSizeTitle: string;
+    fontFamTitle: string;
+    fontWeightTitle: string;
+    lineHeightTitle: string;
+    textColorParagraph?: string;
+    fontColorTitle: string;
+    widthClass: string;
+    heightClass: string;
+};
