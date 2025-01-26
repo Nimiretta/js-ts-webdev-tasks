@@ -148,6 +148,10 @@ export type TCartDiscPrice = TCartBase & {
     products: TCartProductDiscPrice[];
 };
 
+export type TInputSection = {
+    inputs: TInput[];
+};
+
 export type TGrid = {
     width: string;
     height: string;
