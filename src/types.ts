@@ -113,6 +113,41 @@ export type TProduct = {
     thumbnail: string;
 };
 
+export type TNewCartParams = {
+    userId: number;
+    products: {
+        id: number;
+        quantity: number;
+    }[];
+};
+
+type TCartProductBase = {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    discountPercentage: number;
+    thumbnail: string;
+};
+
+type TCartProductDiscPrice = TCartProductBase & {
+    discountedPrice: number;
+};
+
+type TCartBase = {
+    id: number;
+    total: number;
+    discountedTotal: number;
+    userId: number;
+    totalProducts: number;
+    totalQuantity: number;
+};
+
+export type TCartDiscPrice = TCartBase & {
+    products: TCartProductDiscPrice[];
+};
+
 export type TGrid = {
     width: string;
     height: string;
