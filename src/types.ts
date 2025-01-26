@@ -5,6 +5,8 @@ export type TButton = {
     textColor?: string;
     backgroundColor?: string;
     onClick?: () => void;
+    classes?: [];
+    isDefaultStyle?: boolean;
 };
 
 export type TTile = {
