@@ -8,12 +8,6 @@ export function AppSlider(): {
     const sliderContainer = document.createElement('div');
     sliderContainer.classList.add('range-slider');
 
-    // Dynamically inject the CSS file
-    const cssLink = document.createElement('link');
-    cssLink.rel = 'stylesheet';
-    cssLink.href = 'AppSlider.css'; // Path to your CSS file
-    document.head.appendChild(cssLink);
-
     const input1 = document.createElement('input');
     input1.type = 'range';
     input1.min = '10';
@@ -44,9 +38,8 @@ export function AppSlider(): {
         let slide1: number = parseFloat(slides[0].value);
         const slide2: number = parseFloat(slides[1].value);
 
-        // Ensure slide1 is always less than or equal to slide2
         if (slide1 > slide2) {
-            slides[0].value = slide2.toString(); // Reset slide1 to slide2
+            slides[0].value = slide2.toString();
             slide1 = slide2;
         }
 
@@ -82,16 +75,3 @@ export function AppSlider(): {
         getHighValue,
     };
 }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const slider = AppSlider();
-//     document.body.appendChild(slider.sliderNode);
-
-//     window.slider = slider;
-
-//     setInterval(() => {
-//         console.log('Loweset Value:', slider.getLowValue(), 'Highest Value:', slider.getHighValue());
-//     }, 1000); // Logs the values every 500ms
-// });
-
-// Part for the check in console
