@@ -71,3 +71,85 @@ export enum TextTag {
     SMALL = 'small',
     MARK = 'mark',
 }
+
+export type TLinkSection = {
+    heading: string;
+    links: string[];
+    width?: string;
+    classes?: string[];
+};
+
+export type TProductCategory = {
+    slug: string;
+    name: string;
+    url: string;
+};
+
+export type TBreadcrumbs = {
+    category?: string;
+    product?: string;
+    page?: 'cart' | 'checkout' | 'payment' | 'confirmation';
+};
+
+export type TCard = {
+    productId: number | string;
+    productTitle: string;
+    fullPrice: number;
+    discountRate: number;
+    ratingValue: number;
+    imgUrl: string;
+    imgAlt?: string;
+};
+
+export type TProduct = {
+    id: number;
+    title: string;
+    description: string;
+    category: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    stock: number;
+    brand: string;
+    images: string[];
+    thumbnail: string;
+};
+
+export type TNewCartParams = {
+    userId: number;
+    products: {
+        id: number;
+        quantity: number;
+    }[];
+};
+
+type TCartProductBase = {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    discountPercentage: number;
+    thumbnail: string;
+};
+
+type TCartProductDiscPrice = TCartProductBase & {
+    discountedPrice: number;
+};
+
+type TCartBase = {
+    id: number;
+    total: number;
+    discountedTotal: number;
+    userId: number;
+    totalProducts: number;
+    totalQuantity: number;
+};
+
+export type TCartDiscPrice = TCartBase & {
+    products: TCartProductDiscPrice[];
+};
+
+export type TInputSection = {
+    inputs: TInput[];
+};
