@@ -147,3 +147,7 @@ type TCartBase = {
 export type TCartDiscPrice = TCartBase & {
     products: TCartProductDiscPrice[];
 };
+
+export type TInputSection = {
+    inputs: TInput[];
+};
