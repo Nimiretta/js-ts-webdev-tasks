@@ -8,7 +8,9 @@ export function AppIconLink({
 }: TIconLink): HTMLDivElement {
     const block = document.createElement('div');
     const link = document.createElement('a');
-    link.href = linkValue;
+    if (linkValue) {
+        link.href = linkValue;
+    }
     const iconLink = document.createElement('img');
     iconLink.src = icon;
     block.append(link);
