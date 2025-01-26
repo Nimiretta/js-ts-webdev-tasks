@@ -6,16 +6,16 @@ export function AppLogoString(): HTMLElement {
     const logo = AppLogo();
     logoStr.append(logo);
     const iconsBlock = document.createElement('div');
-    iconsBlock.classList.add('flex');
+    iconsBlock.classList.add('flex', 'gap-[14px]');
     const cartIcon = AppIconLink({
-        icon: '../../assets/icons/cart.svg',
+        icon: 'src/assets/icons/cart.svg',
         linkValue:
             'https://github.com/Nimiretta/js-ts-webdev-tasks/pull/21/files',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
     const profIcon = AppIconLink({
-        icon: '../../assets/icons/profile.svg',
+        icon: 'src/assets/icons/profile.svg',
         linkValue:
             'https://github.com/Nimiretta/js-ts-webdev-tasks/pull/21/files',
         width: 'w-[24px]',
@@ -29,8 +29,8 @@ export function AppLogoString(): HTMLElement {
         'flex',
         'flex-row',
         'justify-between',
+        'items-center',
         'w-[86%]',
-        'border',
         'my-9'
     );
 
