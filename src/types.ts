@@ -17,12 +17,13 @@ export type TTile = {
     imgUrl?: string;
     imgAlt?: string;
     imgOptions?: string[];
+    classes?: string[];
     onClick?: () => void;
 };
 
 export type TPrice = {
     fullPrice: number;
-    discountRate: number;
+    discountRate?: number;
     showDiscountedPrice?: boolean;
     isBigText?: boolean;
 };
@@ -152,4 +153,12 @@ export type TCartDiscPrice = TCartBase & {
 
 export type TInputSection = {
     inputs: TInput[];
+};
+
+export type TCardItem = {
+    productId: string;
+    productTitle: string;
+    fullPrice: number;
+    imgUrl: string;
+    imgAlt: string;
 };
