@@ -1,6 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html","./src/**/*.{html,js,ts}"],
+  safelist: [
+    {
+      pattern: /grid-rows-\d+/,
+      variants: ['sm', 'md', 'lg', 'xl'],
+    },
+    {
+      pattern: /grid-cols-\d+/,
+      variants: ['sm', 'md', 'lg', 'xl'],
+    },
+  ],
   theme: {
     colors: {
       transparent: 'transparent',

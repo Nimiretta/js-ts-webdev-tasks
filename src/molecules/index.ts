@@ -4,4 +4,5 @@ export * from './card/AppCard';
 export * from './productImageGallery/AppProductImageGallery';
 export * from './inputset/AppInputSet';
 export * from './signupBanner/AppSignupBanner';
+export * from './grid/AppGrid';
 export * from './cardItem/AppCardItem';

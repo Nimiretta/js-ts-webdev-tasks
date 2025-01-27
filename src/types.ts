@@ -188,6 +188,16 @@ export type sortOptions = {
     order: 'asc' | 'desc';
 };
 
+export type TGrid = {
+    width: string;
+    height: string;
+    rows?: number;
+    columns: number;
+    tiles?: TTile[];
+    cards?: TCard[];
+    gap?: string;
+};
+
 export type TCardItem = {
     productId: string;
     productTitle: string;
