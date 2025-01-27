@@ -6,19 +6,8 @@ export function AppTitleText({
     titleText, //if you have underline word, include it also here (write full phrase)
     spanText, //only underline word
     paragraph,
-
-    textColorParagraph = '#00000099',
-    fontSizeParagraph,
-    fontFamParagraph,
-    fontWeightParagraph,
-    lineHeightParagraph,
-
-    fontSizeTitle,
-    fontFamTitle,
-    fontWeightTitle,
-    lineHeightTitle,
-    fontColorTitle,
-
+    paragraphClasses = [],
+    titleClasses = [],
     widthClass,
     heightClass,
 }: TTitleText): HTMLElement {
@@ -31,50 +20,20 @@ export function AppTitleText({
         heightClass
     );
 
-    if (spanText) {
-        const title = AppTitle({
-            textContent: titleText,
-            classes: [
-                fontSizeTitle,
-                fontFamTitle,
-                fontWeightTitle,
-                lineHeightTitle,
-                fontColorTitle,
-            ],
-        });
-        title.innerHTML = titleText.replace(spanText, `<u>${spanText}</u>`);
-        title.classList.add(
-            fontSizeTitle,
-            fontFamTitle,
-            fontWeightTitle,
-            lineHeightTitle
-        );
+    const title = AppTitle({
+        textContent: titleText,
+        ...titleClasses,
+    });
 
-        block.append(title);
-    } else {
-        const title = AppTitle({
-            textContent: titleText,
-            classes: [
-                fontSizeTitle,
-                fontFamTitle,
-                fontWeightTitle,
-                lineHeightTitle,
-                fontColorTitle,
-            ],
-        });
-        title.textContent = titleText;
-        block.append(title);
+    if (spanText) {
+        title.innerHTML = titleText.replace(spanText, `<u>${spanText}</u>`);
     }
+
+    block.append(title);
 
     const paragraphContent = AppText({
         textContent: paragraph,
-        classes: [
-            textColorParagraph,
-            fontSizeParagraph,
-            fontFamParagraph,
-            fontWeightParagraph,
-            lineHeightParagraph,
-        ],
+        ...paragraphClasses,
     });
     block.append(paragraphContent);
 

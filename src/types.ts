@@ -118,16 +118,8 @@ export type TTitleText = {
     spanText?: string;
     spanTextDecoration?: string;
     paragraph: string;
-    fontSizeParagraph: string;
-    fontFamParagraph: string;
-    fontWeightParagraph: string;
-    lineHeightParagraph: string;
-    fontSizeTitle: string;
-    fontFamTitle: string;
-    fontWeightTitle: string;
-    lineHeightTitle: string;
-    textColorParagraph?: string;
-    fontColorTitle: string;
+    paragraphClasses?: string[];
+    titleClasses?: string[];
     widthClass: string;
     heightClass: string;
 };
