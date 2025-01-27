@@ -116,7 +116,6 @@ export type TProduct = {
 export type TTitleText = {
     titleText?: string;
     titleInnerHTML?: string;
-    //spanText?: string;
     paragraph: string;
     paragraphClasses?: string[];
     titleClasses?: string[];
