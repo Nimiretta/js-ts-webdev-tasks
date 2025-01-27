@@ -1,5 +1,6 @@
 import { AppLogo } from '../../atoms';
 import { AppIconLink } from '../../atoms';
+//import router from '../../router';
 
 export function AppLogoString(): HTMLElement {
     const logoStr = document.createElement('div');
@@ -9,8 +10,7 @@ export function AppLogoString(): HTMLElement {
     iconsBlock.classList.add('flex', 'gap-[14px]');
     const cartIcon = AppIconLink({
         icon: 'src/assets/icons/cart.svg',
-        linkValue:
-            'https://github.com/Nimiretta/js-ts-webdev-tasks/pull/21/files',
+        linkValue: 'cartId',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
