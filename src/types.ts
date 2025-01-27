@@ -5,6 +5,8 @@ export type TButton = {
     textColor?: string;
     backgroundColor?: string;
     onClick?: () => void;
+    classes?: [];
+    isDefaultStyle?: boolean;
 };
 
 export type TTile = {
@@ -113,6 +115,21 @@ export type TProduct = {
     thumbnail: string;
 };
 
+export type TIconLink = {
+    icon: string;
+    linkValue?: string;
+    width?: string;
+    height?: string;
+};
+
+export type TNewCartParams = {
+    userId: number;
+    products: {
+        id: number;
+        quantity: number;
+    }[];
+};
+
 type TCartProductBase = {
     id: number;
     title: string;
@@ -121,6 +138,10 @@ type TCartProductBase = {
     total: number;
     discountPercentage: number;
     thumbnail: string;
+};
+
+type TCartProductDiscPrice = TCartProductBase & {
+    discountedPrice: number;
 };
 
 type TCartProductDiscTotal = TCartProductBase & {
@@ -136,6 +157,24 @@ type TCartBase = {
     totalQuantity: number;
 };
 
+export type TCartDiscPrice = TCartBase & {
+    products: TCartProductDiscPrice[];
+};
+
 export type TCartDiscTotal = TCartBase & {
     products: TCartProductDiscTotal[];
+};
+
+export type TCartDeleted = TCartDiscTotal & {
+    isDeleted: boolean;
+    deletedOn: string;
+};
+
+export type TInputSection = {
+    inputs: TInput[];
+};
+
+export type sortOptions = {
+    sortBy: 'title' | 'price' | 'discountPercentage' | 'rating';
+    order: 'asc' | 'desc';
 };
