@@ -161,7 +161,7 @@ export type TCartDiscPrice = TCartBase & {
     products: TCartProductDiscPrice[];
 };
 
-type TCartDiscTotal = TCartBase & {
+export type TCartDiscTotal = TCartBase & {
     products: TCartProductDiscTotal[];
 };
 
