@@ -130,6 +130,14 @@ export type TNewCartParams = {
     }[];
 };
 
+export type TUpdateCartParams = {
+    merge?: boolean;
+    products: {
+        id: number;
+        quantity: number;
+    }[];
+};
+
 type TCartProductBase = {
     id: number;
     title: string;
