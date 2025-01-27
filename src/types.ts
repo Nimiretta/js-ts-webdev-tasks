@@ -173,3 +173,8 @@ export type TCartDeleted = TCartDiscTotal & {
 export type TInputSection = {
     inputs: TInput[];
 };
+
+export type sortOptions = {
+    sortBy: 'title' | 'price' | 'discountPercentage' | 'rating';
+    order: 'asc' | 'desc';
+};
