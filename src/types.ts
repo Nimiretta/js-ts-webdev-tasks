@@ -114,9 +114,9 @@ export type TProduct = {
 };
 
 export type TTitleText = {
-    titleText: string;
-    spanText?: string;
-    spanTextDecoration?: string;
+    titleText?: string;
+    titleInnerHTML?: string;
+    //spanText?: string;
     paragraph: string;
     paragraphClasses?: string[];
     titleClasses?: string[];

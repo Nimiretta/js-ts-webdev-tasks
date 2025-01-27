@@ -3,8 +3,8 @@ import { AppTitle } from '../../atoms';
 import { AppText } from '../../atoms/text/AppText';
 
 export function AppTitleText({
-    titleText, //if you have underline word, include it also here (write full phrase)
-    spanText, //only underline word
+    titleText,
+    titleInnerHTML,
     paragraph,
     paragraphClasses = [],
     titleClasses = [],
@@ -22,12 +22,9 @@ export function AppTitleText({
 
     const title = AppTitle({
         textContent: titleText,
+        innerHTML: titleInnerHTML,
         ...titleClasses,
     });
-
-    if (spanText) {
-        title.innerHTML = titleText.replace(spanText, `<u>${spanText}</u>`);
-    }
 
     block.append(title);
 
