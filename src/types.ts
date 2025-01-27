@@ -186,3 +186,13 @@ export type sortOptions = {
     sortBy: 'title' | 'price' | 'discountPercentage' | 'rating';
     order: 'asc' | 'desc';
 };
+
+export type TGrid = {
+    width: string;
+    height: string;
+    rows?: number;
+    columns: number;
+    tiles?: TTile[];
+    cards?: TCard[];
+    gap?: string;
+};
