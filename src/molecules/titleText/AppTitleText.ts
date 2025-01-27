@@ -23,14 +23,14 @@ export function AppTitleText({
     const title = AppTitle({
         textContent: titleText,
         innerHTML: titleInnerHTML,
-        ...titleClasses,
+        classes: titleClasses,
     });
 
     block.append(title);
 
     const paragraphContent = AppText({
         textContent: paragraph,
-        ...paragraphClasses,
+        classes: paragraphClasses,
     });
     block.append(paragraphContent);
 
