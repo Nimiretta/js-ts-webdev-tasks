@@ -120,7 +120,7 @@ export type TIconLink = {
     linkValue?: string;
     width?: string;
     height?: string;
-}
+};
 
 export type TNewCartParams = {
     userId: number;
@@ -144,6 +144,10 @@ type TCartProductDiscPrice = TCartProductBase & {
     discountedPrice: number;
 };
 
+type TCartProductDiscTotal = TCartProductBase & {
+    discountedTotal: number;
+};
+
 type TCartBase = {
     id: number;
     total: number;
@@ -155,6 +159,15 @@ type TCartBase = {
 
 export type TCartDiscPrice = TCartBase & {
     products: TCartProductDiscPrice[];
+};
+
+type TCartDiscTotal = TCartBase & {
+    products: TCartProductDiscTotal[];
+};
+
+export type TCartDeleted = TCartDiscTotal & {
+    isDeleted: boolean;
+    deletedOn: string;
 };
 
 export type TInputSection = {
