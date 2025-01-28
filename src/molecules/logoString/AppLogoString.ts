@@ -10,7 +10,7 @@ export function AppLogoString(userID: string): HTMLElement {
     iconsBlock.classList.add('flex', 'gap-[14px]');
 
     const cartIcon = AppIconLink({
-        icon: 'src/assets/icons/cart.svg',
+        pathToIcon: 'src/assets/icons/cart.svg',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
@@ -20,7 +20,7 @@ export function AppLogoString(userID: string): HTMLElement {
     });
 
     const profIcon = AppIconLink({
-        icon: 'src/assets/icons/profile.svg',
+        pathToIcon: 'src/assets/icons/profile.svg',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
@@ -34,7 +34,9 @@ export function AppLogoString(userID: string): HTMLElement {
         'flex-row',
         'justify-between',
         'items-center',
-        'w-[86%]',
+        'pr-[100px]',
+        'pl-[100px]',
+        'w-full',
         'my-9'
     );
 

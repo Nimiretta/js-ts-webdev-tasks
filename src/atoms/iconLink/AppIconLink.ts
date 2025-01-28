@@ -1,7 +1,7 @@
 import { TIconLink } from '../../types';
 
 export function AppIconLink({
-    icon,
+    pathToIcon,
     linkValue,
     width = 'w-6',
     height = 'auto',
@@ -12,7 +12,7 @@ export function AppIconLink({
         link.href = linkValue;
     }
     const iconLink = document.createElement('img');
-    iconLink.src = icon;
+    iconLink.src = new URL(`${pathToIcon}.src`, import.meta.url).href;
     block.append(link);
     link.append(iconLink);
 

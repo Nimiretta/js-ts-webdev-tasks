@@ -116,11 +116,11 @@ export type TProduct = {
 };
 
 export type TIconLink = {
-    icon: string;
+    pathToIcon: string;
     linkValue?: string;
     width?: string;
     height?: string;
-}
+};
 
 export type TNewCartParams = {
     userId: number;
