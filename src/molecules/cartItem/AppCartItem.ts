@@ -1,16 +1,18 @@
 import { AppTile, AppTitle, AppPrice } from '../../atoms';
 import router from '../../router';
-import { TCardItem, TitleTag } from '../../types';
+import { TCartItem, TitleTag } from '../../types';
 
-export function AppCardItem({
+export function AppCartItem({
     productId,
     productTitle,
     fullPrice,
+    discountRate,
+    showDiscountedPrice = false,
     imgUrl,
     imgAlt,
-}: TCardItem): HTMLDivElement {
-    const cardItem = document.createElement('div');
-    cardItem.classList.add(
+}: TCartItem): HTMLDivElement {
+    const cartItem = document.createElement('div');
+    cartItem.classList.add(
         'w-[667px]',
         'h-[118px]',
         'cursor-pointer',
@@ -43,25 +45,21 @@ export function AppCardItem({
     const title = AppTitle({
         tag: TitleTag.H3,
         textContent: productTitle,
-        classes: [
-            'font-rubik',
-            'text-[20px]',
-            'font-bold',
-            'leading-normal',
-            'text-black',
-        ],
+        classes: ['font-rubik', 'text-[20px]', 'leading-normal'],
     });
 
     const price = AppPrice({
         fullPrice,
+        discountRate,
+        showDiscountedPrice,
     });
 
     description.append(title, price);
-    cardItem.append(imgTile, description);
+    cartItem.append(imgTile, description);
 
-    cardItem.addEventListener('click', () => {
+    cartItem.addEventListener('click', () => {
         router.navigate(`/product/${productId}`);
     });
 
-    return cardItem;
+    return cartItem;
 }

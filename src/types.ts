@@ -23,7 +23,7 @@ export type TTile = {
 
 export type TPrice = {
     fullPrice: number;
-    discountRate?: number;
+    discountRate: number;
     showDiscountedPrice?: boolean;
     isBigText?: boolean;
 };
@@ -198,10 +198,12 @@ export type TGrid = {
     gap?: string;
 };
 
-export type TCardItem = {
-    productId: string;
+export type TCartItem = {
+    productId: string | number;
     productTitle: string;
     fullPrice: number;
+    discountRate: number;
+    showDiscountedPrice: boolean;
     imgUrl: string;
-    imgAlt: string;
+    imgAlt?: string;
 };
