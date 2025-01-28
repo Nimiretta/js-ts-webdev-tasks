@@ -4,6 +4,7 @@ import { AppText } from '../../atoms/text/AppText';
 
 export function AppTitleText({
     titleText,
+    tagText,
     titleInnerHTML,
     paragraph,
     paragraphClasses = [],
@@ -21,6 +22,7 @@ export function AppTitleText({
     );
 
     const title = AppTitle({
+        tag: tagText,
         textContent: titleText,
         innerHTML: titleInnerHTML,
         classes: titleClasses,
