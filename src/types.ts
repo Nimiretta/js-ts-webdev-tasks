@@ -203,7 +203,6 @@ export type TCartItem = {
     productTitle: string;
     fullPrice: number;
     discountRate: number;
-    showDiscountedPrice: boolean;
     imgUrl: string;
     imgAlt?: string;
 };
