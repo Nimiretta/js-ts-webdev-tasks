@@ -7,7 +7,6 @@ export function AppCartItem({
     productTitle,
     fullPrice,
     discountRate,
-    showDiscountedPrice = false,
     imgUrl,
     imgAlt,
 }: TCartItem): HTMLDivElement {
@@ -51,7 +50,7 @@ export function AppCartItem({
     const price = AppPrice({
         fullPrice,
         discountRate,
-        showDiscountedPrice,
+        showDiscountedPrice: false,
     });
 
     description.append(title, price);
