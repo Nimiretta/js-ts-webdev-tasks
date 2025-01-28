@@ -1,26 +1,30 @@
 import { AppLogo } from '../../atoms';
 import { AppIconLink } from '../../atoms';
-//import router from '../../router';
+import router from '../../router';
 
-export function AppLogoString(): HTMLElement {
+export function AppLogoString(userID: string): HTMLElement {
     const logoStr = document.createElement('div');
     const logo = AppLogo();
     logoStr.append(logo);
     const iconsBlock = document.createElement('div');
     iconsBlock.classList.add('flex', 'gap-[14px]');
+
     const cartIcon = AppIconLink({
         icon: 'src/assets/icons/cart.svg',
-        linkValue: 'cartId',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
+
+    cartIcon.addEventListener('click', () => {
+        router.navigate(`/cart/${userID}`);
+    });
+
     const profIcon = AppIconLink({
         icon: 'src/assets/icons/profile.svg',
-        linkValue:
-            'https://github.com/Nimiretta/js-ts-webdev-tasks/pull/21/files',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
+
     iconsBlock.append(profIcon);
     iconsBlock.append(cartIcon);
     logoStr.append(iconsBlock);
