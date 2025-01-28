@@ -17,6 +17,7 @@ export type TTile = {
     imgUrl?: string;
     imgAlt?: string;
     imgOptions?: string[];
+    classes?: string[];
     onClick?: () => void;
 };
 
@@ -195,4 +196,13 @@ export type TGrid = {
     tiles?: TTile[];
     cards?: TCard[];
     gap?: string;
+};
+
+export type TCartItem = {
+    productId: string | number;
+    productTitle: string;
+    fullPrice: number;
+    discountRate: number;
+    imgUrl: string;
+    imgAlt?: string;
 };
