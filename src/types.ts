@@ -5,6 +5,8 @@ export type TButton = {
     textColor?: string;
     backgroundColor?: string;
     onClick?: () => void;
+    classes?: [];
+    isDefaultStyle?: boolean;
 };
 
 export type TTile = {
@@ -15,6 +17,7 @@ export type TTile = {
     imgUrl?: string;
     imgAlt?: string;
     imgOptions?: string[];
+    classes?: string[];
     onClick?: () => void;
 };
 
@@ -113,6 +116,7 @@ export type TProduct = {
     thumbnail: string;
 };
 
+
 export type TTitleText = {
     titleText?: string;
     tagText?: TitleTag;
@@ -122,4 +126,95 @@ export type TTitleText = {
     titleClasses?: string[];
     widthClass: string;
     heightClass: string;
+}
+
+export type TIconLink = {
+    icon: string;
+    linkValue?: string;
+    width?: string;
+    height?: string;
+};
+
+export type TNewCartParams = {
+    userId: number;
+    products: {
+        id: number;
+        quantity: number;
+    }[];
+};
+
+export type TUpdateCartParams = {
+    merge?: boolean;
+    products: {
+        id: number;
+        quantity: number;
+    }[];
+};
+
+type TCartProductBase = {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    discountPercentage: number;
+    thumbnail: string;
+};
+
+type TCartProductDiscPrice = TCartProductBase & {
+    discountedPrice: number;
+};
+
+type TCartProductDiscTotal = TCartProductBase & {
+    discountedTotal: number;
+};
+
+type TCartBase = {
+    id: number;
+    total: number;
+    discountedTotal: number;
+    userId: number;
+    totalProducts: number;
+    totalQuantity: number;
+};
+
+export type TCartDiscPrice = TCartBase & {
+    products: TCartProductDiscPrice[];
+};
+
+export type TCartDiscTotal = TCartBase & {
+    products: TCartProductDiscTotal[];
+};
+
+export type TCartDeleted = TCartDiscTotal & {
+    isDeleted: boolean;
+    deletedOn: string;
+};
+
+export type TInputSection = {
+    inputs: TInput[];
+};
+
+export type sortOptions = {
+    sortBy: 'title' | 'price' | 'discountPercentage' | 'rating';
+    order: 'asc' | 'desc';
+};
+
+export type TGrid = {
+    width: string;
+    height: string;
+    rows?: number;
+    columns: number;
+    tiles?: TTile[];
+    cards?: TCard[];
+    gap?: string;
+};
+
+export type TCartItem = {
+    productId: string | number;
+    productTitle: string;
+    fullPrice: number;
+    discountRate: number;
+    imgUrl: string;
+    imgAlt?: string;
 };
