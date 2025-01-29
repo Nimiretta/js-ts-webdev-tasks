@@ -33,7 +33,7 @@ export function AppCard({
     const title = AppTitle({
         tag: TitleTag.H3,
         textContent: productTitle,
-        classes: ['font-rubik', 'text-xl'],
+        classes: ['font-rubik', 'text-xl', 'text-black'],
     });
 
     const rating = AppRating(ratingValue);
