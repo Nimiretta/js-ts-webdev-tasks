@@ -36,19 +36,6 @@ export function AppButton({
         button.textContent = label;
     }
 
-    button.classList.add(
-        backgroundColor,
-        textColor,
-        'rounded-full',
-        'text-base',
-        'font-medium',
-        'font-rubik',
-        'py-4',
-        'w-full',
-        'text-center',
-        'cursor-pointer'
-    );
-
     if (onClick) {
         button.addEventListener('click', onClick);
     }
