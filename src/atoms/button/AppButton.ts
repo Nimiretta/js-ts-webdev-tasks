@@ -23,7 +23,6 @@ export function AppButton({
             'text-base',
             'font-medium',
             'font-rubik',
-            'py-4',
             'w-full',
             'text-center',
             ...classes

@@ -44,7 +44,7 @@ export function AppCartItem({
     const title = AppTitle({
         tag: TitleTag.H3,
         textContent: productTitle,
-        classes: ['font-rubik', 'text-[20px]', 'leading-normal'],
+        classes: ['font-rubik', 'text-[20px]', 'leading-normal', 'text-black'],
     });
 
     const price = AppPrice({

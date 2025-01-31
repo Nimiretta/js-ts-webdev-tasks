@@ -14,7 +14,7 @@ export function AppTitle({
         title.textContent = textContent;
     }
 
-    title.classList.add('font-bold', 'text-black', ...classes);
+    title.classList.add('font-bold', ...classes);
 
     return title;
 }

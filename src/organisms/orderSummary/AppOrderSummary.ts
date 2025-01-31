@@ -26,7 +26,7 @@ export function AppOrderSummary({
     const title = AppTitle({
         tag: TitleTag.H3,
         textContent: 'Order Summary',
-        classes: ['font-rubik', 'text-2xl'],
+        classes: ['font-rubik', 'text-2xl', 'text-black'],
     });
 
     const subTotalBlock = createLineBlock({
