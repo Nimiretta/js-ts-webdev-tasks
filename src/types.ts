@@ -217,3 +217,14 @@ export type TCartItem = {
     imgUrl: string;
     imgAlt?: string;
 };
+
+export type TOrderSummary = {
+    total: number;
+    discountedTotal: number;
+    btnText: string;
+    btnPath: string;
+    btnForm?: {
+        btnType: 'submit';
+        formId: string;
+    };
+};
