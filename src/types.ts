@@ -5,7 +5,7 @@ export type TButton = {
     textColor?: string;
     backgroundColor?: string;
     onClick?: () => void;
-    classes?: [];
+    classes?: string[];
     isDefaultStyle?: boolean;
 };
 
@@ -116,7 +116,6 @@ export type TProduct = {
     thumbnail: string;
 };
 
-
 export type TTitleText = {
     titleText?: string;
     tagText?: TitleTag;
@@ -126,7 +125,7 @@ export type TTitleText = {
     titleClasses?: string[];
     widthClass: string;
     heightClass: string;
-}
+};
 
 export type TIconLink = {
     icon: string;
