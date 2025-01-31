@@ -116,6 +116,17 @@ export type TProduct = {
     thumbnail: string;
 };
 
+export type TTitleText = {
+    titleText?: string;
+    tagText?: TitleTag;
+    titleInnerHTML?: string;
+    paragraph: string;
+    paragraphClasses?: string[];
+    titleClasses?: string[];
+    widthClass: string;
+    heightClass: string;
+};
+
 export type TIconLink = {
     icon: string;
     linkValue?: string;
