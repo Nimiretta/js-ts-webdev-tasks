@@ -13,7 +13,12 @@ export function AppLinkSection({
     const title = AppTitle({
         tag: TitleTag.H4,
         textContent: heading.toUpperCase(),
-        classes: ['font-rubik', 'text-base', 'tracking-[.1875rem]'],
+        classes: [
+            'font-rubik',
+            'text-base',
+            'tracking-[.1875rem]',
+            'text-black',
+        ],
     });
 
     const linkContainer = document.createElement('ul');

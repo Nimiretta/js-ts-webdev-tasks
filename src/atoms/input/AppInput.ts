@@ -45,7 +45,7 @@ export function AppInput({
         'border-none',
         'outline-none',
         'text-black',
-        'text-sm',
+        'text-base',
         'bg-transparent',
         'placeholder-discount-gray',
         'focus:outline-none',
