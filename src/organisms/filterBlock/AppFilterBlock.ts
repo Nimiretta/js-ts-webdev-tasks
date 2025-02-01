@@ -181,8 +181,8 @@ async function resetFilter(
             brands: [],
             sort: null,
             price: {
-                min: slider.getLowValue(),
-                max: slider.getHighValue(),
+                min: Number.MIN_VALUE,
+                max: Number.MAX_VALUE,
             },
         });
     } catch (err) {
