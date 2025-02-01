@@ -5,7 +5,7 @@ export type TButton = {
     textColor?: string;
     backgroundColor?: string;
     onClick?: () => void;
-    classes?: [];
+    classes?: string[];
     isDefaultStyle?: boolean;
 };
 
@@ -17,6 +17,7 @@ export type TTile = {
     imgUrl?: string;
     imgAlt?: string;
     imgOptions?: string[];
+    classes?: string[];
     onClick?: () => void;
 };
 
@@ -105,14 +106,25 @@ export type TProduct = {
     id: number;
     title: string;
     description: string;
-    category: string;
+    category?: string;
     price: number;
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand: string;
-    images: string[];
-    thumbnail: string;
+    brand?: string;
+    images?: string[];
+    thumbnail?: string;
+};
+
+export type TTitleText = {
+    titleText?: string;
+    tagText?: TitleTag;
+    titleInnerHTML?: string;
+    paragraph: string;
+    paragraphClasses?: string[];
+    titleClasses?: string[];
+    widthClass: string;
+    heightClass: string;
 };
 
 export type TIconLink = {
@@ -124,6 +136,14 @@ export type TIconLink = {
 
 export type TNewCartParams = {
     userId: number;
+    products: {
+        id: number;
+        quantity: number;
+    }[];
+};
+
+export type TUpdateCartParams = {
+    merge?: boolean;
     products: {
         id: number;
         quantity: number;
@@ -144,6 +164,10 @@ type TCartProductDiscPrice = TCartProductBase & {
     discountedPrice: number;
 };
 
+type TCartProductDiscTotal = TCartProductBase & {
+    discountedTotal: number;
+};
+
 type TCartBase = {
     id: number;
     total: number;
@@ -157,6 +181,50 @@ export type TCartDiscPrice = TCartBase & {
     products: TCartProductDiscPrice[];
 };
 
+export type TCartDiscTotal = TCartBase & {
+    products: TCartProductDiscTotal[];
+};
+
+export type TCartDeleted = TCartDiscTotal & {
+    isDeleted: boolean;
+    deletedOn: string;
+};
+
 export type TInputSection = {
     inputs: TInput[];
+};
+
+export type sortOptions = {
+    sortBy: 'title' | 'price' | 'discountPercentage' | 'rating';
+    order: 'asc' | 'desc';
+};
+
+export type TGrid = {
+    width: string;
+    height: string;
+    rows?: number;
+    columns: number;
+    tiles?: TTile[];
+    cards?: TCard[];
+    gap?: string;
+};
+
+export type TCartItem = {
+    productId: string | number;
+    productTitle: string;
+    fullPrice: number;
+    discountRate: number;
+    imgUrl: string;
+    imgAlt?: string;
+};
+
+export type TOrderSummary = {
+    total: number;
+    discountedTotal: number;
+    btnText: string;
+    btnPath: string;
+    btnForm?: {
+        btnType: 'submit';
+        formId: string;
+    };
 };

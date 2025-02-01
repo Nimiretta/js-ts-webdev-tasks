@@ -8,6 +8,7 @@ export function AppTile({
     imgUrl,
     imgAlt = 'product image',
     imgOptions,
+    classes,
     onClick,
 }: TTile): HTMLElement {
     const tile = document.createElement('div');
@@ -35,6 +36,10 @@ export function AppTile({
         if (textSize) {
             tile.classList.add(textSize);
         }
+    }
+
+    if (classes) {
+        tile.classList.add(...classes);
     }
 
     if (onClick) {

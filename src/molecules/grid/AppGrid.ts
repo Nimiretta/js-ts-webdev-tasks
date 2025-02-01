@@ -1,0 +1,40 @@
+import { AppTile } from '../../atoms';
+import { TGrid } from '../../types';
+import { AppCard } from '../card/AppCard';
+
+export function AppGrid({
+    width,
+    height,
+    rows,
+    columns,
+    tiles,
+    cards,
+    gap = 'gap-4',
+}: TGrid): HTMLElement {
+    const tileCount = tiles ? tiles.length : cards ? cards.length : 0;
+    const calculatedRows = rows || Math.ceil(tileCount / columns);
+
+    const grid = document.createElement('div');
+    grid.classList.add(
+        width,
+        height,
+        'grid',
+        `grid-rows-${calculatedRows}`,
+        `grid-cols-${columns}`,
+        gap
+    );
+
+    if (tiles) {
+        tiles.forEach((tile) => {
+            grid.appendChild(AppTile(tile));
+        });
+    }
+
+    if (cards) {
+        cards.forEach((card) => {
+            grid.appendChild(AppCard(card));
+        });
+    }
+
+    return grid;
+}
