@@ -116,7 +116,7 @@ export type TProduct = {
 };
 
 export type TIconLink = {
-    pathToIcon: string;
+    iconName: string;
     linkValue?: string;
     width?: string;
     height?: string;

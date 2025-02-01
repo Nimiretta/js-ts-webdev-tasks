@@ -6,7 +6,7 @@ router
     .on({
         '/': () => {},
         '/product/:productId': () => {},
-        '/cart/${userID}': () => {},
+        '/cart/:cartId': () => {},
     })
     .resolve();
 

@@ -2,25 +2,29 @@ import { AppLogo } from '../../atoms';
 import { AppIconLink } from '../../atoms';
 import router from '../../router';
 
-export function AppLogoString(userID: string): HTMLElement {
+export function AppLogoString(cartId: string | number): HTMLElement {
     const logoStr = document.createElement('div');
     const logo = AppLogo();
+    logo.addEventListener('click', () => {
+        router.navigate('/');
+    });
+    logo.classList.add('cursor-pointer');
     logoStr.append(logo);
     const iconsBlock = document.createElement('div');
     iconsBlock.classList.add('flex', 'gap-[14px]');
 
     const cartIcon = AppIconLink({
-        pathToIcon: 'src/assets/icons/cart.svg',
+        iconName: 'cart',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
-
+    cartIcon.classList.add('cursor-pointer');
     cartIcon.addEventListener('click', () => {
-        router.navigate(`/cart/${userID}`);
+        router.navigate(`/cart/${cartId}`);
     });
 
     const profIcon = AppIconLink({
-        pathToIcon: 'src/assets/icons/profile.svg',
+        iconName: 'profile',
         width: 'w-[24px]',
         height: 'w-[24px]',
     });
