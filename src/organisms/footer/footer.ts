@@ -52,23 +52,14 @@ export function AppFooter(): HTMLElement {
     socialIconsContainer.classList.add('flex', 'gap-3', 'mt-8');
 
     const socialLinks = [
-        {
-            icon: new URL('./twitter.svg', import.meta.url).href,
-            linkValue: '#',
-        },
-        {
-            icon: new URL('./facebook.svg', import.meta.url).href,
-            linkValue: '#',
-        },
-        {
-            icon: new URL('./instagram.svg', import.meta.url).href,
-            linkValue: '#',
-        },
-        { icon: new URL('./git.svg', import.meta.url).href, linkValue: '#' },
+        { iconName: 'twitter', linkValue: '#' },
+        { iconName: 'facebook', linkValue: '#' },
+        { iconName: 'instagram', linkValue: '#' },
+        { iconName: 'git', linkValue: '#' },
     ];
 
-    socialLinks.forEach(({ icon, linkValue }) => {
-        socialIconsContainer.appendChild(AppIconLink({ icon, linkValue }));
+    socialLinks.forEach(({ iconName, linkValue }) => {
+        socialIconsContainer.appendChild(AppIconLink({ iconName, linkValue }));
     });
 
     branding.append(brandTitle, brandDescription, socialIconsContainer);
@@ -104,21 +95,28 @@ export function AppFooter(): HTMLElement {
     });
 
     const paymentMethodsContainer = document.createElement('div');
-    paymentMethodsContainer.classList.add('flex', 'gap-4', 'mt-2');
+    paymentMethodsContainer.classList.add(
+        'flex',
+        'gap-4',
+        'mt-2',
+        'min-h-[50px]',
+        'min-w-[100px]'
+    );
 
     const paymentLogos = [
-        new URL('./visa.svg', import.meta.url).href,
-        new URL('./mastercard.svg', import.meta.url).href,
-        new URL('./paypal.svg', import.meta.url).href,
-        new URL('./applepay.svg', import.meta.url).href,
-        new URL('./googlepay.svg', import.meta.url).href,
+        { iconName: 'visa', linkValue: '#', width: 'w-[60px]' },
+        { iconName: 'mastercard', linkValue: '#', width: 'w-[60px]' },
+        { iconName: 'paypal', linkValue: '#', width: 'w-[60px]' },
+        { iconName: 'applepay', linkValue: '#', width: 'w-[60px]' },
+        { iconName: 'googlepay', linkValue: '#', width: 'w-[60px]' },
     ];
 
-    paymentLogos.forEach((logo) => {
-        const img = document.createElement('img');
-        img.src = logo;
-        img.classList.add('w-auto', 'object-contain');
-        paymentMethodsContainer.appendChild(img);
+    paymentLogos.forEach(({ iconName, linkValue, width }) => {
+        const iconLink = AppIconLink({ iconName, linkValue });
+
+        iconLink.classList.add(width);
+
+        paymentMethodsContainer.appendChild(iconLink);
     });
 
     const footerBottom = document.createElement('div');
