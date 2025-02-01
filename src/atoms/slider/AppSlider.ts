@@ -1,10 +1,7 @@
+import { TSlider } from '../../types';
 import './AppSlider.css';
 
-export function AppSlider(): {
-    sliderNode: HTMLElement;
-    getLowValue: () => number;
-    getHighValue: () => number;
-} {
+export function AppSlider(): TSlider {
     const sliderContainer = document.createElement('div');
     sliderContainer.classList.add('range-slider');
 
@@ -68,10 +65,16 @@ export function AppSlider(): {
 
     const getLowValue = () => parseFloat(input1.value);
     const getHighValue = () => parseFloat(input2.value);
+    const reset = () => {
+        input1.value = '10';
+        input2.value = '2000';
+        onInput(sliderContainer);
+    };
 
     return {
         sliderNode: sliderContainer,
         getLowValue,
         getHighValue,
+        reset,
     };
 }
