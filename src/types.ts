@@ -111,7 +111,7 @@ export type TProduct = {
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand: string;
+    brand?: string;
     images?: string[];
     thumbnail?: string;
 };

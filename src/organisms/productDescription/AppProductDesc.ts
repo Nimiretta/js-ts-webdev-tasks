@@ -20,6 +20,15 @@ export function AppProductDesc({
     stock,
     id,
 }: TProduct): HTMLDivElement {
+    const commonTextProps = {
+        tag: TextTag.P,
+        classes: ['font-rubik', 'text-base'],
+    };
+    const commonTitleProps = {
+        tag: TitleTag.H3,
+        classes: ['font-poppins', 'text-black', 'text-2xl'],
+    };
+
     const container = document.createElement('div');
     container.classList.add(
         'flex',
@@ -45,33 +54,28 @@ export function AppProductDesc({
     titleContainer.append(productTitle, productRating, productPrice);
 
     const productDescription = AppText({
-        tag: TextTag.P,
         textContent: description,
-        classes: ['font-rubik', 'text-base'],
+        ...commonTextProps,
     });
 
     const productBrand = AppText({
-        tag: TextTag.P,
         textContent: 'Brand',
-        classes: ['font-rubik', 'text-base'],
+        ...commonTextProps,
     });
 
     const brandValue = AppTitle({
-        tag: TitleTag.H3,
-        textContent: brand,
-        classes: ['font-poppins', 'text-black', 'text-2xl'],
+        textContent: brand ? brand : 'N/A',
+        ...commonTitleProps,
     });
 
     const productInStock = AppText({
-        tag: TextTag.P,
         textContent: 'In Stock',
-        classes: ['font-rubik', 'text-base'],
+        ...commonTextProps,
     });
 
     const amountInStock = AppTitle({
-        tag: TitleTag.H3,
-        textContent: `${stock} items`,
-        classes: ['font-poppins', 'text-black', 'text-2xl'],
+        textContent: stock ? `${stock} items` : 'Out of Stock',
+        ...commonTitleProps,
     });
 
     const btnBlock = document.createElement('div');
@@ -110,14 +114,18 @@ function divider() {
 
 async function addToCart(cartParams: { id: number; quantity: number }) {
     const randomCartId = getRandomCartId();
-    if (randomCartId > 50) {
-        await createCart({
-            userId: getRandomUserId(),
-            products: [cartParams],
-        });
-    } else {
-        await updateCart(randomCartId, {
-            products: [cartParams],
-        });
+    try {
+        if (randomCartId > 50) {
+            await createCart({
+                userId: getRandomUserId(),
+                products: [cartParams],
+            });
+        } else {
+            await updateCart(randomCartId, {
+                products: [cartParams],
+            });
+        }
+    } catch (err) {
+        console.error('Adding to Cart failed: ', err);
     }
 }
