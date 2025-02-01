@@ -35,18 +35,7 @@ export function AppFilterBlock(
         'Descending',
     ]);
 
-    const priceSection = document.createElement('div');
-    priceSection.classList.add('flex', 'flex-col', 'gap-5');
-    const priceHeader = document.createElement('div');
-    priceHeader.classList.add('flex', 'justify-between', 'items-center');
-    const priceTitle = createTitle('Price');
-    const priceIcon = document.createElement('img');
-    priceIcon.classList.add('w-4', 'h-4');
-    priceIcon.src = new URL('./priceIcon.svg', import.meta.url).href;
-    priceIcon.alt = 'price icon';
-    priceHeader.append(priceTitle, priceIcon);
-    const slider = AppSlider();
-    priceSection.append(priceHeader, slider.sliderNode);
+    const { priceSection, slider } = createPriceSection();
 
     const applyBtn = AppButton({
         label: 'Apply Filter',
@@ -104,6 +93,29 @@ function createFilterSection(title: string, options: string[]) {
     return section;
 }
 
+function createPriceSection() {
+    const priceSection = document.createElement('div');
+    priceSection.classList.add('flex', 'flex-col', 'gap-5');
+
+    const priceHeader = document.createElement('div');
+    priceHeader.classList.add('flex', 'justify-between', 'items-center');
+
+    const priceTitle = createTitle('Price');
+
+    const priceIcon = document.createElement('img');
+    priceIcon.classList.add('w-4', 'h-4');
+    priceIcon.src = new URL('./priceIcon.svg', import.meta.url).href;
+    priceIcon.alt = 'price icon';
+
+    priceHeader.append(priceTitle, priceIcon);
+
+    const slider = AppSlider();
+
+    priceSection.append(priceHeader, slider.sliderNode);
+
+    return { priceSection, slider };
+}
+
 function getSelectedElements(id: string): HTMLElement[] | null {
     const filter = document.getElementById(id);
     if (filter) {
@@ -116,54 +128,64 @@ async function applyFilter(
     slider: TSlider,
     applyFilterCb: (params: TFilterCbParams) => void
 ) {
-    let selectedBrands: (string | null)[] = [];
-    const selectedBrandElements = getSelectedElements('brand');
-    if (selectedBrandElements) {
-        selectedBrands = selectedBrandElements.map((el) => el.textContent);
-    }
-
-    let selectedSort: 'asc' | 'desc' | null = null;
-    const sortElements = getSelectedElements('sort');
-    if (sortElements) {
-        const sortSelectedOptions = sortElements.map((el) => el.textContent);
-        if (sortSelectedOptions.length === 1) {
-            selectedSort =
-                sortSelectedOptions[0] === 'Ascending' ? 'asc' : 'desc';
+    try {
+        let selectedBrands: (string | null)[] = [];
+        const selectedBrandElements = getSelectedElements('brand');
+        if (selectedBrandElements) {
+            selectedBrands = selectedBrandElements.map((el) => el.textContent);
         }
+
+        let selectedSort: 'asc' | 'desc' | null = null;
+        const sortElements = getSelectedElements('sort');
+        if (sortElements) {
+            const sortSelectedOptions = sortElements.map(
+                (el) => el.textContent
+            );
+            if (sortSelectedOptions.length === 1) {
+                selectedSort =
+                    sortSelectedOptions[0] === 'Ascending' ? 'asc' : 'desc';
+            }
+        }
+
+        const priceFilter = {
+            min: slider.getLowValue(),
+            max: slider.getHighValue(),
+        };
+
+        await applyFilterCb({
+            brands: selectedBrands,
+            sort: selectedSort,
+            price: priceFilter,
+        });
+    } catch (err) {
+        console.error('Filtering failed: ', err);
     }
-
-    const priceFilter = {
-        min: slider.getLowValue(),
-        max: slider.getHighValue(),
-    };
-
-    await applyFilterCb({
-        brands: selectedBrands,
-        sort: selectedSort,
-        price: priceFilter,
-    });
 }
 
 async function resetFilter(
     slider: TSlider,
     applyFilterCb: (params: TFilterCbParams) => void
 ) {
-    const selectedFilters = getSelectedElements('filterBlock');
-    if (selectedFilters) {
-        selectedFilters.forEach((el) => {
-            el.classList.toggle('font-bold');
-            el.toggleAttribute('data-filter-selected');
+    try {
+        const selectedFilters = getSelectedElements('filterBlock');
+        if (selectedFilters) {
+            selectedFilters.forEach((el) => {
+                el.classList.toggle('font-bold');
+                el.toggleAttribute('data-filter-selected');
+            });
+        }
+
+        slider.reset();
+
+        await applyFilterCb({
+            brands: [],
+            sort: null,
+            price: {
+                min: slider.getLowValue(),
+                max: slider.getHighValue(),
+            },
         });
+    } catch (err) {
+        console.error('Resetting filter failed: ', err);
     }
-
-    slider.reset();
-
-    await applyFilterCb({
-        brands: [],
-        sort: null,
-        price: {
-            min: slider.getLowValue(),
-            max: slider.getHighValue(),
-        },
-    });
 }
