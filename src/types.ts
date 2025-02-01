@@ -228,3 +228,26 @@ export type TOrderSummary = {
         formId: string;
     };
 };
+
+export type TInputSet = {
+    formId: string;
+    inputs?: TInput[];
+    sections?: TInputSection[];
+};
+
+export type TCreateInputSet = {
+    createLeftComp: (params: TInputSet) => HTMLFormElement;
+    params: TInputSet;
+};
+
+export type TCreateCartList = {
+    createLeftComp: (params: TCartItem[]) => HTMLDivElement;
+    params: TCartItem[];
+};
+
+export type TOrderFlow = {
+    page: 'cart' | 'checkout' | 'payment';
+    titleText: string;
+    dynamicPart: TCreateCartList | TCreateInputSet;
+    summaryParams: TOrderSummary;
+};

@@ -1,18 +1,17 @@
 import { AppInput } from '../../atoms';
-import { TInput, TInputSection } from '../../types';
+import { TInput, TInputSet } from '../../types';
 
 export function AppInputSet({
+    formId,
     inputs,
     sections,
-}: {
-    inputs?: TInput[];
-    sections?: TInputSection[];
-}): HTMLFormElement {
+}: TInputSet): HTMLFormElement {
     const container = document.createElement('form');
+    container.setAttribute('id', formId);
     container.classList.add(
         'flex',
         'flex-col',
-        'w-[44.6875rem]',
+        'h-fit',
         'p-[1.25rem]',
         'gap-[1.5rem]',
         'rounded-[1.25rem]',
