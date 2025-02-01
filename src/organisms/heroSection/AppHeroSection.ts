@@ -47,13 +47,12 @@ export function AppHeroSection(): HTMLElement {
     const shopNowButton = AppButton({
         label: 'Shop Now',
         classes: ['w-[13.125rem]', 'h-[3.25rem]', 'mt-8'],
-    });
-
-    shopNowButton.addEventListener('click', () => {
-        const categoriesSection = document.getElementById('categories');
-        if (categoriesSection) {
-            categoriesSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        onClick: () => {
+            const categoriesSection = document.getElementById('categories');
+            if (categoriesSection) {
+                categoriesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
     });
 
     textContainer.append(heroText, shopNowButton);
