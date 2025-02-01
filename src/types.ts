@@ -106,14 +106,14 @@ export type TProduct = {
     id: number;
     title: string;
     description: string;
-    category: string;
+    category?: string;
     price: number;
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand: string;
-    images: string[];
-    thumbnail: string;
+    brand?: string;
+    images?: string[];
+    thumbnail?: string;
 };
 
 export type TTitleText = {
@@ -128,7 +128,7 @@ export type TTitleText = {
 };
 
 export type TIconLink = {
-    icon: string;
+    iconName: string;
     linkValue?: string;
     width?: string;
     height?: string;

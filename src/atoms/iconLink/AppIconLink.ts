@@ -1,7 +1,11 @@
 import { TIconLink } from '../../types';
 
+/**
+ * All icon's files for this component must be placed into src/assets/icons with svg extension
+ * @param iconName just name of file w/o extension.
+ */
 export function AppIconLink({
-    icon,
+    iconName,
     linkValue,
     width = 'w-6',
     height = 'auto',
@@ -12,7 +16,10 @@ export function AppIconLink({
         link.href = linkValue;
     }
     const iconLink = document.createElement('img');
-    iconLink.src = icon;
+    iconLink.src = new URL(
+        `../../assets/icons/${iconName}.svg`,
+        import.meta.url
+    ).href;
     block.append(link);
     link.append(iconLink);
 
