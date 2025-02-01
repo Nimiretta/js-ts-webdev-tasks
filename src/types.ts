@@ -128,7 +128,7 @@ export type TTitleText = {
 };
 
 export type TIconLink = {
-    icon: string;
+    iconName: string;
     linkValue?: string;
     width?: string;
     height?: string;
