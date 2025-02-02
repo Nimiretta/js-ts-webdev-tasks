@@ -274,3 +274,9 @@ export type TProductDetails = {
     images: string[];
     product: TProduct;
 };
+
+export interface TOrderConfirmation {
+    page?: 'confirmation' | 'cart' | 'checkout' | 'payment';
+    title?: string;
+    description?: string;
+}
