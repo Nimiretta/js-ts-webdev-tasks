@@ -30,16 +30,10 @@ export function AppProductDesc({
     };
 
     const container = document.createElement('div');
-    container.classList.add(
-        'flex',
-        'flex-col',
-        'justify-between',
-        'gap-6',
-        'w-[36.875rem]'
-    );
+    container.classList.add('flex', 'flex-col', 'justify-between', 'gap-4');
 
     const titleContainer = document.createElement('div');
-    titleContainer.classList.add('flex', 'flex-col', 'gap-3.5');
+    titleContainer.classList.add('flex', 'flex-col', 'gap-2');
     const productTitle = AppTitle({
         tag: TitleTag.H1,
         textContent: title,

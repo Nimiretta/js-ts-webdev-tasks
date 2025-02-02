@@ -106,13 +106,13 @@ export type TProduct = {
     id: number;
     title: string;
     description: string;
-    category?: string;
+    category: string;
     price: number;
     discountPercentage: number;
     rating: number;
     stock: number;
     brand?: string;
-    images?: string[];
+    images: string[];
     thumbnail?: string;
 };
 
@@ -227,4 +227,11 @@ export type TOrderSummary = {
         btnType: 'submit';
         formId: string;
     };
+};
+
+export type TProductDetails = {
+    category: string;
+    productTitle: string;
+    images: string[];
+    product: TProduct;
 };
