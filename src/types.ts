@@ -111,9 +111,9 @@ export type TProduct = {
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand: string;
+    brand?: string;
     images: string[];
-    thumbnail: string;
+    thumbnail?: string;
 };
 
 export type TTitleText = {
@@ -128,7 +128,7 @@ export type TTitleText = {
 };
 
 export type TIconLink = {
-    icon: string;
+    iconName: string;
     linkValue?: string;
     width?: string;
     height?: string;
@@ -250,4 +250,27 @@ export type TOrderFlow = {
     titleText: string;
     dynamicPart: TCreateCartList | TCreateInputSet;
     summaryParams: TOrderSummary;
+};
+
+export type TSlider = {
+    sliderNode: HTMLElement;
+    getLowValue: () => number;
+    getHighValue: () => number;
+    reset: () => void;
+};
+
+export type TFilterCbParams = {
+    brands: (string | null)[];
+    sort: 'asc' | 'desc' | null;
+    price: {
+        min: number;
+        max: number;
+    };
+};
+
+export type TProductDetails = {
+    category: string;
+    productTitle: string;
+    images: string[];
+    product: TProduct;
 };

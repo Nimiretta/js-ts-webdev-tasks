@@ -2,10 +2,6 @@ import { AppTile } from '../../atoms';
 import './AppProductImageGallery.css';
 
 export function AppProductImageGallery(images: string[]): HTMLDivElement {
-    if (images.length < 3) {
-        throw new Error('Product Image Gallery requires at least 3 images.');
-    }
-
     let mainImage: string = images[0];
 
     const gallery = document.createElement('div');
@@ -18,7 +14,7 @@ export function AppProductImageGallery(images: string[]): HTMLDivElement {
 
     mainImageContainer.classList.add('main-image');
     mainImageContainer.style.backgroundImage = `url(${mainImage})`;
-    mainImageContainer.style.background = `url(${mainImage}) center / cover no-repeat, #F0EEED`;
+    mainImageContainer.style.background = `url(${mainImage}) center / contain no-repeat, #F0EEED`;
 
     images.slice(0, 3).forEach((image) => {
         const imgElement = AppTile({
@@ -31,12 +27,12 @@ export function AppProductImageGallery(images: string[]): HTMLDivElement {
                 'alternative-image',
                 'w-full',
                 'h-full',
-                'object-cover',
+                'object-contain',
             ],
             onClick: () => {
                 mainImage = image;
 
-                mainImageContainer.style.background = `url(${mainImage}) center / cover no-repeat, #F0EEED`;
+                mainImageContainer.style.background = `url(${mainImage}) center / contain no-repeat, #F0EEED`;
 
                 Array.from(alternativeImagesContainer.children).forEach(
                     (child) => {
