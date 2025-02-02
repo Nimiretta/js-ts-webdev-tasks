@@ -111,9 +111,9 @@ export type TProduct = {
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand?: string;
-    images?: string[];
-    thumbnail?: string;
+    brand: string;
+    images: string[];
+    thumbnail: string;
 };
 
 export type TTitleText = {
@@ -201,7 +201,7 @@ export type sortOptions = {
 
 export type TGrid = {
     width: string;
-    height: string;
+    height?: string;
     rows?: number;
     columns: number;
     tiles?: TTile[];
@@ -243,4 +243,10 @@ export type TFilterCbParams = {
         min: number;
         max: number;
     };
+};
+
+export type TCategory = {
+    category: string;
+    brands: string[];
+    cards: TCard[];
 };

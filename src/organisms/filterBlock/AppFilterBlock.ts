@@ -1,5 +1,11 @@
-import { AppTitle, AppSlider, AppButton, AppFilterOption } from '../../atoms';
-import { TFilterCbParams, TitleTag, TSlider } from '../../types';
+import {
+    AppTitle,
+    AppSlider,
+    AppButton,
+    AppFilterOption,
+    AppText,
+} from '../../atoms';
+import { TextTag, TFilterCbParams, TitleTag, TSlider } from '../../types';
 
 export function AppFilterBlock(
     brands: string[],
@@ -16,7 +22,8 @@ export function AppFilterBlock(
         'border',
         'border-border-gray',
         'font-rubik',
-        'w-72'
+        'w-1/4',
+        'h-fit'
     );
 
     const header = document.createElement('div');
@@ -85,9 +92,17 @@ function createFilterSection(title: string, options: string[]) {
     section.classList.add('flex', 'flex-col', 'gap-5');
 
     const sectionTitle = createTitle(title);
-    const filterOptions = [...new Set(options)].map((option) =>
-        AppFilterOption(option)
-    );
+    const filterOptions = [...new Set(options)].map((option) => {
+        if (option !== undefined) {
+            return AppFilterOption(option);
+        } else {
+            return AppText({
+                tag: TextTag.P,
+                textContent: 'No available brands',
+                classes: ['text-base'],
+            });
+        }
+    });
 
     section.append(sectionTitle, ...filterOptions);
     return section;

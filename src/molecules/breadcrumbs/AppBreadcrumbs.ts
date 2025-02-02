@@ -41,7 +41,10 @@ export function AppBreadcrumbs({
 }
 
 function createItem(itemLabel: string, isLast: boolean): HTMLDivElement {
-    itemLabel = itemLabel[0].toUpperCase() + itemLabel.slice(1);
+    itemLabel = itemLabel
+        .split('-')
+        .map((el) => el[0].toUpperCase() + el.slice(1))
+        .join(' ');
     const item = document.createElement('div');
     item.classList.add('flex', 'gap-2.5');
     const label = AppLabelLink(itemLabel, isLast);

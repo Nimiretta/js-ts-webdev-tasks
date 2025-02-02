@@ -28,7 +28,7 @@ export function AppTile({
         }
         img.src = imgUrl;
         img.alt = imgAlt;
-        tile.classList.add('justify-center');
+        tile.classList.add('justify-center', 'items-center');
         tile.append(img);
     } else if (textContent) {
         tile.textContent = textContent;
