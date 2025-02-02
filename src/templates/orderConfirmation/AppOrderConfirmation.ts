@@ -15,11 +15,7 @@ export function AppOrderConfirmation({
         'p-5'
     );
 
-    const breadcrumbs = AppBreadcrumbs({
-        category: '',
-        product: '',
-        page,
-    });
+    const breadcrumbs = AppBreadcrumbs({ page });
     breadcrumbs.classList.add('pb-10');
 
     const titleTextBlock = AppTitleText({
@@ -37,7 +33,7 @@ export function AppOrderConfirmation({
             'rounded-[1.25rem]',
             'p-[1.25rem_1.5rem]',
             'mt-[1.125rem]',
-            'max-w-[45.3125rem]',
+            'max-w-[44.6875rem]',
         ],
         titleClasses: [
             'text-[2.5rem]',
