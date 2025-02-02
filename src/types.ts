@@ -229,9 +229,25 @@ export type TOrderSummary = {
     };
 };
 
+export type TSlider = {
+    sliderNode: HTMLElement;
+    getLowValue: () => number;
+    getHighValue: () => number;
+    reset: () => void;
+};
+
+export type TFilterCbParams = {
+    brands: (string | null)[];
+    sort: 'asc' | 'desc' | null;
+    price: {
+        min: number;
+        max: number;
+    };
+};
+
 export type TProductDetails = {
     category: string;
     productTitle: string;
     images: string[];
     product: TProduct;
-};
+}
