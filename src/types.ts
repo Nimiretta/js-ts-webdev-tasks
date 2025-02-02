@@ -244,3 +244,9 @@ export type TFilterCbParams = {
         max: number;
     };
 };
+
+export interface TOrderConfirmation {
+    page?: 'confirmation' | 'cart' | 'checkout' | 'payment';
+    title?: string;
+    description?: string;
+}
