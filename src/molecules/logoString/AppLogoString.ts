@@ -38,10 +38,9 @@ export function AppLogoString(cartId: string | number): HTMLElement {
         'flex-row',
         'justify-between',
         'items-center',
-        'pr-[100px]',
-        'pl-[100px]',
-        'w-full',
-        'my-9'
+        'py-9',
+        'max-w-[77.5rem]',
+        'mx-auto'
     );
 
     return logoStr;
