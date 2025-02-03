@@ -1,13 +1,13 @@
-import { AppIconLink } from '../../atoms/iconLink/AppIconLink';
-import { AppTitle } from '../../atoms/title/AppTitle';
-import { AppText } from '../../atoms/text/AppText';
-import { AppLinkSection } from '../../molecules/linkSection/AppLinkSection';
+import { AppIconLink } from '../../atoms';
+import { AppTitle } from '../../atoms/';
+import { AppText } from '../../atoms/';
+import { AppLinkSection } from '../../molecules/';
 import { TitleTag } from '../../types';
 
 export function AppFooter(): HTMLElement {
     const footer = document.createElement('footer');
     footer.classList.add(
-        'bg-gray-400',
+        'bg-bg-gray',
         'py-8',
         'px-10',
         'sm:px-16',
@@ -29,8 +29,7 @@ export function AppFooter(): HTMLElement {
         'justify-between',
         'pb-6',
         'border-b',
-        'border-gray-100',
-        'border-opacity-5'
+        'border-border-gray'
     );
 
     const branding = document.createElement('div');
@@ -39,13 +38,13 @@ export function AppFooter(): HTMLElement {
     const brandTitle = AppTitle({
         tag: TitleTag.H2,
         textContent: 'SHOP.CO',
-        classes: ['text-3xl', 'font-bold', 'mb-4'],
+        classes: ['text-3xl', 'font-poppins', 'mb-4'],
     });
 
     const brandDescription = AppText({
         textContent:
             'We have clothes that suit your style and which you’re proud to wear. From women to men.',
-        classes: ['text-sm', 'text-gray-600', 'pt-8', 'font-rubik'],
+        classes: ['text-sm', 'pt-8', 'font-rubik'],
     });
 
     const socialIconsContainer = document.createElement('div');
@@ -130,7 +129,7 @@ export function AppFooter(): HTMLElement {
 
     const copyrightText = AppText({
         textContent: 'Shop.co © 2000-2023, All Rights Reserved',
-        classes: ['text-sm', 'text-gray-600'],
+        classes: ['text-sm'],
     });
     footerBottom.append(copyrightText, paymentMethodsContainer);
 
