@@ -5,3 +5,4 @@ export * from './filterBlock/AppFilterBlock';
 export * from './productDescription/AppProductDesc';
 export * from './header/AppHeader';
 export * from './heroSection/AppHeroSection';
+export * from './footer//AppFooter';
