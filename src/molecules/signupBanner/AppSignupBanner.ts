@@ -14,7 +14,9 @@ export function AppSignupBanner(): HTMLDivElement {
         'px-banner',
         'top-0',
         'z-50',
-        'min-w-160'
+        'min-w-160',
+        'max-w-[77.5rem]',
+        'mx-auto'
     );
 
     const bannerText = AppText({

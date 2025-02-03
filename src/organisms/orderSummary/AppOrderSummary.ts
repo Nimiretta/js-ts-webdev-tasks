@@ -13,7 +13,7 @@ export function AppOrderSummary({
     container.classList.add(
         'flex',
         'flex-col',
-        'w-[31.5625rem]',
+        'h-fit',
         'px-[1.25rem]',
         'pt-[1.25rem]',
         'pb-8',
@@ -31,14 +31,14 @@ export function AppOrderSummary({
 
     const subTotalBlock = createLineBlock({
         textContent: 'Subtotal',
-        value: `$${total}`,
+        value: `$${total.toFixed(2)}`,
         valueColor: 'text-black',
         valueSize: 'text-xl',
     });
 
     const discountBlock = createLineBlock({
         textContent: `Discount (-${Math.round(((total - discountedTotal) / total) * 100)}%)`,
-        value: `-$${total - discountedTotal}`,
+        value: `-$${(total - discountedTotal).toFixed(2)}`,
         valueColor: 'text-discount-text-red',
         valueSize: 'text-xl',
     });
@@ -49,7 +49,7 @@ export function AppOrderSummary({
     const totalBlock = createLineBlock({
         textContent: 'Total',
         textColor: 'text-black',
-        value: `$${discountedTotal}`,
+        value: `$${discountedTotal.toFixed(2)}`,
         valueColor: 'text-black',
         valueSize: 'text-2xl',
     });
@@ -58,7 +58,7 @@ export function AppOrderSummary({
     const btn = AppButton({
         type: btnForm?.btnType,
         innerHTML: `${btnText} <img src="${iconSrc}" alt="arrow" class="w-6 h-6" />`,
-        classes: ['flex', 'gap-3', 'justify-center'],
+        classes: ['flex', 'gap-3', 'justify-center', 'h-14', 'items-center'],
         onClick: () => router.navigate(btnPath),
     });
     if (btnForm) {

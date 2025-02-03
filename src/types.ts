@@ -106,7 +106,7 @@ export type TProduct = {
     id: number;
     title: string;
     description: string;
-    category?: string;
+    category: string;
     price: number;
     discountPercentage: number;
     rating: number;
@@ -229,6 +229,29 @@ export type TOrderSummary = {
     };
 };
 
+export type TInputSet = {
+    formId: string;
+    inputs?: TInput[];
+    sections?: TInputSection[];
+};
+
+export type TCreateInputSet = {
+    createLeftComp: (params: TInputSet) => HTMLFormElement;
+    params: TInputSet;
+};
+
+export type TCreateCartList = {
+    createLeftComp: (params: TCartItem[]) => HTMLDivElement;
+    params: TCartItem[];
+};
+
+export type TOrderFlow = {
+    page: 'cart' | 'checkout' | 'payment';
+    titleText: string;
+    dynamicPart: TCreateCartList | TCreateInputSet;
+    summaryParams: TOrderSummary;
+};
+
 export type TSlider = {
     sliderNode: HTMLElement;
     getLowValue: () => number;
@@ -244,6 +267,19 @@ export type TFilterCbParams = {
         max: number;
     };
 };
+
+export type TProductDetails = {
+    category: string;
+    productTitle: string;
+    images: string[];
+    product: TProduct;
+};
+
+export interface TOrderConfirmation {
+    page?: 'confirmation' | 'cart' | 'checkout' | 'payment';
+    title?: string;
+    description?: string;
+}
 
 export type TCategory = {
     category: string;

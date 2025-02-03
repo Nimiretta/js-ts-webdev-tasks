@@ -23,9 +23,9 @@ export function AppPrice({
 
     const fullPriceEl = document.createElement('span');
     fullPriceEl.classList.add('font-bold', 'text-black');
-    fullPriceEl.textContent = `$${fullPrice}`;
+    fullPriceEl.textContent = `$${fullPrice.toFixed(2)}`;
 
-    if (discountRate) {
+    if (discountRate && discountRate > 0.49) {
         const discountTextSize = isBigText ? 'text-sm' : 'text-xs';
         discountRate = Math.round(discountRate);
         discountEl = document.createElement('div');
