@@ -32,7 +32,12 @@ export function AppTile({
         tile.append(img);
     } else if (textContent) {
         tile.textContent = textContent;
-        tile.classList.add('font-rubik', 'text-black', 'font-bold');
+        tile.classList.add(
+            'font-rubik',
+            'text-black',
+            'font-bold',
+            'break-all'
+        );
         if (textSize) {
             tile.classList.add(textSize);
         }
