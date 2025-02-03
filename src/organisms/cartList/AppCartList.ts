@@ -8,7 +8,6 @@ export function AppCartList(cartItems: TCartItem[]): HTMLDivElement {
         'flex-col',
         'items-start',
         'gap-6',
-        'w-[44.69rem]',
         'px-6',
         'py-5',
         'border',

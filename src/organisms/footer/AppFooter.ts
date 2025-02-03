@@ -1,7 +1,6 @@
-import { AppIconLink } from '../../atoms';
-import { AppTitle } from '../../atoms/';
-import { AppText } from '../../atoms/';
-import { AppLinkSection } from '../../molecules/';
+import { AppIconLink, AppTitle, AppText } from '../../atoms';
+import { AppLinkSection } from '../../molecules';
+
 import { TitleTag } from '../../types';
 
 export function AppFooter(): HTMLElement {

@@ -106,14 +106,14 @@ export type TProduct = {
     id: number;
     title: string;
     description: string;
-    category?: string;
+    category: string;
     price: number;
     discountPercentage: number;
     rating: number;
     stock: number;
-    brand?: string;
-    images?: string[];
-    thumbnail?: string;
+    brand: string;
+    images: string[];
+    thumbnail: string;
 };
 
 export type TTitleText = {
@@ -201,7 +201,7 @@ export type sortOptions = {
 
 export type TGrid = {
     width: string;
-    height: string;
+    height?: string;
     rows?: number;
     columns: number;
     tiles?: TTile[];
@@ -227,4 +227,62 @@ export type TOrderSummary = {
         btnType: 'submit';
         formId: string;
     };
+};
+
+export type TInputSet = {
+    formId: string;
+    inputs?: TInput[];
+    sections?: TInputSection[];
+};
+
+export type TCreateInputSet = {
+    createLeftComp: (params: TInputSet) => HTMLFormElement;
+    params: TInputSet;
+};
+
+export type TCreateCartList = {
+    createLeftComp: (params: TCartItem[]) => HTMLDivElement;
+    params: TCartItem[];
+};
+
+export type TOrderFlow = {
+    page: 'cart' | 'checkout' | 'payment';
+    titleText: string;
+    dynamicPart: TCreateCartList | TCreateInputSet;
+    summaryParams: TOrderSummary;
+};
+
+export type TSlider = {
+    sliderNode: HTMLElement;
+    getLowValue: () => number;
+    getHighValue: () => number;
+    reset: () => void;
+};
+
+export type TFilterCbParams = {
+    brands: (string | null)[];
+    sort: 'asc' | 'desc' | null;
+    price: {
+        min: number;
+        max: number;
+    };
+};
+
+export type TProductDetails = {
+    category: string;
+    productTitle: string;
+    images: string[];
+    product: TProduct;
+};
+
+export interface TOrderConfirmation {
+    page?: 'confirmation' | 'cart' | 'checkout' | 'payment';
+    title?: string;
+    description?: string;
+}
+
+export type TCategory = {
+    category: string;
+    brands: string[];
+    cards: TCard[];
 };
