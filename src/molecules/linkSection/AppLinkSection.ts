@@ -18,6 +18,7 @@ export function AppLinkSection({
             'text-base',
             'tracking-[.1875rem]',
             'text-black',
+            'font-medium',
         ],
     });
 

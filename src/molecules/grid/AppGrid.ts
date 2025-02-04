@@ -4,7 +4,7 @@ import { AppCard } from '../card/AppCard';
 
 export function AppGrid({
     width,
-    height,
+    height = 'h-auto',
     rows,
     columns,
     tiles,

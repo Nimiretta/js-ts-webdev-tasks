@@ -12,19 +12,13 @@ export function AppCard({
     imgAlt,
 }: TCard): HTMLDivElement {
     const card = document.createElement('div');
-    card.classList.add(
-        'w-72',
-        'h-[25.375rem]',
-        'cursor-pointer',
-        'flex',
-        'flex-col',
-        'gap-4'
-    );
+    card.classList.add('cursor-pointer', 'flex', 'flex-col', 'gap-4', 'pb-5');
 
     const imgTile = AppTile({
         height: 'h-[18.625rem]',
         imgUrl,
         imgAlt,
+        imgOptions: ['w-full', 'h-full', 'object-contain'],
     });
 
     const description = document.createElement('div');
