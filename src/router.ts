@@ -11,9 +11,10 @@ function renderBaseTemplate() {
     }
 }
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 function handleAsyncRouteChange(
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     handler: (params?: any) => Promise<HTMLElement>,
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     params: any
 ) {
     renderBaseTemplate();
@@ -29,7 +30,9 @@ function handleAsyncRouteChange(
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function handleSyncRouteChange(
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     handler: (params?: any) => HTMLElement,
+    /* eslint-disable @typescript-eslint/no-explicit-any */
     params?: any
 ) {
     renderBaseTemplate();
