@@ -27,7 +27,7 @@ export function NewsletterSubscription() {
     const subscriptionContainer = document.createElement('div');
     subscriptionContainer.classList.add(
         'flex',
-        'max-w-[77.5rem]',
+        'max-w-[90rem]',
         'p-[2.25rem_4rem]',
         'justify-between',
         'items-center',

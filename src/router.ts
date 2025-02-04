@@ -1,6 +1,6 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage } from './pages';
+import { AppCategoryPage, AppConfirmationPage } from './pages';
 import { TAsyncRouterParams } from './types';
 
 const router = new Navigo('/');
@@ -13,8 +13,8 @@ function renderBaseTemplate() {
 }
 
 function handleAsyncRouteChange(
-    handler: (params: TAsyncRouterParams) => Promise<HTMLElement>,
-    params: TAsyncRouterParams
+    handler: (params?: TAsyncRouterParams) => Promise<HTMLElement>,
+    params?: TAsyncRouterParams
 ) {
     renderBaseTemplate();
 
@@ -27,7 +27,7 @@ function handleAsyncRouteChange(
     }
 }
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 function handleSyncRouteChange(
     handler: (params?: unknown) => HTMLElement,
     params?: unknown
@@ -50,6 +50,7 @@ router
         '/category/:categoryName': (params: {
             data: { categoryName: string };
         }) => handleAsyncRouteChange(AppCategoryPage, params),
+        '/confirmation': () => handleSyncRouteChange(AppConfirmationPage),
     })
     .resolve();
 
