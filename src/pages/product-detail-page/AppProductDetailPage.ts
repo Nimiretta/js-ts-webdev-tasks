@@ -1,13 +1,12 @@
 import { AppProductDetail } from '../../templates';
 import { getProductById } from '../../backend';
 
-export async function AppProductDetailPage(params: {
+export async function AppProductDetailPage({
+    data: { productId },
+}: {
     data: { productId: string | number };
 }): Promise<HTMLElement> {
     const page = document.createElement('main');
-    const {
-        data: { productId },
-    } = params;
     try {
         const product = await getProductById(productId);
         if (product) {
