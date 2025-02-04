@@ -207,6 +207,7 @@ export type TGrid = {
     tiles?: TTile[];
     cards?: TCard[];
     gap?: string;
+    classes?: string[];
 };
 
 export type TCartItem = {
