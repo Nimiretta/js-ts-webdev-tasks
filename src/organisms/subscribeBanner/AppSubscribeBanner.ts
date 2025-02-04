@@ -11,7 +11,7 @@ const buttonClasses = [
     paddingSmall,
     gapSmall,
     roundedFull,
-    'font-bold',
+    'font-medium',
 ];
 const inputClasses = [
     'flex',
@@ -27,12 +27,13 @@ export function NewsletterSubscription() {
     const subscriptionContainer = document.createElement('div');
     subscriptionContainer.classList.add(
         'flex',
-        'w-[77.5rem]',
+        'max-w-[77.5rem]',
         'p-[2.25rem_4rem]',
         'justify-between',
         'items-center',
         'rounded-[1.25rem]',
-        'bg-black'
+        'bg-black',
+        'mx-auto'
     );
 
     const title = AppTitle({

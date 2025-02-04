@@ -7,13 +7,12 @@ export function AppFooter(): HTMLElement {
     const footer = document.createElement('footer');
     footer.classList.add(
         'bg-bg-gray',
-        'py-8',
-        'px-10',
-        'sm:px-16',
-        'w-full',
+        'pb-8',
+        'max-w-[77.5rem]',
         'mt-auto',
         'flex',
-        'flex-col'
+        'flex-col',
+        'mx-auto'
     );
 
     const footerContainer = document.createElement('div');

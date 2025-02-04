@@ -1,0 +1,23 @@
+import { getRandomCartId } from '../../helpers/randomIds';
+import { AppHeader, NewsletterSubscription, AppFooter } from '../../organisms';
+
+export function AppBaseTemplate(): HTMLDivElement {
+    const container = document.createElement('div');
+    container.setAttribute('id', 'root');
+
+    const header = AppHeader(getRandomCartId());
+
+    const mainBlock = document.createElement('div');
+    mainBlock.setAttribute('id', 'app');
+    mainBlock.classList.add('max-w-[77.5rem]', 'mx-auto');
+
+    const footerWrapper = document.createElement('div');
+    footerWrapper.classList.add('bg-bg-gray', 'w-dvw', 'mt-36');
+    const subscribeBanner = NewsletterSubscription();
+    subscribeBanner.classList.add('-translate-y-1/2');
+    const footer = AppFooter();
+    footerWrapper.append(subscribeBanner, footer);
+
+    container.append(header, mainBlock, footerWrapper);
+    return container;
+}
