@@ -10,7 +10,7 @@ export function AppCategory({
     cards,
 }: TCategory): HTMLDivElement {
     const container = document.createElement('div');
-    container.classList.add('mb-[200px]');
+    container.classList.add('mt-6');
 
     const breadcrumbs = AppBreadcrumbs({ category });
     breadcrumbs.classList.add('pb-10');
@@ -54,51 +54,57 @@ async function applyFilterCb(params: TFilterCbParams) {
         .getElementById('title')
         ?.getAttribute('data-category');
     if (category && grid) {
-        const sortedProducts = await getProductsByCategory({
-            category,
-            sortOptions: !sort ? undefined : { sortBy: 'price', order: sort },
-        });
-        const filteredProducts = sortedProducts.filter((el) => {
-            return (
-                (!brands.length || brands.includes(el.brand)) &&
-                el.price >= price.min &&
-                el.price <= price.max
-            );
-        });
-        if (filteredProducts.length) {
-            const cards = filteredProducts.map((el) => {
-                return {
-                    productId: el.id,
-                    productTitle: el.title,
-                    fullPrice: el.price,
-                    discountRate: el.discountPercentage,
-                    ratingValue: el.rating,
-                    imgUrl: el.images[0],
-                };
+        try {
+            const sortedProducts = await getProductsByCategory({
+                category,
+                sortOptions: !sort
+                    ? undefined
+                    : { sortBy: 'price', order: sort },
             });
-            const gridUpd = AppGrid({
-                width: 'w-full',
-                columns: 3,
-                cards,
+            const filteredProducts = sortedProducts.filter((el) => {
+                return (
+                    (!brands.length || brands.includes(el.brand)) &&
+                    el.price >= price.min &&
+                    el.price <= price.max
+                );
             });
-            grid.replaceChildren(...gridUpd.children);
-        } else {
-            grid.innerHTML = '';
-            const noResultText = AppText({
-                tag: TextTag.P,
-                textContent: 'Nothing found',
-                classes: [
-                    'text-xl',
-                    'font-rubik',
-                    'font-bold',
-                    'border',
-                    'border-border-gray',
-                    'rounded-[1.25rem]',
-                    'p-5',
-                    'text-center',
-                ],
-            });
-            grid.append(noResultText);
+            if (filteredProducts.length) {
+                const cards = filteredProducts.map((el) => {
+                    return {
+                        productId: el.id,
+                        productTitle: el.title,
+                        fullPrice: el.price,
+                        discountRate: el.discountPercentage,
+                        ratingValue: el.rating,
+                        imgUrl: el.images[0],
+                    };
+                });
+                const gridUpd = AppGrid({
+                    width: 'w-full',
+                    columns: 3,
+                    cards,
+                });
+                grid.replaceChildren(...gridUpd.children);
+            } else {
+                grid.innerHTML = '';
+                const noResultText = AppText({
+                    tag: TextTag.P,
+                    textContent: 'Nothing found',
+                    classes: [
+                        'text-xl',
+                        'font-rubik',
+                        'font-bold',
+                        'border',
+                        'border-border-gray',
+                        'rounded-[1.25rem]',
+                        'p-5',
+                        'text-center',
+                    ],
+                });
+                grid.append(noResultText);
+            }
+        } catch (err) {
+            console.error('Filtering failed: ', err);
         }
     }
 }
