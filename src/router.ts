@@ -1,7 +1,6 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage, AppProductDetailPage } from './pages';
-import { AppHomePage } from './pages';
+import { AppCategoryPage, AppProductDetailPage, AppHomePage } from './pages';
 
 const router = new Navigo('/');
 
@@ -13,8 +12,10 @@ function renderBaseTemplate() {
 }
 
 function handleAsyncRouteChange(
-    handler: (params?: TAsyncRouterParams) => Promise<HTMLElement>,
-    params?: TAsyncRouterParams
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    handler: (params?: any) => Promise<HTMLElement>,
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    params?: any
 ) {
     renderBaseTemplate();
 
