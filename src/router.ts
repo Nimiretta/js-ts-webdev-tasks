@@ -1,7 +1,10 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage, AppConfirmationPage } from './pages';
-import { TAsyncRouterParams } from './types';
+import {
+    AppCategoryPage,
+    AppProductDetailPage,
+    AppConfirmationPage,
+} from './pages';
 
 const router = new Navigo('/');
 
@@ -13,8 +16,10 @@ function renderBaseTemplate() {
 }
 
 function handleAsyncRouteChange(
-    handler: (params?: TAsyncRouterParams) => Promise<HTMLElement>,
-    params?: TAsyncRouterParams
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    handler: (params?: any) => Promise<HTMLElement>,
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    params?: any
 ) {
     renderBaseTemplate();
 
@@ -27,10 +32,11 @@ function handleAsyncRouteChange(
     }
 }
 
- 
 function handleSyncRouteChange(
-    handler: (params?: unknown) => HTMLElement,
-    params?: unknown
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    handler: (params?: any) => HTMLElement,
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    params?: any
 ) {
     renderBaseTemplate();
 
@@ -45,11 +51,21 @@ function handleSyncRouteChange(
 router
     .on({
         '/': () => {},
-        '/product/:productId': () => {},
+        '/product/:productId': ({
+            data: { productId },
+        }: {
+            data: { productId: string | number };
+        }) =>
+            handleAsyncRouteChange(AppProductDetailPage, {
+                data: { productId },
+            }),
         '/cart/:cartId': () => {},
-        '/category/:categoryName': (params: {
+        '/category/:categoryName': ({
+            data: { categoryName },
+        }: {
             data: { categoryName: string };
-        }) => handleAsyncRouteChange(AppCategoryPage, params),
+        }) =>
+            handleAsyncRouteChange(AppCategoryPage, { data: { categoryName } }),
         '/confirmation': () => handleSyncRouteChange(AppConfirmationPage),
     })
     .resolve();
