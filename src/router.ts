@@ -1,5 +1,7 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
+import { TAsyncRouterParams } from './types';
+import { AppCartPage } from './pages';
 
 const router = new Navigo('/');
 
@@ -10,10 +12,9 @@ function renderBaseTemplate() {
     }
 }
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 function handleAsyncRouteChange(
-    handler: (params?: unknown) => Promise<HTMLElement>,
-    params?: unknown
+    handler: (params: TAsyncRouterParams) => Promise<HTMLElement>,
+    params: TAsyncRouterParams
 ) {
     renderBaseTemplate();
 
@@ -45,7 +46,11 @@ router
     .on({
         '/': () => {},
         '/product/:productId': () => {},
-        '/cart/:cartId': () => {},
+        '/cart/:cartId': ({
+            data: { cartId },
+        }: {
+            data: { cartId: string | number };
+        }) => handleAsyncRouteChange(AppCartPage, { data: { cartId } }),
     })
     .resolve();
 

@@ -10,7 +10,14 @@ export function AppOrderFlow({
     summaryParams,
 }: TOrderFlow): HTMLDivElement {
     const orderFlow = document.createElement('div');
-    orderFlow.classList.add('w-full', 'flex', 'flex-col', 'gap-5');
+    orderFlow.classList.add(
+        'w-full',
+        'flex',
+        'flex-col',
+        'gap-5',
+        'mt-6',
+        'mb-44'
+    );
 
     const breadcrumbs = AppBreadcrumbs({ page });
 
