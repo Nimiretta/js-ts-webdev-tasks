@@ -11,11 +11,11 @@ export function AppSignupBanner(): HTMLDivElement {
         'items-center',
         'justify-between',
         'py-2',
-        'px-banner',
+        'px-[6.25rem]',
         'top-0',
         'z-50',
         'min-w-160',
-        'max-w-[77.5rem]',
+        'max-w-[90rem]',
         'mx-auto'
     );
 
