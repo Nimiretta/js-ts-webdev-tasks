@@ -10,7 +10,11 @@ function renderBaseTemplate() {
     }
 }
 
-function handleAsyncRouteChange(handler: (params?: unknown) => Promise<HTMLElement>, params?: unknown) {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+function handleAsyncRouteChange(
+    handler: (params?: unknown) => Promise<HTMLElement>,
+    params?: unknown
+) {
     renderBaseTemplate();
 
     const app = document.getElementById('app');
@@ -18,19 +22,22 @@ function handleAsyncRouteChange(handler: (params?: unknown) => Promise<HTMLEleme
         handler(params).then((page) => {
             app.innerHTML = '';
             app.append(page);
-        })
+        });
     }
 }
 
-function handleSyncRouteChange(handler: (params?: unknown) => HTMLElement, params?: unknown) {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+function handleSyncRouteChange(
+    handler: (params?: unknown) => HTMLElement,
+    params?: unknown
+) {
     renderBaseTemplate();
-    
+
     const app = document.getElementById('app');
     if (app) {
         const page = handler(params);
         app.innerHTML = '';
         app.append(page);
-        
     }
 }
 
