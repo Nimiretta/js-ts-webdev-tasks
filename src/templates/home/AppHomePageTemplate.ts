@@ -53,7 +53,7 @@ export function AppHomePageTemplate(
             'flex-wrap',
             'text-black',
             'font-rubik',
-            'text-[4rem]',
+            'text-[4rem]/[4.5rem]',
             'font-bold',
             'whitespace-pre-line',
         ],
