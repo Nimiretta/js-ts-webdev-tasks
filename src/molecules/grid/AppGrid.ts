@@ -10,6 +10,7 @@ export function AppGrid({
     tiles,
     cards,
     gap = 'gap-4',
+    classes,
 }: TGrid): HTMLElement {
     const tileCount = tiles ? tiles.length : cards ? cards.length : 0;
     const calculatedRows = rows || Math.ceil(tileCount / columns);
@@ -34,6 +35,10 @@ export function AppGrid({
         cards.forEach((card) => {
             grid.appendChild(AppCard(card));
         });
+    }
+
+    if (classes) {
+        grid.classList.add(...classes);
     }
 
     return grid;
