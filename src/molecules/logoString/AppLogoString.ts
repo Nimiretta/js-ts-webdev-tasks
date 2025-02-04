@@ -39,8 +39,7 @@ export function AppLogoString(cartId: string | number): HTMLElement {
         'justify-between',
         'items-center',
         'py-9',
-        'px-[6.25rem]',
-        'max-w-[90rem]',
+        'max-w-[77.5rem]',
         'mx-auto'
     );
 

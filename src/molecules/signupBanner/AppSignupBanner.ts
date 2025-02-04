@@ -15,7 +15,7 @@ export function AppSignupBanner(): HTMLDivElement {
         'top-0',
         'z-50',
         'min-w-160',
-        'max-w-[90rem]',
+        'max-w-[77.5rem]',
         'mx-auto'
     );
 

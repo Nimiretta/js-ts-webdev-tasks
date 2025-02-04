@@ -16,7 +16,7 @@ export function AppHomePageTemplate(
     };
 
     const homePage = document.createElement('div');
-    homePage.classList.add('flex', 'flex-col', 'items-center', 'w-[90rem]');
+    homePage.classList.add('flex', 'flex-col', 'items-center', 'w-full');
 
     const heroSection = AppHeroSection();
     homePage.appendChild(heroSection);

@@ -1,22 +1,48 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage } from './pages';
-import { AppHomePage } from './pages';
-import { TAsyncRouterParams } from './types';
+import { AppCategoryPage, AppHomePage } from './pages';
 
 const router = new Navigo('/');
 
 function renderBaseTemplate() {
     const root = document.getElementById('root');
+    const heroBg = document.getElementById('hero-bg');
     if (!root) {
         document.body.append(AppBaseTemplate());
     }
+    if (heroBg) {
+        heroBg.remove();
+    }
 }
 
- 
+function renderFullHeroBg() {
+    const heroBg = document.createElement('div');
+    heroBg.setAttribute('id', 'hero-bg');
+    heroBg.classList.add(
+        'bg-bg-gray',
+        'w-dvw',
+        'absolute',
+        'left-0',
+        'h-[49rem]'
+    );
+    const logoBg = document.createElement('div');
+    logoBg.classList.add(
+        'bg-black',
+        'w-dvw',
+        'h-[7.625rem]',
+        'absolute',
+        'bottom-0'
+    );
+    const header = document.getElementById('header');
+    heroBg.append(logoBg);
+    header?.after(heroBg);
+}
+
 function handleAsyncRouteChange(
-    handler: (params?: TAsyncRouterParams) => Promise<HTMLElement>,
-    params?: TAsyncRouterParams
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    handler: (params?: any) => Promise<HTMLElement>,
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    params?: any
 ) {
     renderBaseTemplate();
 
@@ -31,8 +57,10 @@ function handleAsyncRouteChange(
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function handleSyncRouteChange(
-    handler: (params?: unknown) => HTMLElement,
-    params?: unknown
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    handler: (params?: any) => HTMLElement,
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    params?: any
 ) {
     renderBaseTemplate();
 
@@ -46,12 +74,18 @@ function handleSyncRouteChange(
 
 router
     .on({
-        '/': () => handleAsyncRouteChange(AppHomePage),
+        '/': () => {
+            handleAsyncRouteChange(AppHomePage);
+            renderFullHeroBg();
+        },
         '/product/:productId': () => {},
         '/cart/:cartId': () => {},
-        '/category/:categoryName': (params: {
+        '/category/:categoryName': ({
+            data: { categoryName },
+        }: {
             data: { categoryName: string };
-        }) => handleAsyncRouteChange(AppCategoryPage, params),
+        }) =>
+            handleAsyncRouteChange(AppCategoryPage, { data: { categoryName } }),
     })
     .resolve();
 
