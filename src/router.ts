@@ -1,11 +1,18 @@
 import Navigo from 'navigo';
+import { AppBaseTemplate } from './templates';
 
 const router = new Navigo('/');
 
+function renderBaseTemplate() {
+    const root = document.getElementById('root');
+    if (!root) {
+        document.body.append(AppBaseTemplate());
+    }
+}
+
 function handleAsyncRouteChange(handler: (params?: unknown) => Promise<HTMLElement>, params?: unknown) {
-    const newApp = document.createElement('div');
-    newApp.setAttribute('id', 'app');
-    document.body.append(newApp);
+    renderBaseTemplate();
+
     const app = document.getElementById('app');
     if (app) {
         handler(params).then((page) => {
@@ -16,9 +23,8 @@ function handleAsyncRouteChange(handler: (params?: unknown) => Promise<HTMLEleme
 }
 
 function handleSyncRouteChange(handler: (params?: unknown) => HTMLElement, params?: unknown) {
-    const newApp = document.createElement('div');
-    newApp.setAttribute('id', 'app');
-    document.body.append(newApp);
+    renderBaseTemplate();
+    
     const app = document.getElementById('app');
     if (app) {
         const page = handler(params);
