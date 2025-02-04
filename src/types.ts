@@ -287,11 +287,3 @@ export type TCategory = {
     brands: string[];
     cards: TCard[];
 };
-
-type TCategoryPage = {
-    categoryName: string;
-};
-
-export type TAsyncRouterParams = {
-    data: TCategoryPage;
-};

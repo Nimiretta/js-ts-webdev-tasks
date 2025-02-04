@@ -1,13 +1,12 @@
 import { getProductsByCategory } from '../../backend';
 import { AppCategory } from '../../templates';
 
-export async function AppCategoryPage(params: {
+export async function AppCategoryPage({
+    data: { categoryName },
+}: {
     data: { categoryName: string };
 }): Promise<HTMLElement> {
     const page = document.createElement('main');
-    const {
-        data: { categoryName },
-    } = params;
     try {
         const products = await getProductsByCategory({
             category: categoryName,

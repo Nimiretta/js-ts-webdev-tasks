@@ -9,6 +9,7 @@ export function AppProductDetail({
     product,
 }: TProductDetails): HTMLDivElement {
     const container = document.createElement('div');
+    container.classList.add('mt-6', 'mb-44');
 
     const breadcrumbs = AppBreadcrumbs({ category, product: productTitle });
     breadcrumbs.classList.add('pb-10');
