@@ -1,19 +1,12 @@
 import { getProductsByCategory } from '../../backend';
 import { AppCategory } from '../../templates';
-import { TAsyncRouterParams } from '../../types';
 
-export async function AppCategoryPage(
-    params?: TAsyncRouterParams
-): Promise<HTMLElement> {
+export async function AppCategoryPage({
+    data: { categoryName },
+}: {
+    data: { categoryName: string };
+}): Promise<HTMLElement> {
     const page = document.createElement('main');
-
-    if (!params?.data?.categoryName) {
-        page.innerHTML = `<h1>Error</h1> <pre>Invalid category name</pre>`;
-        return page;
-    }
-
-    const { categoryName } = params.data;
-
     try {
         const products = await getProductsByCategory({
             category: categoryName,
