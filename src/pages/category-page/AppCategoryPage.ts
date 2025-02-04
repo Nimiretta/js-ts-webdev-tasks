@@ -30,6 +30,8 @@ export async function AppCategoryPage(params: {
                 cards,
             });
             page.append(container);
+        } else {
+            throw new Error(`Category ${categoryName} not found`);
         }
     } catch (err) {
         page.innerHTML = `<h1>Error</h1> <pre>${err}</pre>`;
