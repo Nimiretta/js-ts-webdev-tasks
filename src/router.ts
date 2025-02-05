@@ -4,6 +4,7 @@ import {
     AppCategoryPage,
     AppProductDetailPage,
     AppHomePage,
+    AppCartPage,
     AppPaymentPage,
 } from './pages';
 
@@ -91,7 +92,11 @@ router
             handleAsyncRouteChange(AppProductDetailPage, {
                 data: { productId },
             }),
-        '/cart/:cartId': () => {},
+        '/cart/:cartId': ({
+            data: { cartId },
+        }: {
+            data: { cartId: string | number };
+        }) => handleAsyncRouteChange(AppCartPage, { data: { cartId } }),
         '/category/:categoryName': ({
             data: { categoryName },
         }: {
