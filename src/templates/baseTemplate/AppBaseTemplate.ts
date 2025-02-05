@@ -9,7 +9,7 @@ export function AppBaseTemplate(): HTMLDivElement {
 
     const mainBlock = document.createElement('div');
     mainBlock.setAttribute('id', 'app');
-    mainBlock.classList.add('max-w-[90rem]', 'mx-auto');
+    mainBlock.classList.add('max-w-[77.5rem]', 'mx-auto');
 
     const footerWrapper = document.createElement('div');
     footerWrapper.classList.add('bg-bg-gray', 'mt-36', 'w-dvw');
