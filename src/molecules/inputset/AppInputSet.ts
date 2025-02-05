@@ -66,13 +66,13 @@ export function AppInputSet({
             return;
         }
         try {
-            const isDeleted = await additionalAction?.callback(
+            const isSuccess = await additionalAction?.callback(
                 additionalAction.param
             );
-            if (isDeleted) {
+            if (isSuccess) {
                 router.navigate(path);
             } else {
-                throw new Error('Cart processing failed');
+                throw new Error('Something went wrong');
             }
         } catch (err) {
             container.innerHTML = `<h1>Error</h1> <pre>${err}</pre>`;
