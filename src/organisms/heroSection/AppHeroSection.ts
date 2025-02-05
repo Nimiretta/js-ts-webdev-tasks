@@ -20,11 +20,15 @@ const LOGOS_DATA = [
 export function AppHeroSection(): HTMLElement {
     const heroSection = document.createElement('section');
     heroSection.classList.add('hero-section');
-    heroSection.style.background = `url(${new URL('./heroImg.png', import.meta.url).href}) no-repeat`;
 
+    const container = document.createElement('div');
+    container.classList.add('flex', 'justify-between', 'bg-bg-gray');
+
+    const textStatsContainer = document.createElement('div');
+    textStatsContainer.classList.add('w-1/2');
     const textContainer = document.createElement('div');
     textContainer.classList.add('text-container');
-    heroSection.appendChild(textContainer);
+    textStatsContainer.append(textContainer);
 
     const heroText = AppTitleText({
         titleText: 'FIND ANYTHING THAT MATCHES YOUR STYLE',
@@ -80,7 +84,11 @@ export function AppHeroSection(): HTMLElement {
         }
     });
 
-    heroSection.appendChild(statsContainer);
+    textStatsContainer.append(statsContainer);
+    const img = document.createElement('img');
+    img.src = new URL('./heroImg.png', import.meta.url).href;
+    img.alt = 'background picture';
+    container.append(textStatsContainer, img);
 
     const logosContainer = document.createElement('div');
     logosContainer.classList.add('logos-container');
@@ -93,7 +101,7 @@ export function AppHeroSection(): HTMLElement {
         logosContainer.appendChild(brandLogo);
     });
 
-    heroSection.appendChild(logosContainer);
+    heroSection.append(container, logosContainer);
 
     return heroSection;
 }

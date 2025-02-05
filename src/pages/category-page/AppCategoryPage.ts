@@ -7,6 +7,7 @@ export async function AppCategoryPage({
     data: { categoryName: string };
 }): Promise<HTMLElement> {
     const page = document.createElement('main');
+
     try {
         const products = await getProductsByCategory({
             category: categoryName,

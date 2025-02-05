@@ -12,13 +12,7 @@ export function AppBaseTemplate(): HTMLDivElement {
     mainBlock.classList.add('max-w-[90rem]', 'mx-auto');
 
     const footerWrapper = document.createElement('div');
-    footerWrapper.classList.add(
-        'bg-bg-gray',
-        'mt-36',
-        'max-w-[90rem]',
-        'mx-auto',
-        'px-[6.25rem]'
-    );
+    footerWrapper.classList.add('bg-bg-gray', 'mt-36', 'w-dvw');
     const subscribeBanner = NewsletterSubscription();
     subscribeBanner.classList.add('-translate-y-1/2');
     const footer = AppFooter();

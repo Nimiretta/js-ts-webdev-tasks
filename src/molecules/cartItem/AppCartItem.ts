@@ -12,7 +12,7 @@ export function AppCartItem({
 }: TCartItem): HTMLDivElement {
     const cartItem = document.createElement('div');
     cartItem.classList.add(
-        'w-[667px]',
+        'w-full',
         'h-[118px]',
         'cursor-pointer',
         'flex',
@@ -20,8 +20,7 @@ export function AppCartItem({
         'gap-4',
         'border-none',
         'relative',
-        'rounded-md',
-        'p-4'
+        'rounded-md'
     );
 
     const imgTile = AppTile({

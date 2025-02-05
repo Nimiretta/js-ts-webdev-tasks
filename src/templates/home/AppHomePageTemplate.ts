@@ -16,13 +16,7 @@ export function AppHomePageTemplate(
     };
 
     const homePage = document.createElement('div');
-    homePage.classList.add(
-        'flex',
-        'flex-col',
-        'items-center',
-        'p-8',
-        'w-[90rem]'
-    );
+    homePage.classList.add('flex', 'flex-col', 'items-center', 'w-full');
 
     const heroSection = AppHeroSection();
     homePage.appendChild(heroSection);
@@ -65,7 +59,7 @@ export function AppHomePageTemplate(
         height: 'h-auto',
         columns: 4,
         tiles: categoryTiles,
-        classes: ['grid', 'place-items-center', 'px-16'],
+        classes: ['grid', 'place-items-center'],
     });
 
     categoriesSection.appendChild(categoryGrid);
