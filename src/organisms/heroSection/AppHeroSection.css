@@ -1,17 +1,17 @@
 /* Hero Section */
 .hero-section {
-    width: 90rem;
+    width: 100%;
     height: 49rem;
-    background-size: cover;
     position: relative;
     display: flex;
     flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Text Container */
 .text-container {
     padding-top: 6.4375rem;
-    padding-left: 6.25rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -19,10 +19,8 @@
 
 /* Stats Container */
 .stats-container {
-    width: 44.6875rem;
     height: auto;
     margin-top: 3rem;
-    padding-left: 6.25rem;
     display: flex;
     gap: 1.5rem;
     font-family: 'Rubik', sans-serif;
@@ -31,15 +29,14 @@
 /* Stat Separator */
 .stat-separator {
     width: 1px;
-    height: 100%;
+    height: auto;
+    z-index: 20;
     background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Logos Container */
 .logos-container {
     height: 7.625rem;
-    padding-left: 6.125rem;
-    padding-right: 6.125rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

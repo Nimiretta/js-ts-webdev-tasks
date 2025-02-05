@@ -1,14 +1,46 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage, AppProductDetailPage, AppCartPage } from './pages';
+import {
+    AppCategoryPage,
+    AppProductDetailPage,
+    AppHomePage,
+    AppCartPage,
+} from './pages';
 
 const router = new Navigo('/');
 
 function renderBaseTemplate() {
     const root = document.getElementById('root');
+    const heroBg = document.getElementById('hero-bg');
     if (!root) {
         document.body.append(AppBaseTemplate());
     }
+    if (heroBg) {
+        heroBg.remove();
+    }
+}
+
+function renderFullHeroBg() {
+    const heroBg = document.createElement('div');
+    heroBg.setAttribute('id', 'hero-bg');
+    heroBg.classList.add(
+        'bg-bg-gray',
+        'w-dvw',
+        'absolute',
+        'left-0',
+        'h-[49rem]'
+    );
+    const logoBg = document.createElement('div');
+    logoBg.classList.add(
+        'bg-black',
+        'w-dvw',
+        'h-[7.625rem]',
+        'absolute',
+        'bottom-0'
+    );
+    const header = document.getElementById('header');
+    heroBg.append(logoBg);
+    header?.after(heroBg);
 }
 
 function handleAsyncRouteChange(
@@ -47,7 +79,10 @@ function handleSyncRouteChange(
 
 router
     .on({
-        '/': () => {},
+        '/': () => {
+            handleAsyncRouteChange(AppHomePage);
+            renderFullHeroBg();
+        },
         '/product/:productId': ({
             data: { productId },
         }: {
