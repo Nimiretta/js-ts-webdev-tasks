@@ -22,8 +22,8 @@ export async function AppCheckoutPage({
                 },
             };
             const container = AppOrderFlow({
-                page: 'payment',
-                titleText: 'Payment',
+                page: 'checkout',
+                titleText: 'Checkout',
                 dynamicPart: {
                     createLeftComp: AppInputSet,
                     params: {
