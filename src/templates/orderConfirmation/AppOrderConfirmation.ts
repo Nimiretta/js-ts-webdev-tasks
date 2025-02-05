@@ -8,12 +8,7 @@ export function AppOrderConfirmation({
     page = 'confirmation',
 }: TOrderConfirmation): HTMLDivElement {
     const container = document.createElement('div');
-    container.classList.add(
-        'order-confirmation-container',
-        'max-w-[1200px]',
-        'mx-auto',
-        'p-5'
-    );
+    container.classList.add('mt-6', 'mb-[29rem]');
 
     const breadcrumbs = AppBreadcrumbs({ page });
     breadcrumbs.classList.add('pb-10');
