@@ -13,36 +13,23 @@ const router = new Navigo('/');
 
 function renderBaseTemplate() {
     const root = document.getElementById('root');
-    const heroBg = document.getElementById('hero-bg');
     if (!root) {
         document.body.append(AppBaseTemplate());
     }
-    if (heroBg) {
-        heroBg.remove();
+}
+
+function cleanHeroBg() {
+    const currentRoute = router.getCurrentLocation();
+    if (currentRoute.url) {
+        const heroBg = document.getElementById('hero-bg');
+        if (heroBg) {
+            heroBg.remove();
+        }
     }
 }
 
-function renderFullHeroBg() {
-    const heroBg = document.createElement('div');
-    heroBg.setAttribute('id', 'hero-bg');
-    heroBg.classList.add(
-        'bg-bg-gray',
-        'w-dvw',
-        'absolute',
-        'left-0',
-        'h-[49rem]'
-    );
-    const logoBg = document.createElement('div');
-    logoBg.classList.add(
-        'bg-black',
-        'w-dvw',
-        'h-[7.625rem]',
-        'absolute',
-        'bottom-0'
-    );
-    const header = document.getElementById('header');
-    heroBg.append(logoBg);
-    header?.after(heroBg);
+function scrollToTop() {
+    window.scroll({ top: 0 });
 }
 
 function handleAsyncRouteChange(
@@ -56,8 +43,10 @@ function handleAsyncRouteChange(
     const app = document.getElementById('app');
     if (app) {
         handler(params).then((page) => {
+            cleanHeroBg();
             app.innerHTML = '';
             app.append(page);
+            scrollToTop();
         });
     }
 }
@@ -74,8 +63,10 @@ function handleSyncRouteChange(
     const app = document.getElementById('app');
     if (app) {
         const page = handler(params);
+        cleanHeroBg();
         app.innerHTML = '';
         app.append(page);
+        scrollToTop();
     }
 }
 
@@ -83,7 +74,6 @@ router
     .on({
         '/': () => {
             handleAsyncRouteChange(AppHomePage);
-            renderFullHeroBg();
         },
         '/product/:productId': ({
             data: { productId },
