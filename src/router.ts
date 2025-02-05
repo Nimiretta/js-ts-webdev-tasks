@@ -1,6 +1,6 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage, AppCartPage } from './pages';
+import { AppCategoryPage, AppProductDetailPage, AppCartPage } from './pages';
 
 const router = new Navigo('/');
 
@@ -15,7 +15,7 @@ function handleAsyncRouteChange(
     /* eslint-disable @typescript-eslint/no-explicit-any */
     handler: (params?: any) => Promise<HTMLElement>,
     /* eslint-disable @typescript-eslint/no-explicit-any */
-    params: any
+    params?: any
 ) {
     renderBaseTemplate();
 
@@ -48,7 +48,14 @@ function handleSyncRouteChange(
 router
     .on({
         '/': () => {},
-        '/product/:productId': () => {},
+        '/product/:productId': ({
+            data: { productId },
+        }: {
+            data: { productId: string | number };
+        }) =>
+            handleAsyncRouteChange(AppProductDetailPage, {
+                data: { productId },
+            }),
         '/cart/:cartId': ({
             data: { cartId },
         }: {
