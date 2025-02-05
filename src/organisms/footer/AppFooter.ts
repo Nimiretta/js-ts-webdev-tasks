@@ -8,7 +8,7 @@ export function AppFooter(): HTMLElement {
     footer.classList.add(
         'bg-bg-gray',
         'pb-8',
-        'max-w-[90rem]',
+        'max-w-[77.5rem]',
         'mt-auto',
         'flex',
         'flex-col',
