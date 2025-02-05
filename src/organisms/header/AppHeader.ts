@@ -4,7 +4,7 @@ export function AppHeader(cartId: string | number): HTMLDivElement {
     const header = document.createElement('div');
     header.setAttribute('id', 'header');
     const signupWrapper = document.createElement('div');
-    signupWrapper.classList.add('bg-black', 'w-[90rem]', 'mx-auto');
+    signupWrapper.classList.add('bg-black', 'w-dvw');
     const signupBanner = AppSignupBanner();
     signupWrapper.append(signupBanner);
 
