@@ -65,5 +65,29 @@ export function AppHomePageTemplate(
     categoriesSection.appendChild(categoryGrid);
     homePage.appendChild(categoriesSection);
 
+    renderFullHeroBg();
     return homePage;
+}
+
+function renderFullHeroBg() {
+    const heroBg = document.createElement('div');
+    heroBg.setAttribute('id', 'hero-bg');
+    heroBg.classList.add(
+        'bg-bg-gray',
+        'w-dvw',
+        'absolute',
+        'left-0',
+        'h-[49rem]'
+    );
+    const logoBg = document.createElement('div');
+    logoBg.classList.add(
+        'bg-black',
+        'w-dvw',
+        'h-[7.625rem]',
+        'absolute',
+        'bottom-0'
+    );
+    const header = document.getElementById('header');
+    heroBg.append(logoBg);
+    header?.after(heroBg);
 }
