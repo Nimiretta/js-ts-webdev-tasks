@@ -99,7 +99,7 @@ function validateCardNumber(input: TInputContainer): boolean {
     }
 
     if (value.length < 3 || value.length > 32) {
-        input.setError(true, 'Length should be 30-32 symbols');
+        input.setError(true, 'Length should be 3-32 symbols');
         return false;
     }
     return true;

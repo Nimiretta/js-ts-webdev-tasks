@@ -43,6 +43,9 @@ export function AppInputSet({
             section.inputs.forEach((inputConfig: TInput) => {
                 const input = AppInput(inputConfig);
                 sectionContainer.appendChild(input.container);
+                if (inputConfig.id) {
+                    formInputs[inputConfig.id] = input;
+                }
             });
 
             container.appendChild(sectionContainer);
@@ -66,9 +69,9 @@ export function AppInputSet({
             return;
         }
         try {
-            const isSuccess = await additionalAction?.callback(
-                additionalAction.param
-            );
+            const isSuccess = additionalAction
+                ? await additionalAction.callback(additionalAction.param)
+                : true;
             if (isSuccess) {
                 router.navigate(path);
             } else {
