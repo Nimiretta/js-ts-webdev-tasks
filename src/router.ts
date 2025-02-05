@@ -1,6 +1,11 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage, AppProductDetailPage, AppHomePage } from './pages';
+import {
+    AppCategoryPage,
+    AppProductDetailPage,
+    AppHomePage,
+    AppPaymentPage,
+} from './pages';
 
 const router = new Navigo('/');
 
@@ -93,6 +98,11 @@ router
             data: { categoryName: string };
         }) =>
             handleAsyncRouteChange(AppCategoryPage, { data: { categoryName } }),
+        '/payment/:cartId': ({
+            data: { cartId },
+        }: {
+            data: { cartId: string | number };
+        }) => handleAsyncRouteChange(AppPaymentPage, { data: { cartId } }),
     })
     .resolve();
 

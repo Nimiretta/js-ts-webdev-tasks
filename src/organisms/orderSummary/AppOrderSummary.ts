@@ -54,12 +54,17 @@ export function AppOrderSummary({
         valueSize: 'text-2xl',
     });
 
+    let onClick;
+    if (btnPath) {
+        onClick = () => router.navigate(btnPath);
+    }
+
     const iconSrc = new URL('./arrow.svg', import.meta.url).href;
     const btn = AppButton({
         type: btnForm?.btnType,
         innerHTML: `${btnText} <img src="${iconSrc}" alt="arrow" class="w-6 h-6" />`,
         classes: ['flex', 'gap-3', 'justify-center', 'h-14', 'items-center'],
-        onClick: () => router.navigate(btnPath),
+        onClick,
     });
     if (btnForm) {
         btn.setAttribute('form', btnForm.formId);
