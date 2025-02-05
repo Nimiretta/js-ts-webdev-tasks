@@ -14,7 +14,8 @@ export function AppPrice({
         'flex',
         'gap-2',
         mainTextSize,
-        'items-center'
+        'items-center',
+        'flex-wrap'
     );
     const elementsToAppend = [];
 
