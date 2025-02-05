@@ -16,7 +16,7 @@ export function AppOrderFlow({
         'flex-col',
         'gap-5',
         'mt-6',
-        'mb-44'
+        'mb-52'
     );
 
     const breadcrumbs = AppBreadcrumbs({ page });
