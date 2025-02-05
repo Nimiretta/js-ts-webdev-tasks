@@ -6,6 +6,7 @@ import {
     AppHomePage,
     AppCartPage,
     AppPaymentPage,
+    AppConfirmationPage,
 } from './pages';
 
 const router = new Navigo('/');
@@ -61,7 +62,6 @@ function handleAsyncRouteChange(
     }
 }
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 function handleSyncRouteChange(
     /* eslint-disable @typescript-eslint/no-explicit-any */
     handler: (params?: any) => HTMLElement,
@@ -108,6 +108,7 @@ router
         }: {
             data: { cartId: string | number };
         }) => handleAsyncRouteChange(AppPaymentPage, { data: { cartId } }),
+        '/confirmation': () => handleSyncRouteChange(AppConfirmationPage),
     })
     .resolve();
 
