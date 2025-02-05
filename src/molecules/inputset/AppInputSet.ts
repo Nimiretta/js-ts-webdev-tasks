@@ -1,8 +1,12 @@
 import { AppInput } from '../../atoms';
-import { TInput, TInputSet } from '../../types';
+import router from '../../router';
+import { TInput, TInputContainer, TInputSet } from '../../types';
 
 export function AppInputSet({
     formId,
+    validateForm,
+    additionalAction,
+    path,
     inputs,
     sections,
 }: TInputSet): HTMLFormElement {
@@ -19,10 +23,15 @@ export function AppInputSet({
         'border-border-gray'
     );
 
+    const formInputs: { [key: string]: TInputContainer } = {};
+
     if (inputs) {
         inputs.forEach((inputConfig) => {
             const input = AppInput(inputConfig);
             container.appendChild(input.container);
+            if (inputConfig.id) {
+                formInputs[inputConfig.id] = input;
+            }
         });
     }
 
@@ -49,6 +58,26 @@ export function AppInputSet({
             }
         });
     }
+
+    container.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const isValidationPassed = validateForm(formInputs);
+        if (!isValidationPassed) {
+            return;
+        }
+        try {
+            const isSuccess = await additionalAction?.callback(
+                additionalAction.param
+            );
+            if (isSuccess) {
+                router.navigate(path);
+            } else {
+                throw new Error('Something went wrong');
+            }
+        } catch (err) {
+            container.innerHTML = `<h1>Error</h1> <pre>${err}</pre>`;
+        }
+    });
 
     return container;
 }

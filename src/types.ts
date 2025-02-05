@@ -53,6 +53,14 @@ export type TInput = {
     label?: string;
     error?: boolean;
     bgColor?: string;
+    id?: string;
+    formatter?: (str: string) => string;
+};
+
+export type TInputContainer = {
+    container: HTMLDivElement;
+    setError: (hasError: boolean, message?: string) => void;
+    getValue: () => string;
 };
 
 export type TText = {
@@ -223,7 +231,7 @@ export type TOrderSummary = {
     total: number;
     discountedTotal: number;
     btnText: string;
-    btnPath: string;
+    btnPath?: string;
     btnForm?: {
         btnType: 'submit';
         formId: string;
@@ -232,6 +240,12 @@ export type TOrderSummary = {
 
 export type TInputSet = {
     formId: string;
+    validateForm: (inputs: { [key: string]: TInputContainer }) => boolean;
+    additionalAction?: {
+        callback: (value: string | number) => void;
+        param: string | number;
+    };
+    path: string;
     inputs?: TInput[];
     sections?: TInputSection[];
 };

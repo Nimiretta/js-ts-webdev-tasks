@@ -1,4 +1,4 @@
-import { TInput } from '../../types';
+import { TInput, TInputContainer } from '../../types';
 
 export function AppInput({
     type = 'text',
@@ -9,13 +9,14 @@ export function AppInput({
     label,
     error = false,
     bgColor = 'bg-bg-gray',
-}: TInput): {
-    container: HTMLDivElement;
-    setError: (hasError: boolean, message?: string) => void;
-    getValue: () => string;
-} {
+    id,
+    formatter,
+}: TInput): TInputContainer {
     const container = document.createElement('div');
     container.classList.add('flex', 'flex-col');
+    if (id) {
+        container.setAttribute('id', id);
+    }
 
     const wrapper = document.createElement('div');
     wrapper.classList.add(
@@ -63,7 +64,12 @@ export function AppInput({
     wrapper.appendChild(input);
 
     const errorContainer = document.createElement('div');
-    errorContainer.classList.add('text-discount-text-red', 'text-sm', 'mt-1');
+    errorContainer.classList.add(
+        'text-discount-text-red',
+        'text-sm',
+        'mt-1',
+        'pl-6'
+    );
     errorContainer.style.display = error ? 'block' : 'none';
 
     container.appendChild(wrapper);
@@ -85,6 +91,12 @@ export function AppInput({
     };
 
     const getValue = () => input.value;
+
+    if (formatter)
+        input.addEventListener('input', () => {
+            const oldVal = input.value;
+            input.value = formatter(oldVal);
+        });
 
     return { container, setError, getValue };
 }

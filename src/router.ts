@@ -5,6 +5,7 @@ import {
     AppProductDetailPage,
     AppHomePage,
     AppCartPage,
+    AppPaymentPage,
 } from './pages';
 
 const router = new Navigo('/');
@@ -102,6 +103,11 @@ router
             data: { categoryName: string };
         }) =>
             handleAsyncRouteChange(AppCategoryPage, { data: { categoryName } }),
+        '/payment/:cartId': ({
+            data: { cartId },
+        }: {
+            data: { cartId: string | number };
+        }) => handleAsyncRouteChange(AppPaymentPage, { data: { cartId } }),
     })
     .resolve();
 
