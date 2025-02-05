@@ -1,4 +1,4 @@
-import { AppOrderFlow } from '../../templates';
+import { AppOrderConfirmation, AppOrderFlow } from '../../templates';
 import { AppCartList } from '../../organisms';
 import { getCart } from '../../backend';
 
@@ -39,7 +39,12 @@ export async function AppCartPage({
             });
             page.append(container);
         } else {
-            throw new Error(`Cart with ID ${cartId} not found`);
+            const container = AppOrderConfirmation({
+                title: 'Your cart',
+                description: 'Cart is empty',
+                page: 'cart',
+            });
+            page.append(container);
         }
     } catch (err) {
         page.innerHTML = `<h1>Error</h1> <pre>${err}</pre>`;
