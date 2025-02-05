@@ -1,6 +1,6 @@
 import Navigo from 'navigo';
 import { AppBaseTemplate } from './templates';
-import { AppCategoryPage, AppHomePage } from './pages';
+import { AppCategoryPage, AppProductDetailPage, AppHomePage } from './pages';
 
 const router = new Navigo('/');
 
@@ -78,7 +78,14 @@ router
             handleAsyncRouteChange(AppHomePage);
             renderFullHeroBg();
         },
-        '/product/:productId': () => {},
+        '/product/:productId': ({
+            data: { productId },
+        }: {
+            data: { productId: string | number };
+        }) =>
+            handleAsyncRouteChange(AppProductDetailPage, {
+                data: { productId },
+            }),
         '/cart/:cartId': () => {},
         '/category/:categoryName': ({
             data: { categoryName },
