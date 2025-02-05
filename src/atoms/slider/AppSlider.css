@@ -58,14 +58,18 @@
     content: attr(data-low);
     top: 100%;
     margin-top: calc(var(--range-slider-thumb-size) / 4);
-    left: var(--range-slider-value-low-fallback);
+    left: 0%;
+    transform: none;
 }
 .range-slider__display::after {
     --pos: var(--range-slider-value-high);
     content: attr(data-high);
     top: 100%;
     margin-top: calc(var(--range-slider-thumb-size) / 4);
-    left: var(--range-slider-value-high-fallback);
+    left: auto;
+    right: 0;
+    transform: none;
+    text-align: right;
 }
 .range-slider__input {
     -webkit-appearance: none;

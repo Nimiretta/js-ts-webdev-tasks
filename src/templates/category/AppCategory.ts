@@ -62,10 +62,16 @@ async function applyFilterCb(params: TFilterCbParams) {
                     : { sortBy: 'price', order: sort },
             });
             const filteredProducts = sortedProducts.filter((el) => {
+                const discountedPrice = Number(
+                    (
+                        el.price -
+                        (el.price * el.discountPercentage) / 100
+                    ).toFixed(2)
+                );
                 return (
                     (!brands.length || brands.includes(el.brand)) &&
-                    el.price >= price.min &&
-                    el.price <= price.max
+                    discountedPrice >= price.min &&
+                    discountedPrice <= price.max
                 );
             });
             if (filteredProducts.length) {
