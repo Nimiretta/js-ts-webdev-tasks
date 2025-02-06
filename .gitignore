@@ -28,4 +28,4 @@ coverage
 *.sw?
 
 # Ignore buildStyle.css
-buildStyle.css
+# buildStyle.css
