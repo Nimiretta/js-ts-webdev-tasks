@@ -8,7 +8,7 @@ export function AppLabelLink(
 ): HTMLElement {
     const labelLink = document.createElement('a');
     const textColor = isActive ? 'text-black' : 'text-text-primary';
-    labelLink.classList.add(textColor, 'font-rubik', 'text-base');
+    labelLink.classList.add(textColor, 'font-rubik', 'lg:text-base', 'text-sm');
     labelLink.textContent = text;
     return labelLink;
 }

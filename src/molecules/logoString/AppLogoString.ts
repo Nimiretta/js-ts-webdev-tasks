@@ -9,7 +9,19 @@ export function AppLogoString(cartId: string | number): HTMLElement {
         router.navigate('/');
     });
     logo.classList.add('cursor-pointer');
-    logoStr.append(logo);
+
+    const burgerIcon = AppIconLink({
+        iconName: 'burger',
+        width: 'w-[24px]',
+        height: 'w-[24px]',
+    });
+    burgerIcon.classList.add('lg:hidden');
+    const logoDiv = document.createElement('div');
+    logoDiv.classList.add('flex', 'items-center', 'gap-4');
+    logoDiv.append(burgerIcon, logo);
+
+    logoStr.append(logoDiv);
+
     const iconsBlock = document.createElement('div');
     iconsBlock.classList.add('flex', 'gap-[14px]');
 
@@ -38,9 +50,12 @@ export function AppLogoString(cartId: string | number): HTMLElement {
         'flex-row',
         'justify-between',
         'items-center',
-        'py-9',
+        'lg:py-9',
+        'py-4',
         'max-w-[77.5rem]',
-        'mx-auto'
+        'mx-auto',
+        'lg:px-0',
+        'px-4'
     );
 
     return logoStr;

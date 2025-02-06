@@ -26,21 +26,21 @@ export function AppOrderSummary({
     const title = AppTitle({
         tag: TitleTag.H3,
         textContent: 'Order Summary',
-        classes: ['font-rubik', 'text-2xl', 'text-black'],
+        classes: ['font-rubik', 'lg:text-2xl', 'text-xl', 'text-black'],
     });
 
     const subTotalBlock = createLineBlock({
         textContent: 'Subtotal',
         value: `$${total.toFixed(2)}`,
         valueColor: 'text-black',
-        valueSize: 'text-xl',
+        valueSize: ['lg:text-xl', 'text-base'],
     });
 
     const discountBlock = createLineBlock({
         textContent: `Discount (-${Math.round(((total - discountedTotal) / total) * 100)}%)`,
         value: `-$${(total - discountedTotal).toFixed(2)}`,
         valueColor: 'text-discount-text-red',
-        valueSize: 'text-xl',
+        valueSize: ['lg:text-xl', 'text-base'],
     });
 
     const divider = document.createElement('div');
@@ -51,7 +51,7 @@ export function AppOrderSummary({
         textColor: 'text-black',
         value: `$${discountedTotal.toFixed(2)}`,
         valueColor: 'text-black',
-        valueSize: 'text-2xl',
+        valueSize: ['lg:text-2xl', 'text-xl'],
     });
 
     let onClick;
@@ -92,7 +92,7 @@ function createLineBlock({
     textColor?: string;
     value: string;
     valueColor: string;
-    valueSize: string;
+    valueSize: string[];
 }): HTMLDivElement {
     const block = document.createElement('div');
     block.classList.add('flex', 'justify-between', 'items-center');
@@ -101,14 +101,14 @@ function createLineBlock({
         tag: TextTag.P,
         textContent,
         textColor,
-        classes: ['font-rubik', 'text-xl'],
+        classes: ['font-rubik', 'lg:text-xl', 'text-base'],
     });
 
     const valueBlock = AppText({
         tag: TextTag.P,
         textContent: value,
         textColor: valueColor,
-        classes: ['font-rubik', 'font-bold', 'text-right', valueSize],
+        classes: ['font-rubik', 'font-bold', 'text-right', ...valueSize],
     });
 
     block.append(nameBlock, valueBlock);

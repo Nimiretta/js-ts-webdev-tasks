@@ -14,7 +14,7 @@ export function AppFilterBlock(
     const filterBlock = document.createElement('div');
     filterBlock.setAttribute('id', 'filterBlock');
     filterBlock.classList.add(
-        'flex',
+        'lg:flex',
         'flex-col',
         'gap-6',
         'p-6',
@@ -23,7 +23,8 @@ export function AppFilterBlock(
         'border-border-gray',
         'font-rubik',
         'w-1/4',
-        'h-fit'
+        'h-fit',
+        'hidden'
     );
 
     const header = document.createElement('div');

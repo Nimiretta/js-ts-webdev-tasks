@@ -6,14 +6,16 @@ export function AppPrice({
     showDiscountedPrice = true,
     isBigText = false, // true for product detail page
 }: TPrice): HTMLElement {
-    const mainTextSize = isBigText ? 'text-3xl' : 'text-2xl';
+    const mainTextSize = isBigText
+        ? ['text-3xl', 'text-2xl']
+        : ['lg:text-2xl', 'text-xl'];
 
     const price = document.createElement('div');
     price.classList.add(
         'font-rubik',
         'flex',
         'gap-2',
-        mainTextSize,
+        ...mainTextSize,
         'items-center',
         'flex-wrap'
     );

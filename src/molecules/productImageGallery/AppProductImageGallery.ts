@@ -5,14 +5,20 @@ export function AppProductImageGallery(images: string[]): HTMLDivElement {
     let mainImage: string = images[0];
 
     const gallery = document.createElement('div');
-    gallery.classList.add('flex', 'gap-4');
+    gallery.classList.add('flex', 'gap-4', 'lg:flex-row', 'flex-col-reverse');
 
     const alternativeImagesContainer = document.createElement('div');
-    alternativeImagesContainer.classList.add('flex', 'flex-col', 'gap-4');
+    alternativeImagesContainer.classList.add('flex', 'lg:flex-col', 'gap-4');
 
     const mainImageContainer = document.createElement('div');
 
-    mainImageContainer.classList.add('main-image');
+    mainImageContainer.classList.add(
+        'main-image',
+        'lg:w-[27.75rem]',
+        'lg:h-[33.125rem]',
+        'h-[27.75rem]',
+        'w-[30.5rem]'
+    );
     mainImageContainer.style.backgroundImage = `url(${mainImage})`;
     mainImageContainer.style.background = `url(${mainImage}) center / contain no-repeat, #F0EEED`;
 

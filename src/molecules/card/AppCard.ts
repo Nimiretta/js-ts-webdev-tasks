@@ -15,10 +15,11 @@ export function AppCard({
     card.classList.add('cursor-pointer', 'flex', 'flex-col', 'gap-4', 'pb-5');
 
     const imgTile = AppTile({
-        height: 'h-[18.625rem]',
+        height: 'lg:h-[18.625rem]',
         imgUrl,
         imgAlt,
         imgOptions: ['w-full', 'h-full', 'object-contain'],
+        classes: ['h-[10.875rem]'],
     });
 
     const description = document.createElement('div');
@@ -27,7 +28,7 @@ export function AppCard({
     const title = AppTitle({
         tag: TitleTag.H3,
         textContent: productTitle,
-        classes: ['font-rubik', 'text-xl', 'text-black'],
+        classes: ['font-rubik', 'lg:text-xl', 'text-base', 'text-black'],
     });
 
     const rating = AppRating(ratingValue);

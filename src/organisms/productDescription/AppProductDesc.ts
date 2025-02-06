@@ -22,11 +22,11 @@ export function AppProductDesc({
 }: TProduct): HTMLDivElement {
     const commonTextProps = {
         tag: TextTag.P,
-        classes: ['font-rubik', 'text-base'],
+        classes: ['font-rubik', 'lg:text-base', 'text-sm'],
     };
     const commonTitleProps = {
         tag: TitleTag.H3,
-        classes: ['font-poppins', 'text-black', 'text-2xl'],
+        classes: ['font-poppins', 'text-black', 'lg:text-2xl', 'text-xl'],
     };
 
     const container = document.createElement('div');
@@ -37,7 +37,7 @@ export function AppProductDesc({
     const productTitle = AppTitle({
         tag: TitleTag.H1,
         textContent: title,
-        classes: ['font-poppins', 'text-black', 'text-[40px]'],
+        classes: ['font-poppins', 'text-black', 'lg:text-[40px]', 'text-2xl'],
     });
     const productRating = AppRating(rating);
     const productPrice = AppPrice({

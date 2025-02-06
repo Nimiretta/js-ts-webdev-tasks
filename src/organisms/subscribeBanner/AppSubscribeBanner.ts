@@ -2,7 +2,7 @@ import { AppButton, AppInput, AppTitle } from '../../atoms';
 import { subscribeToNewsletter } from '../../backend';
 
 const roundedFull = 'rounded-[3.88rem]';
-const inputWidth = 'w-[21.81rem]';
+const inputWidth = 'lg:w-[21.81rem]';
 const paddingSmall = 'p-[0.75rem]';
 const gapSmall = 'gap-[0.75rem]';
 
@@ -12,6 +12,7 @@ const buttonClasses = [
     gapSmall,
     roundedFull,
     'font-medium',
+    'w-full',
 ];
 const inputClasses = [
     'flex',
@@ -21,13 +22,16 @@ const inputClasses = [
     gapSmall,
     roundedFull,
     'bg-white',
+    'w-full',
 ];
 
 export function NewsletterSubscription() {
     const subscriptionContainer = document.createElement('div');
     subscriptionContainer.classList.add(
         'flex',
-        'max-w-[77.5rem]',
+        'lg:flex-row',
+        'flex-col',
+        'lg:max-w-[77.5rem]',
         'p-[2.25rem_4rem]',
         'justify-between',
         'items-center',
@@ -39,18 +43,26 @@ export function NewsletterSubscription() {
     const title = AppTitle({
         textContent: 'STAY UP TO DATE ABOUT OUR LATEST OFFERS',
         classes: [
-            'w-[34.44rem]',
+            'lg:w-[34.44rem]',
+            'w-full',
             'h-[5.88rem]',
             'flex-shrink-0',
             'text-white',
             'font-poppins',
-            'text-[2.5rem]',
+            'lg:text-[2.5rem]',
+            'text-[2rem]',
             'leading-[2.81rem]',
         ],
     });
 
     const form = document.createElement('form');
-    form.classList.add('flex', 'flex-col', 'gap-4');
+    form.classList.add(
+        'flex',
+        'flex-col',
+        'gap-4',
+        'lg:w-[21.81rem]',
+        'w-full'
+    );
 
     const emailIcon = new URL('./emailIcon.svg', import.meta.url).href;
 

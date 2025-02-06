@@ -8,14 +8,22 @@ export function AppLinkSection({
     classes = [],
 }: TLinkSection): HTMLDivElement {
     const section = document.createElement('div');
-    section.classList.add('flex', 'flex-col', 'gap-6', width, ...classes);
+    section.classList.add(
+        'flex',
+        'flex-col',
+        'lg:gap-6',
+        'gap-4',
+        width,
+        ...classes
+    );
 
     const title = AppTitle({
         tag: TitleTag.H4,
         textContent: heading.toUpperCase(),
         classes: [
             'font-rubik',
-            'text-base',
+            'lg:text-base',
+            'text-sm',
             'tracking-[.1875rem]',
             'text-black',
             'font-medium',

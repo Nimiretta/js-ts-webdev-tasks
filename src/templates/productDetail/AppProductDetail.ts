@@ -9,17 +9,17 @@ export function AppProductDetail({
     product,
 }: TProductDetails): HTMLDivElement {
     const container = document.createElement('div');
-    container.classList.add('mt-6', 'mb-44');
+    container.classList.add('mt-6', 'mb-44', 'lg:px-0', 'px-4');
 
     const breadcrumbs = AppBreadcrumbs({ category, product: productTitle });
     breadcrumbs.classList.add('pb-10');
 
     const mainBlock = document.createElement('div');
-    mainBlock.classList.add('flex', 'gap-10');
+    mainBlock.classList.add('flex', 'gap-10', 'lg:flex-row', 'flex-col');
     const imgGallery = AppProductImageGallery(images);
-    imgGallery.classList.add('w-1/2');
+    imgGallery.classList.add('lg:w-1/2');
     const productDescription = AppProductDesc(product);
-    productDescription.classList.add('w-1/2');
+    productDescription.classList.add('lg:w-1/2');
     mainBlock.append(imgGallery, productDescription);
 
     container.append(breadcrumbs, mainBlock);

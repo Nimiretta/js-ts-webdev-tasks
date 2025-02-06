@@ -12,22 +12,30 @@ export function AppFooter(): HTMLElement {
         'mt-auto',
         'flex',
         'flex-col',
-        'mx-auto'
+        'mx-auto',
+        'lg:px-0',
+        'px-4'
     );
 
     const footerContainer = document.createElement('div');
     footerContainer.classList.add(
         'flex',
-        'items-start',
+        'lg:gap-28',
+        'gap-6',
+        'lg:flex-row',
+        'flex-col',
+        'border-b',
+        'border-border-gray',
+        'pb-6'
+    );
+    const linksContainer = document.createElement('div');
+    linksContainer.classList.add(
         'w-full',
         'grid',
         'grid-cols-2',
-        'md:grid-cols-5',
+        'lg:grid-cols-4',
         'gap-8',
-        'justify-between',
-        'pb-6',
-        'border-b',
-        'border-border-gray'
+        'justify-between'
     );
 
     const branding = document.createElement('div');
@@ -119,6 +127,8 @@ export function AppFooter(): HTMLElement {
     const footerBottom = document.createElement('div');
     footerBottom.classList.add(
         'flex',
+        'lg:flex-row',
+        'flex-col',
         'justify-between',
         'mt-6',
         'w-full',
@@ -131,13 +141,9 @@ export function AppFooter(): HTMLElement {
     });
     footerBottom.append(copyrightText, paymentMethodsContainer);
 
-    footerContainer.append(
-        branding,
-        companyLinks,
-        helpLinks,
-        faqLinks,
-        resourcesLinks
-    );
+    linksContainer.append(companyLinks, helpLinks, faqLinks, resourcesLinks);
+
+    footerContainer.append(branding, linksContainer);
     footer.append(footerContainer, footerBottom);
 
     return footer;

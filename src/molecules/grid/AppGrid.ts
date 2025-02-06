@@ -21,7 +21,7 @@ export function AppGrid({
         height,
         'grid',
         `grid-rows-${calculatedRows}`,
-        `grid-cols-${columns}`,
+        `lg:grid-cols-${columns}`,
         gap
     );
 

@@ -1,8 +1,9 @@
 import { AppBreadcrumbs, AppGrid } from '../../molecules';
-import { AppText, AppTitle } from '../../atoms';
+import { AppIconLink, AppText, AppTitle } from '../../atoms';
 import { AppFilterBlock } from '../../organisms';
 import { TCategory, TextTag, TFilterCbParams, TitleTag } from '../../types';
 import { getProductsByCategory } from '../../backend';
+import './AppCategory.css';
 
 export function AppCategory({
     category,
@@ -10,7 +11,7 @@ export function AppCategory({
     cards,
 }: TCategory): HTMLDivElement {
     const container = document.createElement('div');
-    container.classList.add('mt-6');
+    container.classList.add('mt-6', 'lg:px-0', 'px-4');
 
     const breadcrumbs = AppBreadcrumbs({ category });
     breadcrumbs.classList.add('pb-10');
@@ -19,16 +20,39 @@ export function AppCategory({
     mainBlock.classList.add('flex', 'gap-5');
 
     const filterBlock = AppFilterBlock(brands, applyFilterCb);
+    const mobileFilterBlock = AppFilterBlock(brands, applyFilterCb);
+    mobileFilterBlock.classList.add('mobile-filter', 'lg:hidden');
+    mobileFilterBlock.classList.remove('hidden', 'lg:flex');
+
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay', 'lg:hidden');
+    overlay.addEventListener('click', () => {
+        mobileFilterBlock.classList.remove('active');
+        overlay.style.display = 'none';
+    });
 
     const gridBlock = document.createElement('div');
-    gridBlock.classList.add('border-b', 'border-border-gray', 'pb-8', 'w-3/4');
+    gridBlock.classList.add(
+        'border-b',
+        'border-border-gray',
+        'pb-8',
+        'lg:w-3/4'
+    );
+    const titleWrapper = document.createElement('div');
+    titleWrapper.classList.add('flex', 'justify-between');
     const gridTitle = AppTitle({
         tag: TitleTag.H3,
         textContent: category
             .split('-')
             .map((el) => el[0].toUpperCase() + el.slice(1))
             .join(' '),
-        classes: ['font-rubik', 'text-[2rem]', 'text-black', 'pb-5'],
+        classes: [
+            'font-rubik',
+            'lg:text-[2rem]',
+            'text-2xl',
+            'text-black',
+            'pb-5',
+        ],
     });
     gridTitle.setAttribute('id', 'title');
     gridTitle.setAttribute('data-category', category);
@@ -37,13 +61,26 @@ export function AppCategory({
         columns: 3,
         gap: 'gap-5',
         cards,
+        classes: ['grid-cols-2'],
     });
     grid.setAttribute('id', 'product-grid');
-    gridBlock.append(gridTitle, grid);
 
-    mainBlock.append(filterBlock, gridBlock);
+    const filterBtn = AppIconLink({
+        iconName: 'filterBtn',
+        width: 'w-8',
+    });
+    filterBtn.classList.add('lg:hidden', 'cursor-pointer');
+    filterBtn.addEventListener('click', () => {
+        mobileFilterBlock.classList.add('active');
+        overlay.style.display = 'block';
+    });
 
-    container.append(breadcrumbs, mainBlock);
+    titleWrapper.append(gridTitle, filterBtn);
+    gridBlock.append(titleWrapper, grid);
+
+    mainBlock.append(filterBlock, mobileFilterBlock, gridBlock);
+
+    container.append(breadcrumbs, overlay, mainBlock);
     return container;
 }
 

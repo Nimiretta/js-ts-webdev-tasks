@@ -16,7 +16,13 @@ export function AppHomePageTemplate(
     };
 
     const homePage = document.createElement('div');
-    homePage.classList.add('flex', 'flex-col', 'items-center', 'w-full');
+    homePage.classList.add(
+        'flex',
+        'flex-col',
+        'lg:items-center',
+        'items-stretch',
+        'w-full'
+    );
 
     const heroSection = AppHeroSection();
     homePage.appendChild(heroSection);
@@ -30,7 +36,8 @@ export function AppHomePageTemplate(
             'text-black',
             'text-center',
             'font-poppins',
-            'text-[48px]',
+            'lg:text-[48px]',
+            'text-4xl',
             'mt-16',
             'mb-12',
         ],
@@ -41,15 +48,18 @@ export function AppHomePageTemplate(
 
     const categoryTiles = categories.map((category) => ({
         textContent: formatCategoryName(category.name),
-        height: 'h-[298px]',
-        width: 'w-[295px]',
+        height: 'lg:h-[298px]',
+        width: 'lg:w-[295px]',
         classes: [
             'flex-wrap',
             'text-black',
             'font-rubik',
-            'text-[4rem]/[4.5rem]',
+            'lg:text-[4rem]/[4.5rem]',
+            'text-[2rem]/[2.3rem]',
             'font-bold',
             'whitespace-pre-line',
+            'w-[159px]',
+            'h-[169px]',
         ],
         onClick: () => router.navigate(`/category/${category.slug}`),
     }));
@@ -59,7 +69,7 @@ export function AppHomePageTemplate(
         height: 'h-auto',
         columns: 4,
         tiles: categoryTiles,
-        classes: ['grid', 'place-items-center'],
+        classes: ['grid', 'place-items-center', 'grid-cols-2'],
     });
 
     categoriesSection.appendChild(categoryGrid);
@@ -77,7 +87,9 @@ function renderFullHeroBg() {
         'w-dvw',
         'absolute',
         'left-0',
-        'h-[49rem]'
+        'h-[49rem]',
+        'hidden',
+        'lg:block'
     );
     const logoBg = document.createElement('div');
     logoBg.classList.add(

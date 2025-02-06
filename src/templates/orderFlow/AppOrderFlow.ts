@@ -16,24 +16,37 @@ export function AppOrderFlow({
         'flex-col',
         'gap-5',
         'mt-6',
-        'mb-52'
+        'mb-52',
+        'lg:px-0',
+        'px-4'
     );
 
     const breadcrumbs = AppBreadcrumbs({ page });
 
     const title = AppTitle({
         textContent: titleText,
-        classes: ['font-poppins', 'text-black', 'text-[40px]'],
+        classes: [
+            'font-poppins',
+            'text-black',
+            'lg:text-[40px]',
+            'text-[32px]',
+        ],
     });
 
     const mainBlock = document.createElement('div');
-    mainBlock.classList.add('w-full', 'flex', 'gap-5');
+    mainBlock.classList.add(
+        'w-full',
+        'flex',
+        'gap-5',
+        'lg:flex-row',
+        'flex-col'
+    );
     const leftPart = Array.isArray(dynamicPart.params)
         ? (dynamicPart as TCreateCartList).createLeftComp(dynamicPart.params)
         : (dynamicPart as TCreateInputSet).createLeftComp(dynamicPart.params);
-    leftPart.classList.add('w-3/5');
+    leftPart.classList.add('lg:w-3/5');
     const orderSummary = AppOrderSummary(summaryParams);
-    orderSummary.classList.add('w-2/5');
+    orderSummary.classList.add('lg:w-2/5');
     mainBlock.append(leftPart, orderSummary);
 
     orderFlow.append(breadcrumbs, title, mainBlock);
