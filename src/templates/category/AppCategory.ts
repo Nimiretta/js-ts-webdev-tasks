@@ -62,12 +62,15 @@ async function applyFilterCb(params: TFilterCbParams) {
                     : { sortBy: 'price', order: sort },
             });
             const filteredProducts = sortedProducts.filter((el) => {
-                const discountedPrice = Number(
-                    (
-                        el.price -
-                        (el.price * el.discountPercentage) / 100
-                    ).toFixed(2)
-                );
+                const discountedPrice =
+                    el.discountPercentage && el.discountPercentage > 0.49
+                        ? Number(
+                              (
+                                  el.price -
+                                  (el.price * el.discountPercentage) / 100
+                              ).toFixed(2)
+                          )
+                        : el.price;
                 return (
                     (!brands.length || brands.includes(el.brand)) &&
                     discountedPrice >= price.min &&
